@@ -1,38 +1,236 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.date {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/****navbar***/
+.navbar-container {
+  height: 50px;
+  border-bottom: 0.3px solid rgba(138, 136, 137, 0.3);
+  display: flex;
+  flex-direction: row;
+  background: #0d0d0d;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.first-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 33.333%;
+}
+.dropdown {
+  display: flex;
+  color: #8a8889;
+  width: 150px !important;
+  height: 30px;
+  background-color: #292929;
+  border-radius: 10px;
+  align-items: center;
+  margin: 0;
+  margin-left: 10px;
+}
+.dropdown p {
+  font-size: 12px;
+  align-items: center;
+  margin: auto;
+}
+.date {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.date p {
+  margin: auto;
+  color: #808080;
+}
+.second-block {
+  width: 33.333%;
+  display: flex;
+}
+.logo {
+  margin: auto;
+}
+.logo img {
+  width: 150px;
+  height: 100%;
+  margin: auto;
+}
+
+.third-block {
+  width: 33.333%;
+}
+.swich {
+  margin: auto;
+}
+.swich img {
+  float: right;
+  width: 150px;
+  height: 100%;
+  margin: auto;
+}
+
+/***** LOGIN *****/
+
+.main-div {
+  display: flex;
+  background: #111214;
+  height: 100vh;
+}
+.img-login img {
+  width: 90px;
+}
+.img-login {
+  margin-bottom: 45px;
+}
+.login-img img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+.login-text {
+  color: #7b918f;
+  font-size: 12px;
+  margin: auto;
+}
+.login-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  width: 650px;
+  height: 270px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  background-color: #171b1e;
+}
+.login-inputs {
+  width: 80%;
+  margin: auto;
+}
+.login-inputs input {
+  background-color: #1e1c1f;
+  color: #7b918f;
+  border: rgba(83, 83, 83, 0.5) solid 0.5px;
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+.button-container p {
+  font-size: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.button-container button {
+  background-color: #0084a3;
+  color: white;
+  width: 90px;
+  height: 25px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+/****** HOME ******/
+.home-container {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+.hr {
+  color: #010101;
+  margin: auto;
+  width: 80%;
+}
+.title-container {
+  width: 92%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 0.3px solid rgba(138, 136, 137, 0.3);
+}
+
+.title-container h3 {
+  font-size: 20px;
+}
+.title-container h3 {
+  color: rgb(138, 136, 137);
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+.title-container p {
+  color: rgb(138, 136, 137);
+  margin-left: 10px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+.block-icon .icon {
+  color: rgb(25, 25, 25);
+  font-size: 20px !important;
+}
+
+.choose-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+}
+
+.container-icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin: auto;
+  align-items: center;
+}
+
+.block-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  height: 150px;
+  background-color: #171b1e;
+  cursor: pointer;
+}
+.block-icon-img {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.block-icon-img img {
+  width: 45px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.block-icon h3 {
+  color: #0283a3;
+  margin: auto;
+  text-align: center;
+  font-size: 25px;
+}
+.block-icon p {
+  color: #7b918f;
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 7px;
 }
