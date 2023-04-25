@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../Assets/Img/logo.png";
+import LOGO2 from "../../Assets/Img/LOGO2.png";
 import switchmode from "../../Assets/Img/switchmode.png";
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,7 @@ function Navigation() {
       <div className="second-block">
         <div className="logo">
           <Link to="/">
-            <img src={logo} alt="" />
+            <img src={LOGO2} alt="" />
           </Link>
         </div>
       </div>

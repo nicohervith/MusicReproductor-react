@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logologin from "../../Assets/Img/logologin.png";
+import LOGO2 from '../../Assets/Img/LOGO2.png'
 
 const Login = () => {
   return (
@@ -14,7 +15,7 @@ const Login = () => {
         </div>
         <div className="login-inputs">
           <div class="img-login">
-            <img src={logologin} alt="" />
+            <img src={LOGO2} alt="" />
           </div>
           <p className="login-text">Iniciar sesión</p>
           <input type="text" />

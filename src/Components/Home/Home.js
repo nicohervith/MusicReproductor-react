@@ -6,6 +6,7 @@ import programacion from "../../Assets/Img/programacion.png";
 import playout from "../../Assets/Img/playout.png";
 import grabaciones from "../../Assets/Img/grabaciones.png";
 import ajustes from "../../Assets/Img/ajustes.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -48,15 +49,17 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="block-icon">
-              <div className="block-icon-img">
-                <img src={playout} alt="" />
+            <Link className="link" to="/playout">
+              <div className="block-icon">
+                <div className="block-icon-img">
+                  <img src={playout} alt="" />
+                </div>
+                <div>
+                  <h3>Playout</h3>
+                  <p>Campo para texto descriptivo</p>
+                </div>
               </div>
-              <div>
-                <h3>Playout</h3>
-                <p>Campo para texto descriptivo</p>
-              </div>
-            </div>
+            </Link>
 
             <div className="block-icon">
               <div className="block-icon-img">
