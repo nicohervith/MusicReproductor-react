@@ -19,15 +19,17 @@ const Home = () => {
         </div>
         <div className="choose-icons">
           <div className="container-icons">
-            <div className="block-icon">
-              <div className="block-icon-img">
-                <img src={media} alt="" />
+            <Link className="link" to="/explorer">
+              <div className="block-icon">
+                <div className="block-icon-img">
+                  <img src={media} alt="" />
+                </div>
+                <div>
+                  <h3>Media Explorer</h3>
+                  <p>Campo para texto descriptivo</p>
+                </div>
               </div>
-              <div>
-                <h3>Media Explorer</h3>
-                <p>Campo para texto descriptivo</p>
-              </div>
-            </div>
+            </Link>
 
             <div className="block-icon">
               <div className="block-icon-img">

@@ -1,6 +1,8 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const Playout = () => {
   return (
@@ -11,9 +13,13 @@ const Playout = () => {
           <div className="media-explorer-dropdown">
             <ul className="dropdown-container">
               <li className="main-li">
-                <a className="cat-nombres" href="">
-                  Media Explorer
-                </a>
+                <Link className="cat-nombres" to="">
+                  Media Explorer{" "}
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    style={{ marginRight: "8px" }}
+                  />
+                </Link>
                 <ul>
                   <li className="li">
                     <Link className="drop-item" to="">
@@ -46,9 +52,13 @@ const Playout = () => {
             <div className="media-explorer-dropdown">
               <ul className="dropdown-container">
                 <li className="main-li">
-                  <a className="cat-nombres" href="">
+                  <Link className="cat-nombres" to="" alt="">
                     Multiplayer
-                  </a>
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      style={{ marginRight: "8px" }}
+                    />
+                  </Link>
                   <ul>
                     <li className="li">
                       <Link className="drop-item" to="">
@@ -80,9 +90,13 @@ const Playout = () => {
             <div className="media-explorer-dropdown">
               <ul className="dropdown-container">
                 <li className="main-li">
-                  <a className="cat-nombres" href="">
-                    Multiplayer
-                  </a>
+                    <Link className="cat-nombres" to="">
+                      Multiplayer
+                      <FontAwesomeIcon
+                        icon={faChevronDown}
+                        style={{ marginRight: "8px" }}
+                      />
+                    </Link>
                   <ul>
                     <li className="li">
                       <Link className="drop-item" to="">
@@ -116,9 +130,13 @@ const Playout = () => {
             <div className="media-explorer-dropdown">
               <ul className="dropdown-container-third">
                 <li className="main-li-third">
-                  <a className="cat-nombres-third" href="">
+                  <Link className="cat-nombres-third" to="">
                     iPlay
-                  </a>
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      style={{ marginRight: "8px" }}
+                    />
+                  </Link>
                   <ul>
                     <li className="li">
                       <Link className="drop-item" to="">
@@ -150,9 +168,13 @@ const Playout = () => {
             <div className="media-explorer-dropdown">
               <ul className="dropdown-container-third">
                 <li className="main-li-third">
-                  <a className="cat-nombres-third" href="">
+                  <Link className="cat-nombres-third" to="">
                     Comercial
-                  </a>
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      style={{ marginRight: "8px" }}
+                    />
+                  </Link>
                   <ul>
                     <li className="li">
                       <Link className="drop-item" to="">
