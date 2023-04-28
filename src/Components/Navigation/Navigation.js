@@ -2,12 +2,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LOGO2 from "../../Assets/Img/LOGO2.png";
 import switchmode from "../../Assets/Img/switchmode.png";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons"; */
 import { Dropdown } from "react-bootstrap";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import Datetime from "./Date";
 
 function Navigation() {
   return (
@@ -42,7 +43,7 @@ function Navigation() {
           </DropdownMenu>
         </Dropdown>
         <div className="date">
-          <p>10:49:38 A.M.</p>
+          <Datetime />
         </div>
       </div>
       <div className="second-block">

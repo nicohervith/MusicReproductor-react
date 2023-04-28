@@ -1,22 +1,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
-import { faFolder } from "@fortawesome/free-solid-svg-icons";
-import { faSliders } from "@fortawesome/free-solid-svg-icons";
+import { faFolder,faSliders } from "@fortawesome/free-solid-svg-icons";
 
 function Accord() {
   return (
     <Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="1">
         <Accordion.Header>
-          <FontAwesomeIcon icon={faSliders} style={{ fontSize: "13px" }} />
-          <p className="music-styles-text">AUDIO</p>
+          <div className="music-styles-container">
+            <FontAwesomeIcon icon={faSliders} style={{ fontSize: "13px" }} />
+            <p className="music-styles-text">AUDIO</p>
+          </div>
         </Accordion.Header>
         <Accordion.Body>Lorem ipsum dolor sit amet, consectetur</Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item className="accordion-item" eventKey="2">
+      <Accordion.Item
+        className="accordion-item"
+        style={{ borderBottom: "0.3px solid rgba(138, 136, 137, 0.3)" }}
+        eventKey="2"
+      >
         <Accordion.Header
           className="accordion-header"
-          style={{ background: "#9a1111 !important" }}
+          style={{
+            background: "#9a1111 !important",
+          }}
         >
           <div className="music-styles-container">
             <FontAwesomeIcon

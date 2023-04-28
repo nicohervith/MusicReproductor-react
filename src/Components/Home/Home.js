@@ -13,6 +13,7 @@ const Home = () => {
     <>
       <Navigation />
       <div className="home-container">
+
         <div className="title-container">
           <h3>Bienvenido Alexis Guzmán. </h3>
           <p>Elige tu espacio de trabajo</p>
