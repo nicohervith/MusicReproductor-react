@@ -5,13 +5,39 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
 import {
   faSliders,
-  faFolder,
   faBackwardFast,
   faPlay,
   faForwardFast,
 } from "@fortawesome/free-solid-svg-icons";
+import { songsdata } from "../Player/audios";
+import { useRef, useState, useEffect } from "react";
+import Player from "../Player/Player";
 
 const Explorer = () => {
+  const [songs, setSongs] = useState(songsdata);
+  const [isplaying, setisplaying] = useState(false);
+  const [currentSong, setCurrentSong] = useState(songsdata[1]);
+
+  const audioElem = useRef();
+
+  useEffect(() => {
+    if (isplaying) {
+      audioElem.current.play();
+    } else {
+      audioElem.current.pause();
+    }
+  }, [isplaying]);
+
+  const onPlaying = () => {
+    const duration = audioElem.current.duration;
+    const ct = audioElem.current.currentTime;
+
+    setCurrentSong({
+      ...currentSong,
+      progress: (ct / duration) * 100,
+      length: duration,
+    });
+  };
   return (
     <>
       <Navigation />
@@ -45,7 +71,24 @@ const Explorer = () => {
         </div>
 
         <div className="explorer-mid">
-          <div class="reproductor"></div>
+          <div class="reproductor">
+            <div class="container-reproductor">
+              <audio
+                src={currentSong.url}
+                ref={audioElem}
+                onTimeUpdate={onPlaying}
+              />
+              <Player
+                songs={songs}
+                setSongs={setSongs}
+                isplaying={isplaying}
+                setisplaying={setisplaying}
+                audioElem={audioElem}
+                currentSong={currentSong}
+                setCurrentSong={setCurrentSong}
+              />
+            </div>
+          </div>
           <div className="mix-explorer">
             <div className="social-media">
               <div className="social-media-blocks-reproduction-mid">

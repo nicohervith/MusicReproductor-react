@@ -16,6 +16,14 @@
   color: #808080;
   background-color: transparent;
 }
+.input-login-paceholder {
+  font-size: 12px;
+  padding-left: 8px;
+}
+.input-login-paceholder::placeholder {
+  font-size: 10px;
+  padding-bottom: 10px;
+}
 
 /****navbar***/
 .navbar-container {
@@ -604,6 +612,11 @@
 .second-aside {
   background-color: #000000;
 }
+
+.container-reproductor {
+  margin-top: 50px;
+}
+
 
 @media only screen and(max-width: 768px) {
   .first-block {
