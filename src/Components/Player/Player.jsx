@@ -7,6 +7,8 @@ import {
   BsSkipEndCircleFill,
   BsFillSkipEndCircleFill,
 } from "react-icons/bs";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause, faSquare } from "@fortawesome/free-solid-svg-icons";
 
 const Player = ({
   audioElem,
@@ -54,16 +56,34 @@ const Player = ({
   return (
     <div className="player_container">
       <div className="controls">
-        <BsFillSkipStartCircleFill className="btn_action" onClick={skipBack} />
+        {/* <BsFillSkipStartCircleFill className="btn_action" onClick={skipBack} /> */}
+        <FontAwesomeIcon
+          icon={faPlay}
+          className="btn_action pp"
+          onClick={PlayPause}
+          style={{ cursor: "pointer" }}
+        />
         {isplaying ? (
-          <BsFillPauseCircleFill
+          <FontAwesomeIcon
+            icon={faPause}
             className="btn_action pp"
             onClick={PlayPause}
+            style={{ cursor: "pointer", fontSize: "1rem !important" }}
           />
         ) : (
-          <BsFillPlayCircleFill className="btn_action pp" onClick={PlayPause} />
+          <FontAwesomeIcon
+            icon={faPause}
+            className="btn_action pp"
+            onClick={PlayPause}
+            style={{ cursor: "pointer", fontSize: "1rem !important" }}
+          />
         )}
-        <BsFillSkipEndCircleFill className="btn_action" onClick={skiptoNext} />
+        <FontAwesomeIcon
+          className="btn_action pp"
+          icon={faSquare}
+          style={{ cursor: "pointer" }}
+        />
+        {/*   <BsFillSkipEndCircleFill className="btn_action" onClick={skiptoNext} /> */}
       </div>
       <div className="title-and-navigation">
         <div className="title">

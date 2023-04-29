@@ -12,6 +12,8 @@ import {
 import { songsdata } from "../Player/audios";
 import { useRef, useState, useEffect } from "react";
 import Player from "../Player/Player";
+import Search from "../Player/Search";
+import Album from "../Player/Album";
 
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
@@ -19,6 +21,8 @@ const Explorer = () => {
   const [currentSong, setCurrentSong] = useState(songsdata[1]);
 
   const audioElem = useRef();
+
+  const [query, updateQuery] = useState("");
 
   useEffect(() => {
     if (isplaying) {
@@ -87,8 +91,19 @@ const Explorer = () => {
                 currentSong={currentSong}
                 setCurrentSong={setCurrentSong}
               />
+              <div>
+                <Search
+                  value={query}
+                  onChange={(e) => updateQuery(e.target.value.toLowerCase())}
+                  placeholder={`Buscar aquí`}
+                />
+              </div>
+              <div className="">
+                <Album />
+              </div>
             </div>
           </div>
+
           <div className="mix-explorer">
             <div className="social-media">
               <div className="social-media-blocks-reproduction-mid">
