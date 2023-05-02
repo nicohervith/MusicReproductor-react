@@ -5,26 +5,28 @@ const Album = () => {
   return (
     <div className="album-container">
       <div className={styles.title}>
-        <div>
+        <div className={styles.nombres}>
           <p>Duración</p>
         </div>
-        <div>
+        <div className={styles.nombres}>
           <p>Titulo</p>
         </div>
-        <p>Artista</p>
-        <div>
+        <div className={styles.nombres}>
+          <p>Artista</p>
+        </div>
+        <div className={styles.nombres}>
           <p>Género</p>
         </div>
-        <div>
+        <div className={styles.nombres}>
           <p>Album</p>
         </div>
-        <div>
+        <div className={styles.nombres}>
           <p>Año</p>
         </div>
-        <div>
+        <div className={styles.nombres}>
           <p>Subido el</p>
         </div>
-        <div>
+        <div className={styles.nombres}>
           <p>Subido por</p>
         </div>
       </div>

@@ -9,6 +9,8 @@ import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import Datetime from "./Date";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell } from "@fortawesome/free-regular-svg-icons";
 
 function Navigation() {
   return (
@@ -54,8 +56,15 @@ function Navigation() {
         </div>
       </div>
       <div className="third-block">
-        <div className="swich">
-          <img src={switchmode} alt="" />
+        <div>
+          <div className="swich">
+            <label for="" className="switch-button">
+              <input className="switch-input" type="checkbox" checked />
+              <span className="slider"></span>
+            </label>
+            <FontAwesomeIcon icon={faBell} style={{ cursor: "pointer" }} />
+            <img src={switchmode} alt="" />
+          </div>
         </div>
       </div>
     </div>

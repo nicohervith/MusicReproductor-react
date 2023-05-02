@@ -1,12 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./player.scss";
-import {
-  BsFillPlayCircleFill,
-  BsFillPauseCircleFill,
-  BsFillSkipStartCircleFill,
-  BsSkipEndCircleFill,
-  BsFillSkipEndCircleFill,
-} from "react-icons/bs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faSquare } from "@fortawesome/free-solid-svg-icons";
 
@@ -32,57 +25,76 @@ const Player = ({
     audioElem.current.currentTime = (divprogress / 100) * currentSong.length;
   };
 
-  const skipBack = () => {
-    const index = songs.findIndex((x) => x.title == currentSong.title);
-    if (index == 0) {
-      setCurrentSong(songs[songs.length - 1]);
-    } else {
-      setCurrentSong(songs[index - 1]);
-    }
-    audioElem.current.currentTime = 0;
+  const [isActive, setActive] = useState("false");
+  const ToggleClassPlay = () => {
+    var btn = document.getElementById("btnplay");
+
+    setActive(!isActive);
+    btn.classList.toggle("clicked");
   };
 
-  const skiptoNext = () => {
-    const index = songs.findIndex((x) => x.title == currentSong.title);
+  const ToggleClassPause = () => {
+    var btn = document.getElementById("btnpause");
 
-    if (index == songs.length - 1) {
-      setCurrentSong(songs[0]);
-    } else {
-      setCurrentSong(songs[index + 1]);
-    }
-    audioElem.current.currentTime = 0;
+    setActive(!isActive);
+    btn.classList.toggle("clicked");
+  };
+
+  const ToggleClassStop = () => {
+    var btn = document.getElementById("btnstop");
+
+    setActive(!isActive);
+    btn.classList.toggle("clicked");
   };
 
   return (
     <div className="player_container">
       <div className="controls">
         {/* <BsFillSkipStartCircleFill className="btn_action" onClick={skipBack} /> */}
-        <FontAwesomeIcon
-          icon={faPlay}
-          className="btn_action pp"
-          onClick={PlayPause}
-          style={{ cursor: "pointer" }}
-        />
+        <div id="btnplay" className="play-container" onClick={ToggleClassPlay}>
+          <FontAwesomeIcon
+            icon={faPlay}
+            className="btn_action pp"
+            onClick={PlayPause}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+
         {isplaying ? (
-          <FontAwesomeIcon
-            icon={faPause}
-            className="btn_action pp"
-            onClick={PlayPause}
-            style={{ cursor: "pointer", fontSize: "1rem !important" }}
-          />
+          <div
+            id="btnpause"
+            className="play-container"
+            onClick={ToggleClassPause}
+          >
+            <FontAwesomeIcon
+              icon={faPause}
+              className="btn_action pp"
+              onClick={PlayPause}
+              style={{ cursor: "pointer" }}
+            />
+          </div>
         ) : (
-          <FontAwesomeIcon
-            icon={faPause}
-            className="btn_action pp"
-            onClick={PlayPause}
-            style={{ cursor: "pointer", fontSize: "1rem !important" }}
-          />
+          <div
+            id="btnpause"
+            className="play-container"
+            onClick={ToggleClassPause}
+          >
+            <FontAwesomeIcon
+              icon={faPause}
+              className="btn_action pp"
+              onClick={PlayPause}
+              style={{ cursor: "pointer" }}
+            />
+          </div>
         )}
-        <FontAwesomeIcon
-          className="btn_action pp"
-          icon={faSquare}
-          style={{ cursor: "pointer" }}
-        />
+        <div id="btnstop" className="play-container" onClick={ToggleClassStop}>
+          <FontAwesomeIcon
+            className="btn_action pp"
+            icon={faSquare}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+
         {/*   <BsFillSkipEndCircleFill className="btn_action" onClick={skiptoNext} /> */}
       </div>
       <div className="title-and-navigation">

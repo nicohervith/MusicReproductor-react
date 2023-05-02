@@ -67,16 +67,64 @@
 }
 
 .third-block {
+  display: flex;
   width: 40%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 .swich {
   margin: auto;
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  color: #808080;
 }
 .swich img {
   float: right;
-  width: 150px;
+  width: 75px;
   height: 100%;
   margin: auto;
+}
+
+.switch-button {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 15px;
+  margin: 0 5px;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.switch-input {
+  display: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 3px;
+  top: 1.3px;
+  transition: 0.4s;
+  border-radius: 30px;
+  background-color: white;
+}
+.switch-input:checked + .slider {
+  background-color: #0099dd;
+}
+.slider:before {
+  transform: translateX(12px);
 }
 
 /***** LOGIN *****/
@@ -536,6 +584,21 @@
   font-weight: 100 !important;
 }
 
+.item-music-style {
+  height: 30px;
+  border-top: 0.5px solid rgba(138, 136, 137, 0.3) !important;
+  margin: auto;
+  width: 100%;
+  display: grid;
+  align-items:center;
+  grid-template-columns: 20% 80%;
+}
+.item-music-style a {
+  text-decoration: none;
+  color: #dcdcdc;
+
+}
+
 .social-media-blocks-reproduction-mid {
   width: 100%;
   height: 35px;
@@ -615,6 +678,37 @@
 
 .container-reproductor {
   margin-top: 50px;
+}
+
+.album-container {
+  width: 100%;
+}
+
+.artist-and-album {
+  width: 100%;
+}
+.container-artist-and-album {
+  display: grid;
+  grid-template-columns: 10% 18% 13% 9% 15% 9% 14% 12%;
+  color: #808080 !important;
+  font-size: 12px;
+  justify-content: space-around;
+  border-top: 0.5px solid rgba(138, 136, 137, 0.3) !important;
+}
+.clicked {
+  width: 100%;
+  background-color: #0084a3;
+}
+.nombres-artist-explorer {
+  padding-left: 3px;
+  display: flex;
+  align-items: center;
+}
+.nombres-artist-explorer p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 25px;
 }
 
 @media only screen and(max-width: 768px) {

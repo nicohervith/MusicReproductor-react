@@ -14,6 +14,7 @@ import { useRef, useState, useEffect } from "react";
 import Player from "../Player/Player";
 import Search from "../Player/Search";
 import Album from "../Player/Album";
+import InfoArtist from "./InfoArtist";
 
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
@@ -98,8 +99,12 @@ const Explorer = () => {
                   placeholder={`Buscar aquí`}
                 />
               </div>
-              <div className="">
+              <div className="album-container">
                 <Album />
+              </div>
+
+              <div class="artist-and-album">
+                    <InfoArtist />
               </div>
             </div>
           </div>

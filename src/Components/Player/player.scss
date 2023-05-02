@@ -51,15 +51,20 @@
     width: 100%;
     font-size: 20px !important;
 
+    .play-container {
+      width: 100%;
+      margin: auto;
+
+    }
+
     .btn_action {
       cursor: pointer;
+      width: 100%;
 
       &:hover {
         color: white;
       }
-      &:active {
-        background-color: #0084a3;
-      }
+
     }
   }
 }
