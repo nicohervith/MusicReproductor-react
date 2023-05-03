@@ -16,14 +16,6 @@
   color: #808080;
   background-color: transparent;
 }
-.input-login-paceholder {
-  font-size: 12px;
-  padding-left: 8px;
-}
-.input-login-paceholder::placeholder {
-  font-size: 10px;
-  padding-bottom: 10px;
-}
 
 /****navbar***/
 .navbar-container {
@@ -164,14 +156,7 @@
   width: 80%;
   margin: auto;
 }
-.login-inputs input {
-  background-color: #1e1c1f;
-  color: #7b918f;
-  border: rgba(83, 83, 83, 0.5) solid 0.5px;
-  height: 20px;
-  width: 100%;
-  margin-top: 10px;
-}
+
 .button-container {
   display: flex;
   justify-content: space-between;
@@ -193,6 +178,44 @@
   cursor: pointer;
   text-transform: uppercase;
   font-size: 10px;
+}
+
+.login-inputs input {
+  background-color: #1e1c1f;
+  color: #7b918f;
+  border: rgba(83, 83, 83, 0.5) solid 0.5px;
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+  display: block;
+}
+
+.input-login-placeholder {
+  font-size: 12px;
+  padding-left: 8px;
+}
+.input-login-placeholder::placeholder {
+  font-size: 10px;
+  padding-bottom: 10px;
+}
+
+.form_label {
+  position: absolute;
+  color: rgb(126, 126, 126);
+  font-size: 10px;
+  left: 8px;
+  top: 2px;
+  background-color: transparent;
+  padding-left: 1.5px;
+  padding-right: 1.5px;
+}
+.form_box {
+  position: relative;
+}
+.input-login-placeholder:focus + .form_label {
+  transform: translateY(-0.7rem);
+  transition: 0.5s;
+  background-color: #1e1c1f;
 }
 
 /****** HOME ******/
@@ -590,13 +613,12 @@
   margin: auto;
   width: 100%;
   display: grid;
-  align-items:center;
+  align-items: center;
   grid-template-columns: 20% 80%;
 }
 .item-music-style a {
   text-decoration: none;
   color: #dcdcdc;
-
 }
 
 .social-media-blocks-reproduction-mid {
@@ -694,6 +716,7 @@
   font-size: 12px;
   justify-content: space-around;
   border-top: 0.5px solid rgba(138, 136, 137, 0.3) !important;
+  cursor: pointer;
 }
 .clicked {
   width: 100%;
@@ -709,6 +732,12 @@
   align-items: center;
   margin: 0;
   height: 25px;
+}
+
+.container-artist-and-album:hover {
+  background-color: #0e293c;
+  border: 1px solid #018fe3;
+  border-radius: 10px;
 }
 
 @media only screen and(max-width: 768px) {

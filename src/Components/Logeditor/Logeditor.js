@@ -3,7 +3,7 @@ import Navigation from "../Navigation/Navigation";
 import Accord from "../Explorer/Accord";
 import styles from "./Logeditor.module.css";
 import Search from "../Player/Search";
-import InfoArtist from "../Explorer/InfoArtist";
+import ShortInfo from "../Explorer/ShortInfo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
 import {
@@ -12,6 +12,7 @@ import {
   faPlay,
   faForwardFast,
 } from "@fortawesome/free-solid-svg-icons";
+import ShortAlbum from "../Player/ShortAlbum";
 
 const Logeditor = () => {
   return (
@@ -47,17 +48,206 @@ const Logeditor = () => {
         </div>
 
         <div className={styles.secondcolumn}>
-          <div>
+          <div className={styles.search_container}>
             <Search placeholder={`Buscar aquí`} />
+          </div>
+          <div className={styles.video_container}>
+            <div className={styles.video_block}>
+              <div className={styles.video_block_container_img}>
+                <img
+                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
+                  alt=""
+                />
+              </div>
+              <div className={styles.info_song}>
+                <span>Nombre canción</span>
+                <p>Artista</p>
+                <p>Álbum - año</p>
+              </div>
+            </div>
+            <div className={styles.video_block}>
+              <div className={styles.video_block_container_img}>
+                <img
+                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
+                  alt=""
+                />
+              </div>
+              <div className={styles.info_song}>
+                <span>Nombre canción</span>
+                <p>Artista</p>
+                <p>Álbum - año</p>
+              </div>
+            </div>
+
+            <div className={styles.video_block}>
+              <div className={styles.video_block_container_img}>
+                <img
+                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
+                  alt=""
+                />
+              </div>
+              <div className={styles.info_song}>
+                <span>Nombre canción</span>
+                <p>Artista</p>
+                <p>Álbum - año</p>
+              </div>
+            </div>
+
+            <div className={styles.video_block}>
+              <div className={styles.video_block_container_img}>
+                <img
+                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
+                  alt=""
+                />
+              </div>
+              <div className={styles.info_song}>
+                <span>Nombre canción</span>
+                <p>Artista</p>
+                <p>Álbum - año</p>
+              </div>
+            </div>
+
+            <div className={styles.video_block}>
+              <div className={styles.video_block_container_img}>
+                <img
+                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
+                  alt=""
+                />
+              </div>
+              <div className={styles.info_song}>
+                <span>Nombre canción</span>
+                <p>Artista</p>
+                <p>Álbum - año</p>
+              </div>
+            </div>
+
+            <div className={styles.video_block}>
+              <div className={styles.video_block_container_img}>
+                <img
+                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
+                  alt=""
+                />
+              </div>
+              <div className={styles.info_song}>
+                <span>Nombre canción</span>
+                <p>Artista</p>
+                <p>Álbum año</p>
+              </div>
+            </div>
+
+            <div className={styles.video_block}>
+              <div className={styles.video_block_container_img}>
+                <img
+                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
+                  alt=""
+                />
+              </div>
+              <div className={styles.info_song}>
+                <span>Nombre canción</span>
+                <p>Artista</p>
+                <p>Álbum año</p>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.mix_explorer}>
+            <div className={styles.social_media}>
+              <div className={styles.social_media_blocks_reproduction_mid}>
+                <div class={styles.play_next_prev}>
+                  <FontAwesomeIcon icon={faBackwardFast} />
+                  <FontAwesomeIcon icon={faPlay} />
+                  <FontAwesomeIcon icon={faForwardFast} />
+                </div>
+                <div className="reproduciendo">
+                  <p>La Bachata</p>
+                  <p className="artist">Manuel turizo</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className={styles.thirdcolumn}>
+          <div className={styles.search_container}>
+            <Search placeholder={`Buscar aquí`} />
+          </div>
+          <div className="album-container">
+            <ShortAlbum />
+          </div>
           <div className="">
-            <InfoArtist />
+            <ShortInfo />
           </div>
         </div>
-        <div className="">
-          <div className="second-aside">
+
+        <div className={styles.fourthcolumn}>
+          <div className={styles.fourthcolumn_space}>
+            <div className={styles.radio_container}>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+              <div className={styles.radio_block}>
+                <div className={styles.radio_contenido}>
+                  <p className={styles.first_p}>104.04 f.m.</p>
+                  <p>Solo éxitos</p>
+                  <span>00:07</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="second-aside" style={{ marginTop: "-49px" }}>
             <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey="1">
                 <Accordion.Header>

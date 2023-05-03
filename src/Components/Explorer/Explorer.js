@@ -19,7 +19,9 @@ import InfoArtist from "./InfoArtist";
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
   const [isplaying, setisplaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songsdata[1]);
+  const [currentSong, setCurrentSong] = useState(songsdata[0]);
+  const [currentArtist, setCurrentArtist] = useState(songsdata.artist)
+
 
   const audioElem = useRef();
 
@@ -41,6 +43,7 @@ const Explorer = () => {
       ...currentSong,
       progress: (ct / duration) * 100,
       length: duration,
+
     });
   };
   return (
@@ -90,6 +93,7 @@ const Explorer = () => {
                 setisplaying={setisplaying}
                 audioElem={audioElem}
                 currentSong={currentSong}
+                artist={currentSong.artist}
                 setCurrentSong={setCurrentSong}
               />
               <div>
@@ -104,7 +108,7 @@ const Explorer = () => {
               </div>
 
               <div class="artist-and-album">
-                    <InfoArtist />
+                <InfoArtist />
               </div>
             </div>
           </div>

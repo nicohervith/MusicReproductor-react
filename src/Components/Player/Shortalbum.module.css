@@ -1,0 +1,11 @@
+.title {
+  display: grid;
+  grid-template-columns: 13% 15% 23% 19% 15% 9%;
+  color: #808080 !important;
+  font-size: 12px;
+  justify-content: space-around;
+  height: 20px;
+}
+.nombres {
+  padding-left: 3px;
+}

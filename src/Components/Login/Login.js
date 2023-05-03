@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LOGO2 from "../../Assets/Img/LOGO2.png";
 
+
 const Login = () => {
   return (
     <div className="main-div">
@@ -17,16 +18,26 @@ const Login = () => {
             <img src={LOGO2} alt="" />
           </div>
           <p className="login-text">Iniciar sesión</p>
-          <input
-            type="text"
-            className="input-login-paceholder"
-            placeholder="Usuario"
-          />
-          <input
-            type="text"
-            className="input-login-paceholder"
-            placeholder="Contraseña"
-          />
+          <div className="form_box">
+            <input
+              type="text"
+              className="input-login-placeholder"
+              placeholder=""
+            />
+            <label for="" className="form_label">
+              Usuario
+            </label>
+          </div>
+          <div className="form_box">
+            <input
+              type="text"
+              className="input-login-placeholder"
+              placeholder=""
+            />
+            <label for="" className="form_label">
+              Contraseña
+            </label>
+          </div>
           <div className="button-container">
             <div>
               <p className="login-text">¿Contraseña olvidada?</p>
