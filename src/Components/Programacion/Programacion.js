@@ -18,7 +18,7 @@ const Programacion = () => {
   return (
     <>
       <Navigation />
-      <div class={styles.explorercontainer}>
+      <div className={styles.explorercontainer}>
         <div className={styles.firstaside}>
           <div className="  dropdown-container-aside">
             <Accord />
@@ -153,7 +153,7 @@ const Programacion = () => {
           <div className={styles.mix_explorer}>
             <div className={styles.social_media}>
               <div className={styles.social_media_blocks_reproduction_mid}>
-                <div class={styles.play_next_prev}>
+                <div className={styles.play_next_prev}>
                   <FontAwesomeIcon icon={faBackwardFast} />
                   <FontAwesomeIcon icon={faPlay} />
                   <FontAwesomeIcon icon={faForwardFast} />

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./player.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faSquare } from "@fortawesome/free-solid-svg-icons";
+import chords from "../../Assets/Video/chords.mp4";
 
 const Player = ({
   audioElem,
@@ -98,8 +99,15 @@ const Player = ({
         {/*   <BsFillSkipEndCircleFill className="btn_action" onClick={skiptoNext} /> */}
       </div>
       <div className="title-and-navigation">
-        <div className="title">
-          <p>{currentSong.title}</p>
+        <div className="title-video">
+          <div className="title">
+            <p>{currentSong.title}</p>
+          </div>
+          <div className="video">
+            <video autoplay muted>
+              <source src={chords} type="video/mp4" />
+            </video>
+          </div>
         </div>
         <div className="navigation">
           <div

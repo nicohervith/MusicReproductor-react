@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import Accord from "../Explorer/Accord";
 import styles from "./Logeditor.module.css";
@@ -6,19 +6,65 @@ import Search from "../Player/Search";
 import ShortInfo from "../Explorer/ShortInfo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
+
 import {
   faSliders,
   faBackwardFast,
   faPlay,
   faForwardFast,
+  faPause,
+  faForwardStep,
 } from "@fortawesome/free-solid-svg-icons";
 import ShortAlbum from "../Player/ShortAlbum";
+import princeroyce from "../../Assets/Img/princeroyce.png";
 
-const Logeditor = () => {
+const Logeditor = ({
+  audioElem,
+  isplaying,
+  setisplaying,
+  currentSong,
+  setCurrentSong,
+  songs,
+}) => {
+  const clickRef = useRef();
+
+  const PlayPause = () => {
+    setisplaying(!isplaying);
+  };
+
+  const checkWidth = (e) => {
+    let width = clickRef.current.clientWidth;
+    const offset = e.nativeEvent.offsetX;
+
+    const divprogress = (offset / width) * 100;
+    audioElem.current.currentTime = (divprogress / 100) * currentSong.length;
+  };
+
+  const [isActive, setActive] = useState("false");
+  const ToggleClassPlay = () => {
+    var btn = document.getElementById("btnplay");
+
+    setActive(!isActive);
+    btn.classList.toggle("clicked");
+  };
+
+  const ToggleClassPause = () => {
+    var btn = document.getElementById("btnpause");
+
+    setActive(!isActive);
+    btn.classList.toggle("clicked");
+  };
+
+  const ToggleClassStop = () => {
+    var btn = document.getElementById("btnstop");
+
+    setActive(!isActive);
+    btn.classList.toggle("clicked");
+  };
   return (
     <>
       <Navigation />
-      <div class={styles.explorercontainer}>
+      <div className={styles.explorercontainer}>
         <div className={styles.firstaside}>
           <div className="  dropdown-container-aside">
             <Accord />
@@ -153,7 +199,7 @@ const Logeditor = () => {
           <div className={styles.mix_explorer}>
             <div className={styles.social_media}>
               <div className={styles.social_media_blocks_reproduction_mid}>
-                <div class={styles.play_next_prev}>
+                <div className={styles.play_next_prev}>
                   <FontAwesomeIcon icon={faBackwardFast} />
                   <FontAwesomeIcon icon={faPlay} />
                   <FontAwesomeIcon icon={faForwardFast} />
@@ -167,9 +213,102 @@ const Logeditor = () => {
           </div>
         </div>
         <div className={styles.thirdcolumn}>
-          <div className={styles.search_container}>
-            <Search placeholder={`Buscar aquí`} />
+          <div className={styles.search_container_third}>
+            <div className={styles.search_first_column}>
+              <FontAwesomeIcon icon={faPlay} />
+              Multiplayer
+            </div>
+            <div className={styles.input_search}>
+              <input placeholder={`Buscar aquí`} />
+            </div>
           </div>
+
+          <div className={styles.multiplayer_container}>
+            <div>
+              <div className={styles.multiplayer}>
+                <div className={styles.intro}>
+                  <p className={styles.title_first}>INTRO</p>
+                  <p className={styles.time}>00:15</p>
+                </div>
+                <div className={styles.restante}>
+                  <p className={styles.title_first}>RESTANTE ACTUAL</p>
+                  <p className={styles.time}>03:48</p>
+                </div>
+                <div className={styles.playlist_actual}>
+                  <p className={styles.title_first}>PLAYLIST</p>
+                  <p className={styles.time}>48:23:58</p>
+                </div>
+              </div>
+              <div>
+                <div className={styles.player_container}>
+                  <div className={styles.controls}>
+                    <div id="btnplay" className={styles.play_container}>
+                      <FontAwesomeIcon
+                        icon={faPlay}
+                        className={styles.btn_action}
+                        onClick={PlayPause}
+                        style={{ cursor: "pointer" }}
+                      />
+                    </div>
+
+                    {isplaying ? (
+                      <div id="btnpause" className={styles.play_container}>
+                        <FontAwesomeIcon
+                          icon={faPause}
+                          className={styles.btn_action}
+                          style={{ cursor: "pointer" }}
+                        />
+                      </div>
+                    ) : (
+                      <div id="btnpause" className={styles.play_container}>
+                        <FontAwesomeIcon
+                          className={styles.btn_action}
+                          icon={faForwardStep}
+                        />
+                      </div>
+                    )}
+                    <div id="btnstop" className={styles.play_container}>
+                      <FontAwesomeIcon
+                        className={styles.btn_action}
+                        icon={faForwardStep}
+                        style={{ transform: "rotate(180deg)" }}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.title_and_navigation}>
+                    <div className={styles.title_block}>
+                      <div className={styles.container_info}>
+                        <span className={styles.first_p}>
+                          Cuando nos volvamos a encontrar
+                        </span>
+                        <span className={styles.second_p}>Carlos Vives</span>
+                      </div>
+                    </div>
+                    <div className={styles.title_block}>
+                      <div className={styles.container_info}>
+                        <span className={styles.first_p}>
+                          Cuando nos volvamos a encontrar
+                        </span>
+                        <span className={styles.second_p}>Carlos Vives</span>
+                      </div>
+                    </div>
+                    <div className={styles.title_block}>
+                      <div className={styles.container_info}>
+                        <span className={styles.first_p}>
+                          Cuando nos volvamos a encontrar
+                        </span>
+                        <span className={styles.second_p}>Carlos Vives</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.multiplayer_img}>
+              <img src={princeroyce} alt="" />
+            </div>
+          </div>
+
           <div className="album-container">
             <ShortAlbum />
           </div>

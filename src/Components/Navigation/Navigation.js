@@ -11,8 +11,18 @@ import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import Datetime from "./Date";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
+import { faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 function Navigation() {
+  const [isActive, setActive] = useState("false");
+  const ToggleSwitch = () => {
+    var sli = document.getElementById("slider");
+
+    setActive(!isActive);
+    sli.classList.toggle("slider-active");
+  };
+
   return (
     <div className="navbar-container">
       <div className="first-block">
@@ -59,8 +69,16 @@ function Navigation() {
         <div>
           <div className="swich">
             <label for="" className="switch-button">
-              <input className="switch-input" type="checkbox" checked />
-              <span className="slider"></span>
+              <input
+                className="switch-input"
+                type="checkbox"
+                checked
+              />
+              <span
+                className="slider"
+                id="slider"
+                 onClick={ToggleSwitch}
+              ></span>
             </label>
             <FontAwesomeIcon icon={faBell} style={{ cursor: "pointer" }} />
             <img src={switchmode} alt="" />

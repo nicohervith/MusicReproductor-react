@@ -1,0 +1,8 @@
+.titulo {
+  height: 25px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  color: #878787;
+}

@@ -1,0 +1,108 @@
+.grabaciones_container {
+  background-color: #000000;
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+.grabaciones_info {
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  width: 100%;
+  height: 20%;
+  margin-top: 70px;
+}
+
+.grabaciones_block {
+  width: 95%;
+  height: 140px;
+  margin: auto;
+  background-color: #171b1e;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.title {
+  margin-bottom: 0 !important;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.artist {
+  color: #838383;
+  font-size: 18px;
+}
+.title,
+.time {
+  color: white;
+}
+.time {
+  font-weight: bold;
+}
+.grabaciones_song p {
+  margin-bottom: 0 !important;
+}
+.grabaciones_song {
+  padding: 6px;
+  /* display: flex; */
+  margin: auto;
+  width: 100%;
+}
+.grabaciones_song div {
+  display: flex;
+  flex-direction: column;
+}
+
+.img_grabaciones {
+  height: 100%;
+}
+.img_grabaciones img {
+  height: 140px;
+}
+
+.grabaciones_block_short {
+  width: 96%;
+  height: 140px;
+  margin: auto;
+  background-color: #171b1e;
+  display: grid;
+}
+
+.container_short_blocks {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.info_short_blocks {
+  width: 100%;
+}
+
+.reloj_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+.reloj_container img {
+  width: 45px;
+  margin: auto;
+}
+.info_short_blocks p {
+  margin-bottom: 0 !important;
+  text-align: center;
+  color: #838383;
+  font-size: 12px;
+}
+.info_short_blocks h5 {
+  color: #007e9e;
+  text-align: center;
+  font-size: 18px;
+}
+.ecu_container {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.ecu_container img {
+  width: 95%;
+  margin-top: 10px;
+  margin: auto;
+}

@@ -8,6 +8,10 @@ import {
   faBackwardFast,
   faPlay,
   faForwardFast,
+  faEllipsisVertical,
+  faChevronDown,
+  whatsapp,
+  faListMusic,
 } from "@fortawesome/free-solid-svg-icons";
 import { songsdata } from "../Player/audios";
 import { useRef, useState, useEffect } from "react";
@@ -15,13 +19,21 @@ import Player from "../Player/Player";
 import Search from "../Player/Search";
 import Album from "../Player/Album";
 import InfoArtist from "./InfoArtist";
+import nosignal from "../../Assets/Img/nosignal.png";
+import playlist from "../../Assets/Img/playlist.png";
+import styles from "./Explorer.module.css";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+// This exports the whole icon packs for Brand and Solid.
+library.add(fas);
 
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
   const [isplaying, setisplaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(songsdata[0]);
-  const [currentArtist, setCurrentArtist] = useState(songsdata.artist)
-
+  const [currentArtist, setCurrentArtist] = useState(songsdata.artist);
 
   const audioElem = useRef();
 
@@ -43,7 +55,6 @@ const Explorer = () => {
       ...currentSong,
       progress: (ct / duration) * 100,
       length: duration,
-
     });
   };
   return (
@@ -61,7 +72,10 @@ const Explorer = () => {
                 <p>(0)</p>
               </div>
               <div className="social-media-blocks">
-                <p> Social Media</p>
+                <p>
+                  <FontAwesomeIcon icon={["fas", "whatsapp"]} />
+                  Social Media
+                </p>
                 <p>(0)</p>
               </div>
               <div className="social-media-blocks-reproduction">
@@ -79,8 +93,8 @@ const Explorer = () => {
         </div>
 
         <div className="explorer-mid">
-          <div class="reproductor">
-            <div class="container-reproductor">
+          <div className="reproductor">
+            <div className="container-reproductor">
               <audio
                 src={currentSong.url}
                 ref={audioElem}
@@ -107,7 +121,7 @@ const Explorer = () => {
                 <Album />
               </div>
 
-              <div class="artist-and-album">
+              <div className="artist-and-album">
                 <InfoArtist />
               </div>
             </div>
@@ -116,7 +130,7 @@ const Explorer = () => {
           <div className="mix-explorer">
             <div className="social-media">
               <div className="social-media-blocks-reproduction-mid">
-                <div class="play-next-prev">
+                <div className="play-next-prev">
                   <FontAwesomeIcon icon={faBackwardFast} />
                   <FontAwesomeIcon icon={faPlay} />
                   <FontAwesomeIcon icon={faForwardFast} />
@@ -131,6 +145,9 @@ const Explorer = () => {
         </div>
 
         <div className="second-aside">
+          <div className="nosignal">
+            <img src={nosignal} alt="" />
+          </div>
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="1">
               <Accordion.Header>
@@ -140,10 +157,22 @@ const Explorer = () => {
                     style={{ fontSize: "13px" }}
                   />
                   <p className="music-styles-text">GENERAL</p>
+                  {/* <FontAwesomeIcon className="drop-icon" icon={faChevronDown} />
+                <FontAwesomeIcon icon={faEllipsisVertical} /> */}
                 </div>
               </Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur
+              <Accordion.Body style={{ padding: "2px" }}>
+                <div>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Título</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Artista</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Álbum</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Compositor</p>
+                  <span>Información del archivo aquí</span>
+                </div>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item
@@ -165,8 +194,18 @@ const Explorer = () => {
                   <p className="music-styles-text">GENERAL</p>
                 </div>
               </Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur
+              <Accordion.Body style={{ padding: "2px" }}>
+                <div>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Título</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Artista</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Álbum</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Compositor</p>
+                  <span>Información del archivo aquí</span>
+                </div>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="3">
@@ -179,8 +218,18 @@ const Explorer = () => {
                   <p className="music-styles-text">GENERAL</p>
                 </div>
               </Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur
+              <Accordion.Body style={{ padding: "2px" }}>
+                <div>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Título</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Artista</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Álbum</p>
+                  <span>Información del archivo aquí</span>
+                  <p className={styles.titulo}>Compositor</p>
+                  <span>Información del archivo aquí</span>
+                </div>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
