@@ -23,8 +23,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ShortAlbum from "../Player/ShortAlbum";
 import princeroyce from "../../Assets/Img/princeroyce.png";
-import jugar from "../../Assets/Img/jugar.png";
+import botondeplay from "../../Assets/Img/botondeplay.png";
 import filtrar from "../../Assets/Img/filtrar.png";
+import { Dropdown } from "react-bootstrap";
+import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
+import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
 
 const Logeditor = ({
   audioElem,
@@ -113,7 +117,35 @@ const Logeditor = ({
 
         <div className={styles.secondcolumn}>
           <div className={styles.search_container}>
-            <Search placeholder={`Buscar aquí`} />
+            <div className={styles.input_search}>
+              <input placeholder={`Buscar aquí`} />
+              <div className={styles.container_search_icon}>
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+              <div
+                className={styles.fafilter_container}
+                style={{ marginLeft: "3px" }}
+              >
+                <FontAwesomeIcon
+                  icon={faFilter}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+
+              </div>
+            </div>
           </div>
           <div className={styles.video_container}>
             <div className={styles.video_block}>
@@ -218,9 +250,12 @@ const Logeditor = ({
             <div className={styles.social_media}>
               <div className={styles.social_media_blocks_reproduction_mid}>
                 <div className={styles.play_next_prev}>
-                  <FontAwesomeIcon icon={faBackwardFast} />
+                  <FontAwesomeIcon
+                    icon={faForwardStep}
+                    style={{ transform: "rotate(180deg)" }}
+                  />
                   <FontAwesomeIcon icon={faPlay} />
-                  <FontAwesomeIcon icon={faForwardFast} />
+                  <FontAwesomeIcon icon={faForwardStep} />
                 </div>
                 <div className="reproduciendo">
                   <p>La Bachata</p>
@@ -234,7 +269,7 @@ const Logeditor = ({
           <div className={styles.search_container_third}>
             <div className={styles.search_first_column}>
               {/* <FontAwesomeIcon icon={faPlay} /> */}
-              <img src={jugar} alt="" />
+              <img src={botondeplay} alt="" style={{width:'15px'}} />
               Multiplayer
             </div>
             <div className={styles.input_search}>
@@ -254,7 +289,7 @@ const Logeditor = ({
                 className={styles.fafilter_container}
                 style={{ marginLeft: "3px" }}
               >
-                 <FontAwesomeIcon
+                <FontAwesomeIcon
                   icon={faFilter}
                   style={{
                     color: "#fff",
@@ -262,17 +297,8 @@ const Logeditor = ({
                     width: "100%",
                     cursor: "pointer",
                   }}
-                /> 
-               {/*  <img
-                  src={filtrar}
-                  alt=""
-                  style={{
-                    color: "#fff",
-                    margin: "auto",
-                    width: "100%",
-                    cursor: "pointer",
-                  }}
-                /> */}
+                />
+
               </div>
             </div>
           </div>
@@ -404,6 +430,30 @@ const Logeditor = ({
                   style={{ cursor: "pointer", paddingRight: "10px" }}
                 />
               </div>
+            </div>
+
+            <div>
+              <Dropdown>
+                <DropdownToggle
+                  className={styles.dropdown_button}
+                  style={{
+                    backgroundColor: "#018fe5",
+                    border: "none",
+                    color: "#fff ",
+                    fontSize: "14px",
+                    width: "100%",
+                    fontWeight: "600",
+                    borderRadius: "0 !important",
+                  }}
+                >
+                  AUTOMÁTICO
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem>Accion 1</DropdownItem>
+                  <DropdownItem>Accion 1</DropdownItem>
+                  <DropdownItem>Accion 1</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
             </div>
           </div>
 

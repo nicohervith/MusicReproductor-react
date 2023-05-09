@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import Explorer from "../Explorer/Explorer";
+import Accord from "../Explorer/Accord";
+import MediaExplorer from "../MediaExplorer/MediaExplorer";
 
 const Playout = () => {
+  const [selected, setSelected] = useState("First");
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setSelected(e.target.value);
+  };
   return (
     <>
       <Navigation />
       <div className="block-container-playout">
         <div className="first-block-playout">
           <div className="media-explorer-dropdown">
-            <ul className="dropdown-container">
+            {/* <ul className="dropdown-container">
               <li className="main-li">
                 <Link className="cat-nombres" to="">
                   Media Explorer{" "}
@@ -23,7 +32,9 @@ const Playout = () => {
                 <ul>
                   <li className="li">
                     <Link className="drop-item" to="">
-                      Multiplayer
+                      <option value="select" onChange="">
+                        Multiplayer
+                      </option>
                     </Link>
                   </li>
                   <li className="li">
@@ -44,7 +55,25 @@ const Playout = () => {
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> */}
+
+            <div className="dropdown-container">
+              <li className="main-li">
+                <select
+                  className="cat-nombres"
+                  value={selected}
+                  onChange={(e) => handleChange(e)}
+                >
+                    <option>Seleccione una opción </option>
+                    <option>Media Explorer</option>
+                    <option>Multiplayer</option>
+                    <option>SmartList</option>
+                </select>
+              </li>
+              {selected == "Media Explorer" ? <MediaExplorer /> : ""}
+              {selected == "Multiplayer" ? <Accord /> : ""}
+              {selected == "SmartList" ? <Accord /> : ""}
+            </div>
           </div>
         </div>
         <div className="second-block-playout">
@@ -61,7 +90,7 @@ const Playout = () => {
                   </Link>
                   <ul>
                     <li className="li">
-                      <Link className="drop-item" to="">
+                      <Link className="drop-item" to={Explorer}>
                         Multiplayer
                       </Link>
                     </li>
@@ -90,13 +119,13 @@ const Playout = () => {
             <div className="media-explorer-dropdown">
               <ul className="dropdown-container">
                 <li className="main-li">
-                    <Link className="cat-nombres" to="">
-                      Multiplayer
-                      <FontAwesomeIcon
-                        icon={faChevronDown}
-                        style={{ marginRight: "8px" }}
-                      />
-                    </Link>
+                  <Link className="cat-nombres" to="">
+                    Multiplayer
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      style={{ marginRight: "8px" }}
+                    />
+                  </Link>
                   <ul>
                     <li className="li">
                       <Link className="drop-item" to="">

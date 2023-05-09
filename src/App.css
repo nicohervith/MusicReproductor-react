@@ -326,6 +326,26 @@
   /* position: absolute; */
   width: auto;
 }
+
+/* .main-li > select{
+  display: flex;
+  align-items: center;
+  height: 35px;
+  text-decoration: none;
+  list-style: none;
+  justify-content: space-between;
+  width: auto;
+}
+
+.dropdown-container select > ul {
+    display: none;
+    position: absolute;
+    top: 30px;
+    width: 80%;
+    color: rgb(255, 255, 255);
+    background-color: #0d0d0d;
+} */
+
 .cat-nombres {
   /* width: 300px; */
   background-color: #0d0d0d;
@@ -516,6 +536,8 @@
 .dropdown-container {
   align-items: center;
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 .media-explorer-dropdown {
   width: 100%;
@@ -615,6 +637,7 @@
 }
 .reproduciendo p {
   margin-left: 6px;
+  height: 12px;
 }
 .artist {
   font-weight: 100 !important;
