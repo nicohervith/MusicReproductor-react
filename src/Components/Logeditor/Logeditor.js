@@ -6,6 +6,8 @@ import Search from "../Player/Search";
 import ShortInfo from "../Explorer/ShortInfo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
+import whatsapp from "../../Assets/Img/whatsapp.png";
+import playlisticon from "../../Assets/Img/playlisticon.png";
 
 import {
   faSliders,
@@ -14,9 +16,15 @@ import {
   faForwardFast,
   faPause,
   faForwardStep,
+  faMagnifyingGlass,
+  faFilter,
+  faStop,
+  faSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import ShortAlbum from "../Player/ShortAlbum";
 import princeroyce from "../../Assets/Img/princeroyce.png";
+import jugar from "../../Assets/Img/jugar.png";
+import filtrar from "../../Assets/Img/filtrar.png";
 
 const Logeditor = ({
   audioElem,
@@ -72,10 +80,20 @@ const Logeditor = ({
           <div className="">
             <div className="social-media">
               <div className="social-media-blocks">
+                <img
+                  src={playlisticon}
+                  alt=""
+                  style={{ width: "15px", objectFit: "cover", margin: "auto" }}
+                />
                 <p>Playlist</p>
                 <p>(0)</p>
               </div>
               <div className="social-media-blocks">
+                <img
+                  src={whatsapp}
+                  alt=""
+                  style={{ width: "15px", objectFit: "cover", margin: "auto" }}
+                />
                 <p> Social Media</p>
                 <p>(0)</p>
               </div>
@@ -215,11 +233,47 @@ const Logeditor = ({
         <div className={styles.thirdcolumn}>
           <div className={styles.search_container_third}>
             <div className={styles.search_first_column}>
-              <FontAwesomeIcon icon={faPlay} />
+              {/* <FontAwesomeIcon icon={faPlay} /> */}
+              <img src={jugar} alt="" />
               Multiplayer
             </div>
             <div className={styles.input_search}>
               <input placeholder={`Buscar aquí`} />
+              <div className={styles.container_search_icon}>
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+              <div
+                className={styles.fafilter_container}
+                style={{ marginLeft: "3px" }}
+              >
+                 <FontAwesomeIcon
+                  icon={faFilter}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                /> 
+               {/*  <img
+                  src={filtrar}
+                  alt=""
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                /> */}
+              </div>
             </div>
           </div>
 
@@ -306,6 +360,50 @@ const Logeditor = ({
             </div>
             <div className={styles.multiplayer_img}>
               <img src={princeroyce} alt="" />
+            </div>
+
+            <div className={styles.controls_container}>
+              <div id="btnplay" className={styles.play_container_controls}>
+                <FontAwesomeIcon
+                  icon={faPlay}
+                  className={styles.btn_action_play}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <div id="btnpause" className={styles.play_container_pause}>
+                <FontAwesomeIcon
+                  icon={faPause}
+                  className={styles.btn_action_pause}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <div
+                id="btnstop"
+                className={styles.play_container_pause}
+                onClick={ToggleClassStop}
+              >
+                <FontAwesomeIcon
+                  className={styles.btn_action_pause}
+                  icon={faSquare}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <div
+                id="btnstop"
+                className={styles.play_container_pause}
+                onClick={ToggleClassStop}
+              >
+                <FontAwesomeIcon
+                  className={styles.btn_action_pause}
+                  icon={faPlay}
+                  style={{ cursor: "pointer", paddingLeft: "10px" }}
+                />
+                <FontAwesomeIcon
+                  icon={faStop}
+                  className={styles.btn_action_pause}
+                  style={{ cursor: "pointer", paddingRight: "10px" }}
+                />
+              </div>
             </div>
           </div>
 

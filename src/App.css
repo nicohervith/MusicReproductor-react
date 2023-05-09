@@ -116,7 +116,7 @@
   background-color: #0099dd;
 }
 .slider-active::before {
-  transform: translateX(12px) ;
+  transform: translateX(12px);
 }
 
 /***** LOGIN *****/
@@ -586,7 +586,7 @@
   width: 100%;
   height: 35px;
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 20% 65% 15%;
   align-items: center;
   margin: auto;
 }

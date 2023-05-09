@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import menu from "../../Assets/Img/menu.png";
 
 function Navigation() {
   const [isActive, setActive] = useState("false");
@@ -69,18 +70,19 @@ function Navigation() {
         <div>
           <div className="swich">
             <label for="" className="switch-button">
-              <input
-                className="switch-input"
-                type="checkbox"
-                checked
-              />
+              <input className="switch-input" type="checkbox" checked />
               <span
                 className="slider"
                 id="slider"
-                 onClick={ToggleSwitch}
+                onClick={ToggleSwitch}
               ></span>
             </label>
             <FontAwesomeIcon icon={faBell} style={{ cursor: "pointer" }} />
+            <img
+              src={menu}
+              alt=""
+              style={{ width: "16px", marginLeft: "5px", cursor: "pointer" }}
+            />
             <img src={switchmode} alt="" />
           </div>
         </div>

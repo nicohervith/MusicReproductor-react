@@ -10,7 +10,6 @@ import {
   faForwardFast,
   faEllipsisVertical,
   faChevronDown,
-  whatsapp,
   faListMusic,
 } from "@fortawesome/free-solid-svg-icons";
 import { songsdata } from "../Player/audios";
@@ -22,12 +21,8 @@ import InfoArtist from "./InfoArtist";
 import nosignal from "../../Assets/Img/nosignal.png";
 import playlist from "../../Assets/Img/playlist.png";
 import styles from "./Explorer.module.css";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-
-// This exports the whole icon packs for Brand and Solid.
-library.add(fas);
+import whatsapp from "../../Assets/Img/whatsapp.png";
+import playlisticon from "../../Assets/Img/playlisticon.png";
 
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
@@ -68,14 +63,21 @@ const Explorer = () => {
           <div className="">
             <div className="social-media">
               <div className="social-media-blocks">
+                <img
+                  src={playlisticon}
+                  alt=""
+                  style={{ width: "15px", objectFit: "cover", margin: "auto" }}
+                />
                 <p>Playlist</p>
                 <p>(0)</p>
               </div>
               <div className="social-media-blocks">
-                <p>
-                  <FontAwesomeIcon icon={["fas", "whatsapp"]} />
-                  Social Media
-                </p>
+                <img
+                  src={whatsapp}
+                  alt=""
+                  style={{ width: "15px", objectFit: "cover", margin: "auto" }}
+                />
+                <p>Social Media</p>
                 <p>(0)</p>
               </div>
               <div className="social-media-blocks-reproduction">

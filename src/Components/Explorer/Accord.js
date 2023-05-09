@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
 import { faFolder, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import barrasdesonido from "../../Assets/Img/barrasdesonido.png";
 
 function Accord() {
   return (
@@ -9,7 +10,7 @@ function Accord() {
       <Accordion.Item eventKey="1">
         <Accordion.Header>
           <div className="music-styles-container">
-            <FontAwesomeIcon icon={faSliders} style={{ fontSize: "13px" }} />
+            <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
             <p className="music-styles-text">AUDIO</p>
           </div>
         </Accordion.Header>
