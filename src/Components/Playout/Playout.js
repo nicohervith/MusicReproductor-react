@@ -6,229 +6,195 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Explorer from "../Explorer/Explorer";
 import Accord from "../Explorer/Accord";
 import MediaExplorer from "../MediaExplorer/MediaExplorer";
+import Album from "../Player/Album";
+import ShortInfo from "../Explorer/ShortInfo";
+import Multiplayer from "../Multiplayer/Multiplayer";
+import IPlay from "../IPlay/IPlay";
 
 const Playout = () => {
   const [selected, setSelected] = useState("First");
+  const [selected2, setSelected2] = useState("First");
+  const [selected3, setSelected3] = useState("First");
+  const [selected4, setSelected4] = useState("First");
+  const [selected5, setSelected5] = useState("First");
 
   const handleChange = (e) => {
     console.log(e.target.value);
     setSelected(e.target.value);
   };
+  const handleChange2 = (e) => {
+    setSelected2(e.target.value);
+  };
+  const handleChange3 = (e) => {
+    setSelected3(e.target.value);
+  };
+  const handleChange4 = (e) => {
+    setSelected4(e.target.value);
+  };
+  const handleChange5 = (e) => {
+    setSelected5(e.target.value);
+  };
+
   return (
     <>
       <Navigation />
       <div className="block-container-playout">
         <div className="first-block-playout">
           <div className="media-explorer-dropdown">
-            {/* <ul className="dropdown-container">
-              <li className="main-li">
-                <Link className="cat-nombres" to="">
-                  Media Explorer{" "}
-                  <FontAwesomeIcon
-                    icon={faChevronDown}
-                    style={{ marginRight: "8px" }}
-                  />
-                </Link>
-                <ul>
-                  <li className="li">
-                    <Link className="drop-item" to="">
-                      <option value="select" onChange="">
-                        Multiplayer
-                      </option>
-                    </Link>
-                  </li>
-                  <li className="li">
-                    <Link className="drop-item" to="">
-                      SmartList
-                    </Link>
-                  </li>
-
-                  <li className="li">
-                    <Link className="drop-item" to="">
-                      iPlay
-                    </Link>
-                  </li>
-                  <li className="li">
-                    <Link className="drop-item" to="">
-                      Comercial
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul> */}
-
             <div className="dropdown-container">
               <li className="main-li">
                 <select
-                  className="cat-nombres"
+                  className="cat-nombres-select"
                   value={selected}
                   onChange={(e) => handleChange(e)}
                 >
-                    <option>Seleccione una opción </option>
-                    <option>Media Explorer</option>
-                    <option>Multiplayer</option>
-                    <option>SmartList</option>
+                  <option>Seleccione una opción </option>
+                  <option>Media Explorer</option>
+                  <option>Multiplayer</option>
+                  <option>SmartList</option>
+                  <option>iPlay</option>
+                  <option>Comercial</option>
                 </select>
               </li>
-              {selected == "Media Explorer" ? <MediaExplorer /> : ""}
+              {selected == "Media Explorer" ? (
+                <div style={{ width: "100%" }}>
+                  <MediaExplorer />
+                </div>
+              ) : (
+                ""
+              )}
               {selected == "Multiplayer" ? <Accord /> : ""}
               {selected == "SmartList" ? <Accord /> : ""}
             </div>
           </div>
         </div>
+
         <div className="second-block-playout">
           <div className="sb-first">
             <div className="media-explorer-dropdown">
-              <ul className="dropdown-container">
+              <div className="dropdown-container">
                 <li className="main-li">
-                  <Link className="cat-nombres" to="" alt="">
-                    Multiplayer
-                    <FontAwesomeIcon
-                      icon={faChevronDown}
-                      style={{ marginRight: "8px" }}
-                    />
-                  </Link>
-                  <ul>
-                    <li className="li">
-                      <Link className="drop-item" to={Explorer}>
-                        Multiplayer
-                      </Link>
-                    </li>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        SmartList
-                      </Link>
-                    </li>
-
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        iPlay
-                      </Link>
-                    </li>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        Comercial
-                      </Link>
-                    </li>
-                  </ul>
+                  <select
+                    className="cat-nombres-select"
+                    value={selected2}
+                    onChange={(e) => handleChange2(e)}
+                  >
+                    <option>Seleccione una opción </option>
+                    <option>Media Explorer</option>
+                    <option>Multiplayer</option>
+                    <option>SmartList</option>
+                    <option>iPlay</option>
+                    <option>Comercial</option>
+                  </select>
                 </li>
-              </ul>
+                {selected2 === "Media Explorer" ? (
+                  <div style={{ width: "100%" }}>
+                    <MediaExplorer />
+                  </div>
+                ) : (
+                  ""
+                )}
+                {selected2 == "Multiplayer" ? (
+                  <div style={{ width: "100%", height: " 100%" }}>
+                    <Multiplayer />
+                  </div>
+                ) : (
+                  ""
+                )}
+                {selected2 == "SmartList" ? <Accord /> : ""}
+              </div>
             </div>
           </div>
           <div className="sb-second">
             <div className="media-explorer-dropdown">
-              <ul className="dropdown-container">
+              <div className="dropdown-container">
                 <li className="main-li">
-                  <Link className="cat-nombres" to="">
-                    Multiplayer
-                    <FontAwesomeIcon
-                      icon={faChevronDown}
-                      style={{ marginRight: "8px" }}
-                    />
-                  </Link>
-                  <ul>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        Multiplayer
-                      </Link>
-                    </li>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        SmartList
-                      </Link>
-                    </li>
-
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        iPlay
-                      </Link>
-                    </li>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        Comercial
-                      </Link>
-                    </li>
-                  </ul>
+                  <select
+                    className="cat-nombres-select"
+                    value={selected3}
+                    onChange={(e) => handleChange3(e)}
+                  >
+                    <option>Seleccione una opción </option>
+                    <option>Media Explorer</option>
+                    <option>Multiplayer</option>
+                    <option>SmartList</option>
+                    <option>iPlay</option>
+                    <option>Comercial</option>
+                  </select>
                 </li>
-              </ul>
+                {selected3 == "Multiplayer" ? <ShortInfo /> : ""}
+                {selected3 == "SmartList" ? <Album /> : ""}
+                {selected3 == "iPlay" ? <IPlay /> : ""}
+                {selected3 == "Comercial" ? <Accord /> : ""}
+              </div>
             </div>
           </div>
         </div>
         <div className="third-block-playout">
           <div className="tb-first">
             <div className="media-explorer-dropdown">
-              <ul className="dropdown-container-third">
-                <li className="main-li-third">
-                  <Link className="cat-nombres-third" to="">
-                    iPlay
-                    <FontAwesomeIcon
-                      icon={faChevronDown}
-                      style={{ marginRight: "8px" }}
-                    />
-                  </Link>
-                  <ul>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        Multiplayer
-                      </Link>
-                    </li>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        SmartList
-                      </Link>
-                    </li>
-
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        iPlay
-                      </Link>
-                    </li>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        Comercial
-                      </Link>
-                    </li>
-                  </ul>
+              <div className="dropdown-container">
+                <li className="main-li">
+                  <select
+                    className="cat-nombres-select"
+                    value={selected4}
+                    onChange={(e) => handleChange4(e)}
+                  >
+                    <option>Seleccione una opción </option>
+                    <option>Media Explorer</option>
+                    <option>Multiplayer</option>
+                    <option>SmartList</option>
+                    <option>iPlay</option>
+                    <option>Comercial</option>
+                  </select>
                 </li>
-              </ul>
+                {selected4 == "Media Explorer" ? (
+                  <div style={{ width: "100%" }}>
+                    <MediaExplorer />
+                  </div>
+                ) : (
+                  ""
+                )}
+                {selected4 == "Multiplayer" ? <Accord /> : ""}
+                {selected4 == "SmartList" ? <Accord /> : ""}
+                {selected4 == "iPlay" ? (
+                  <div style={{width:'100%' , height: '100%'}} >
+                    {" "}
+                    <IPlay />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
           </div>
           <div className="tb-second">
             <div className="media-explorer-dropdown">
-              <ul className="dropdown-container-third">
-                <li className="main-li-third">
-                  <Link className="cat-nombres-third" to="">
-                    Comercial
-                    <FontAwesomeIcon
-                      icon={faChevronDown}
-                      style={{ marginRight: "8px" }}
-                    />
-                  </Link>
-                  <ul>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        Multiplayer
-                      </Link>
-                    </li>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        SmartList
-                      </Link>
-                    </li>
-
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        iPlay
-                      </Link>
-                    </li>
-                    <li className="li">
-                      <Link className="drop-item" to="">
-                        Comercial
-                      </Link>
-                    </li>
-                  </ul>
+              <div className="dropdown-container">
+                <li className="main-li">
+                  <select
+                    className="cat-nombres-select"
+                    value={selected5}
+                    onChange={(e) => handleChange5(e)}
+                  >
+                    <option>Seleccione una opción </option>
+                    <option>Media Explorer</option>
+                    <option>Multiplayer</option>
+                    <option>SmartList</option>
+                    <option>iPlay</option>
+                    <option>Comercial</option>
+                  </select>
                 </li>
-              </ul>
+                {selected5 == "Media Explorer" ? (
+                  <div style={{ width: "100%" }}>
+                    <MediaExplorer />
+                  </div>
+                ) : (
+                  ""
+                )}
+                {selected4 == "Multiplayer" ? <Accord /> : ""}
+                {selected4 == "SmartList" ? <Accord /> : ""}
+              </div>
             </div>
           </div>
         </div>

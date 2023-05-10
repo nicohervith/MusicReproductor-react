@@ -12,7 +12,12 @@ import {
   faBackwardFast,
   faPlay,
   faForwardFast,
+  faFilter,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
+import botondeplay from "../../Assets/Img/botondeplay.png";
+import whatsapp from "../../Assets/Img/whatsapp.png";
+import playlisticon from "../../Assets/Img/playlisticon.png";
 
 const Programacion = () => {
   return (
@@ -26,10 +31,20 @@ const Programacion = () => {
           <div className="">
             <div className="social-media">
               <div className="social-media-blocks">
+                <img
+                  src={playlisticon}
+                  alt=""
+                  style={{ width: "15px", objectFit: "cover", margin: "auto" }}
+                />
                 <p>Playlist</p>
                 <p>(0)</p>
               </div>
               <div className="social-media-blocks">
+                <img
+                  src={whatsapp}
+                  alt=""
+                  style={{ width: "15px", objectFit: "cover", margin: "auto" }}
+                />
                 <p> Social Media</p>
                 <p>(0)</p>
               </div>
@@ -166,13 +181,44 @@ const Programacion = () => {
             </div>
           </div>
         </div>
+
         <div className={styles.thirdcolumn}>
-          <div className={styles.search_container}>
-            <Search placeholder={`Buscar aquí`} />
+          <div className={styles.search_container_third}>
+            <div className={styles.search_first_column}>
+              {/* <FontAwesomeIcon icon={faPlay} /> */}
+              <img src={botondeplay} alt="" style={{ width: "15px" }} />
+              Multiplayer
+            </div>
+            <div className={styles.input_search}>
+              <input placeholder={`Buscar aquí`} />
+              <div className={styles.container_search_icon}>
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+              <div
+                className={styles.fafilter_container}
+                style={{ marginLeft: "3px" }}
+              >
+                <FontAwesomeIcon
+                  icon={faFilter}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+            </div>
           </div>
-          <div className="album-container">
-            <ShortAlbum />
-          </div>
+
           <div className="">
             <ShortInfo />
           </div>
