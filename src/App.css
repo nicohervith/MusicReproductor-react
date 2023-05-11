@@ -71,6 +71,7 @@
   align-items: center;
   font-size: 19px;
   color: #808080;
+  gap:10px;
 }
 .swich img {
   float: right;

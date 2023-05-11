@@ -316,6 +316,8 @@
   margin: auto;
   text-align: center;
   font-weight: bold;
+  padding-top: 9px;
+  height: 15px;
 }
 
 .multiplayer .time {
@@ -379,6 +381,20 @@
 .radio_block:hover {
   background-color: #154c75;
   border: 1px solid;
+}
+
+.fourthcolumn_space {
+  height: 33%;
+  overflow-y: scroll;
+}
+
+.fourthcolumn_space::-webkit-scrollbar {
+  width: 8px; /* width of the entire scrollbar */
+}
+.fourthcolumn_space::-webkit-scrollbar-thumb {
+  background-color: rgb(82, 82, 82); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid rgb(33, 33, 33); /* creates padding around scroll thumb */
 }
 
 @media only screen and (max-width: 1080px) {

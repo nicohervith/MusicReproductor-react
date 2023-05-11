@@ -27,13 +27,6 @@ function Navigation() {
   return (
     <div className="navbar-container">
       <div className="first-block">
-        {/* <div className="dropdown">
-          <p>
-            {" "}
-            Ondas del Tonusco
-            <FontAwesomeIcon icon={faChevronDown} style={{ marginLeft: 20 }} />
-          </p>
-        </div> */}
         <Dropdown>
           <DropdownToggle
             style={{

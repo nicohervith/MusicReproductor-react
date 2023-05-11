@@ -14,10 +14,21 @@ import {
   faForwardFast,
   faFilter,
   faMagnifyingGlass,
+  faFolder,
+  faSquare,
+  faPause,
+  faStop,
 } from "@fortawesome/free-solid-svg-icons";
 import botondeplay from "../../Assets/Img/botondeplay.png";
 import whatsapp from "../../Assets/Img/whatsapp.png";
 import playlisticon from "../../Assets/Img/playlisticon.png";
+import princeroyce from "../../Assets/Img/princeroyce.png";
+import { Link } from "react-router-dom";
+import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
+import { Dropdown } from "react-bootstrap";
+import IPlay from "../IPlay/IPlay";
 
 const Programacion = () => {
   return (
@@ -28,6 +39,7 @@ const Programacion = () => {
           <div className="  dropdown-container-aside">
             <Accord />
           </div>
+
           <div className="">
             <div className="social-media">
               <div className="social-media-blocks">
@@ -64,7 +76,34 @@ const Programacion = () => {
 
         <div className={styles.secondcolumn}>
           <div className={styles.search_container}>
-            <Search placeholder={`Buscar aquí`} />
+            <div className={styles.input_search}>
+              <input placeholder={`Buscar aquí`} />
+              <div className={styles.container_search_icon}>
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+              <div
+                className={styles.fafilter_container}
+                style={{ marginLeft: "3px" }}
+              >
+                <FontAwesomeIcon
+                  icon={faFilter}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+            </div>
           </div>
           <div className={styles.video_container}>
             <div className={styles.video_block}>
@@ -219,78 +258,88 @@ const Programacion = () => {
             </div>
           </div>
 
+          <div className={styles.container_multiplayer_reproductor}>
+            <div className={styles.container_img_reproductor}>
+              <img src={princeroyce} alt="" />
+            </div>
+            <div className={styles.container_playlist_reproductor}>
+              <p className={styles.title_first}>PLAYLIST</p>
+              <p className={styles.time}>48:23:58</p>
+            </div>
+          </div>
+
+          <div className={styles.controls_main_container}>
+            <div className={styles.controls_container}>
+              <div id="btnplay" className={styles.play_container_controls}>
+                <FontAwesomeIcon
+                  icon={faPlay}
+                  className={styles.btn_action_play}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <div id="btnpause" className={styles.play_container_pause}>
+                <FontAwesomeIcon
+                  icon={faPause}
+                  className={styles.btn_action_pause}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <div id="btnstop" className={styles.play_container_pause}>
+                <FontAwesomeIcon
+                  className={styles.btn_action_pause}
+                  icon={faSquare}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <div id="btnstop" className={styles.play_container_pause}>
+                <FontAwesomeIcon
+                  className={styles.btn_action_pause}
+                  icon={faPlay}
+                  style={{ cursor: "pointer", paddingLeft: "10px" }}
+                />
+                <FontAwesomeIcon
+                  icon={faStop}
+                  className={styles.btn_action_pause}
+                  style={{ cursor: "pointer", paddingRight: "10px" }}
+                />
+              </div>
+            </div>
+            <div>
+              <Dropdown>
+                <DropdownToggle
+                  className={styles.dropdown_button}
+                  style={{
+                    backgroundColor: "#018fe5",
+                    border: "none",
+                    color: "#fff ",
+                    fontSize: "14px",
+                    width: "100%",
+                    fontWeight: "600",
+                    borderRadius: "0 !important",
+                  }}
+                >
+                  AUTOMÁTICO
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem>Accion 1</DropdownItem>
+                  <DropdownItem>Accion 1</DropdownItem>
+                  <DropdownItem>Accion 1</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </div>
+          </div>
+
           <div className="">
             <ShortInfo />
           </div>
         </div>
 
         <div className={styles.fourthcolumn}>
-          <div className={styles.fourthcolumn_space}>
-            <div className={styles.radio_container}>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-              <div className={styles.radio_block}>
-                <div className={styles.radio_contenido}>
-                  <p className={styles.first_p}>104.04 f.m.</p>
-                  <p>Solo éxitos</p>
-                  <span>00:07</span>
-                </div>
-              </div>
-            </div>
+          <div
+            className={styles.fourthcolumn_space}
+            
+          >
+            <IPlay />
           </div>
 
           <div className="second-aside" style={{ marginTop: "-49px" }}>

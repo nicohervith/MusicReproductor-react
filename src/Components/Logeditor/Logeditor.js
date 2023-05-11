@@ -278,8 +278,10 @@ const Logeditor = ({
         </div>
 
         <div className={styles.fourthcolumn}>
-          <div className={styles.fourthcolumn_space}>
-                  <IPlay />
+          <div
+            className={styles.fourthcolumn_space}
+          >
+            <IPlay />
           </div>
 
           <div className="second-aside" style={{ marginTop: "-49px" }}>
@@ -337,7 +339,6 @@ const Logeditor = ({
               </Accordion.Item>
             </Accordion>
           </div>
-          
         </div>
       </div>
     </>

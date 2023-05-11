@@ -123,7 +123,7 @@ const Playout = () => {
                   </select>
                 </li>
                 {selected3 == "Multiplayer" ? <ShortInfo /> : ""}
-                {selected3 == "SmartList" ? <Album /> : ""}
+                {selected3 == "SmartList" ? <ShortInfo /> : ""}
                 {selected3 == "iPlay" ? <IPlay /> : ""}
                 {selected3 == "Comercial" ? <Accord /> : ""}
               </div>
@@ -158,7 +158,7 @@ const Playout = () => {
                 {selected4 == "Multiplayer" ? <Accord /> : ""}
                 {selected4 == "SmartList" ? <Accord /> : ""}
                 {selected4 == "iPlay" ? (
-                  <div style={{width:'100%' , height: '100%'}} >
+                  <div style={{ width: "100%", height: "100%" }}>
                     {" "}
                     <IPlay />
                   </div>
@@ -192,8 +192,17 @@ const Playout = () => {
                 ) : (
                   ""
                 )}
-                {selected4 == "Multiplayer" ? <Accord /> : ""}
-                {selected4 == "SmartList" ? <Accord /> : ""}
+                {selected5 == "Multiplayer" ? <Accord /> : ""}
+                {selected5 == "SmartList" ? <Accord /> : ""}
+                {selected5 == "iPlay" ? (
+                  <div style={{ width: "100%" }}>
+                    {" "}
+                    <IPlay />
+                  </div>
+                ) : (
+                  ""
+                )}
+                {selected4 == "Comercial" ? <Accord /> : ""}
               </div>
             </div>
           </div>
