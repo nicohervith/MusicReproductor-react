@@ -9,6 +9,7 @@ import Logeditor from "../Logeditor/Logeditor";
 import Programacion from "../Programacion/Programacion";
 import Grabaciones from "../Grabaciones/Grabaciones";
 import Ajustes from "../Ajustes/Ajustes";
+import DragAndDrop from "../DragAndDrop/DragAndDrop";
 
 const PageRoutes = () => {
   return (
@@ -23,6 +24,7 @@ const PageRoutes = () => {
         <Route path="/programacion" element={<Programacion />} />
         <Route path="/grabaciones" element={<Grabaciones />} />
         <Route path="/ajustes" element={<Ajustes />} />
+        <Route path="/drag" element={<DragAndDrop />} />
       </Routes>
     </>
   );

@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import Accord from "../Explorer/Accord";
 import styles from "./Programacion.module.css";
-import Search from "../Player/Search";
-import ShortInfo from "../Explorer/ShortInfo";
+
 import ShortAlbum from "../Player/ShortAlbum";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
@@ -31,6 +30,95 @@ import { Dropdown } from "react-bootstrap";
 import IPlay from "../IPlay/IPlay";
 
 const Programacion = () => {
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      duration: "00:04:26",
+      img: "https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png",
+      title: "Nombre canción",
+      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit ipsum dolor.",
+      artist: "Artista",
+      album: "Álbum año",
+      genero: "bachata",
+      anio: "2022",
+      list: 1,
+    },
+    {
+      id: 2,
+      duration: "00:04:26",
+      img: "https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png",
+      title: "Culpa al corazón",
+      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit ipsum dolor.",
+      artist: "Prince Royce",
+      album: "Álbum año",
+      genero: "bachata",
+      anio: "2022",
+      list: 1,
+    },
+    {
+      id: 3,
+      duration: "00:04:26",
+      img: "https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png",
+      title: "Nombre canción",
+      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit ipsum dolor.",
+      artist: "Artista",
+      album: "Álbum año",
+      genero: "bachata",
+      anio: "2022",
+      list: 1,
+    },
+    {
+      id: 4,
+      duration: "00:04:26",
+      img: "https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png",
+      title: "Nombre canción",
+      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit ipsum dolor.",
+      artist: "Artista",
+      album: "Álbum año",
+      genero: "bachata",
+      anio: "2022",
+      list: 1,
+    },
+    {
+      id: 5,
+      duration: "00:04:26",
+      img: "https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png",
+      title: "Nombre canción",
+      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit ipsum dolor.",
+      artist: "Artista",
+      album: "Álbum año",
+      genero: "bachata",
+      anio: "2022",
+      list: 1,
+    },
+  ]);
+
+  const getList = (list) => {
+    return tasks.filter((item) => item.list === list);
+  };
+
+  const startDrag = (evt, item) => {
+    evt.dataTransfer.setData("itemID", item.id);
+    console.log(item);
+  };
+
+  const draggingOver = (evt) => {
+    evt.preventDefault();
+  };
+
+  const onDrop = (evt, list) => {
+    const itemID = evt.dataTransfer.getData("itemID");
+    const item = tasks.find((item) => item.id == itemID);
+    item.list = list;
+
+    const newState = tasks.map((task) => {
+      if (task.id === itemID) return item;
+      return task;
+    });
+
+    setTasks(newState);
+  };
+
   return (
     <>
       <Navigation />
@@ -105,103 +193,30 @@ const Programacion = () => {
               </div>
             </div>
           </div>
-          <div className={styles.video_container}>
-            <div className={styles.video_block}>
-              <div className={styles.video_block_container_img}>
-                <img
-                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
-                  alt=""
-                />
-              </div>
-              <div className={styles.info_song}>
-                <span>Nombre canción</span>
-                <p>Artista</p>
-                <p>Álbum - año</p>
-              </div>
-            </div>
-            <div className={styles.video_block}>
-              <div className={styles.video_block_container_img}>
-                <img
-                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
-                  alt=""
-                />
-              </div>
-              <div className={styles.info_song}>
-                <span>Nombre canción</span>
-                <p>Artista</p>
-                <p>Álbum - año</p>
-              </div>
-            </div>
 
-            <div className={styles.video_block}>
-              <div className={styles.video_block_container_img}>
-                <img
-                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
-                  alt=""
-                />
+          <div
+            className={styles.video_container}
+            droppable="true"
+            onDragOver={(evt) => draggingOver(evt)}
+            onDrop={(evt) => onDrop(evt, 1)}
+          >
+            {getList(1).map((item) => (
+              <div
+                className={styles.video_block}
+                key={item.id}
+                draggable
+                onDragStart={(evt) => startDrag(evt, item)}
+              >
+                <div className={styles.video_block_container_img}>
+                  <img src={item.img} alt="" />
+                </div>
+                <div className={styles.info_song}>
+                  <span>{item.title} </span>
+                  <p>{item.artist} </p>
+                  <p>{item.album} </p>
+                </div>
               </div>
-              <div className={styles.info_song}>
-                <span>Nombre canción</span>
-                <p>Artista</p>
-                <p>Álbum - año</p>
-              </div>
-            </div>
-
-            <div className={styles.video_block}>
-              <div className={styles.video_block_container_img}>
-                <img
-                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
-                  alt=""
-                />
-              </div>
-              <div className={styles.info_song}>
-                <span>Nombre canción</span>
-                <p>Artista</p>
-                <p>Álbum - año</p>
-              </div>
-            </div>
-
-            <div className={styles.video_block}>
-              <div className={styles.video_block_container_img}>
-                <img
-                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
-                  alt=""
-                />
-              </div>
-              <div className={styles.info_song}>
-                <span>Nombre canción</span>
-                <p>Artista</p>
-                <p>Álbum - año</p>
-              </div>
-            </div>
-
-            <div className={styles.video_block}>
-              <div className={styles.video_block_container_img}>
-                <img
-                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
-                  alt=""
-                />
-              </div>
-              <div className={styles.info_song}>
-                <span>Nombre canción</span>
-                <p>Artista</p>
-                <p>Álbum año</p>
-              </div>
-            </div>
-
-            <div className={styles.video_block}>
-              <div className={styles.video_block_container_img}>
-                <img
-                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
-                  alt=""
-                />
-              </div>
-              <div className={styles.info_song}>
-                <span>Nombre canción</span>
-                <p>Artista</p>
-                <p>Álbum año</p>
-              </div>
-            </div>
+            ))}
           </div>
 
           <div className={styles.mix_explorer}>
@@ -329,16 +344,113 @@ const Programacion = () => {
             </div>
           </div>
 
-          <div className="">
-            <ShortInfo />
+          <div className="" style={{ height: "50%" }}>
+            <ShortAlbum />
+            <div className={styles.container_artist_and_album}>
+              <div className="nombres-artist-explorer">
+                <p>00:04:26</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>00:04:26</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Culpa al corazón</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Prince Royce</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Bachata</p>
+              </div>
+
+              <div className="nombres-artist-explorer">
+                <p>2022</p>
+              </div>
+            </div>
+            <div className={styles.container_artist_and_album}>
+              <div className="nombres-artist-explorer">
+                <p>00:04:26</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>00:04:26</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Culpa al corazón</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Prince Royce</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Bachata</p>
+              </div>
+
+              <div className="nombres-artist-explorer">
+                <p>2022</p>
+              </div>
+            </div>
+
+            <div className={styles.container_artist_and_album}>
+              <div className="nombres-artist-explorer">
+                <p>00:04:26</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>00:04:26</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Culpa al corazón</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Prince Royce</p>
+              </div>
+              <div className="nombres-artist-explorer">
+                <p>Bachata</p>
+              </div>
+
+              <div className="nombres-artist-explorer">
+                <p>2022</p>
+              </div>
+            </div>
+
+            <div
+              className={styles.video_container}
+              droppable="true"
+              onDragOver={(evt) => draggingOver(evt)}
+              onDrop={(evt) => onDrop(evt, 2)}
+            >
+              {getList(2).map((item) => (
+                <div
+                  key={item.id}
+                  draggable
+                  onDragStart={(evt) => startDrag(evt, item)}
+                >
+                  <div className={styles.container_artist_and_album}>
+                    <div className="nombres-artist-explorer">
+                      <p>{item.duration} </p>
+                    </div>
+                    <div className="nombres-artist-explorer">
+                      <p>{item.duration} </p>
+                    </div>
+                    <div className="nombres-artist-explorer">
+                      <p>{item.title} </p>
+                    </div>
+                    <div className="nombres-artist-explorer">
+                      <p>{item.artist} </p>
+                    </div>
+                    <div className="nombres-artist-explorer">
+                      <p>{item.genero} </p>
+                    </div>
+                    <div className="nombres-artist-explorer">
+                      <p>{item.anio} </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         <div className={styles.fourthcolumn}>
-          <div
-            className={styles.fourthcolumn_space}
-            
-          >
+          <div className={styles.fourthcolumn_space}>
             <IPlay />
           </div>
 

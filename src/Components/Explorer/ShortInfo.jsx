@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Shortinfo.module.css";
 import ShortAlbum from "../Player/ShortAlbum";
 
@@ -6,6 +6,7 @@ const InfoArtist = () => {
   return (
     <>
       <ShortAlbum />
+
       <div className={styles.container_artist_and_album}>
         <div className="nombres-artist-explorer">
           <p>00:04:26</p>
@@ -27,6 +28,7 @@ const InfoArtist = () => {
           <p>2022</p>
         </div>
       </div>
+
       <div className={styles.container_artist_and_album}>
         <div className="nombres-artist-explorer">
           <p>00:04:26</p>
@@ -48,6 +50,7 @@ const InfoArtist = () => {
           <p>2022</p>
         </div>
       </div>
+
       <div className={styles.container_artist_and_album}>
         <div className="nombres-artist-explorer">
           <p>00:04:26</p>
