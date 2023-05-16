@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import Accord from "../Explorer/Accord";
 import styles from "./Logeditor.module.css";
@@ -19,15 +19,10 @@ import ShortAlbum from "../Player/ShortAlbum";
 
 import Multiplayer from "../Multiplayer/Multiplayer";
 import IPlay from "../IPlay/IPlay";
+import { songsdata } from "../Player/audios";
+import cuadricula from "../../Assets/Img/cuadricula.png";
 
-const Logeditor = ({
-  audioElem,
-  isplaying,
-  setisplaying,
-  currentSong,
-  setCurrentSong,
-  songs,
-}) => {
+const Logeditor = () => {
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -117,41 +112,6 @@ const Logeditor = ({
     setTasks(newState);
   };
 
-  const clickRef = useRef();
-
-  const PlayPause = () => {
-    setisplaying(!isplaying);
-  };
-
-  const checkWidth = (e) => {
-    let width = clickRef.current.clientWidth;
-    const offset = e.nativeEvent.offsetX;
-
-    const divprogress = (offset / width) * 100;
-    audioElem.current.currentTime = (divprogress / 100) * currentSong.length;
-  };
-
-  const [isActive, setActive] = useState("false");
-  const ToggleClassPlay = () => {
-    var btn = document.getElementById("btnplay");
-
-    setActive(!isActive);
-    btn.classList.toggle("clicked");
-  };
-
-  const ToggleClassPause = () => {
-    var btn = document.getElementById("btnpause");
-
-    setActive(!isActive);
-    btn.classList.toggle("clicked");
-  };
-
-  const ToggleClassStop = () => {
-    var btn = document.getElementById("btnstop");
-
-    setActive(!isActive);
-    btn.classList.toggle("clicked");
-  };
   return (
     <>
       <Navigation />
@@ -385,6 +345,11 @@ const Logeditor = ({
             style={{ marginTop: "50px" }}
           >
             <div className={styles.input_search}>
+              <img
+                src={cuadricula}
+                alt=""
+                style={{ width: "16px", marginLeft: "5px" }}
+              />
               <input placeholder={`Buscar aquí`} />
               <div className={styles.container_search_icon}>
                 <FontAwesomeIcon

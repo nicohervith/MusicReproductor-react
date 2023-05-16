@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
-import Accord from "./Accord";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
 import {
@@ -8,9 +7,6 @@ import {
   faBackwardFast,
   faPlay,
   faForwardFast,
-  faEllipsisVertical,
-  faChevronDown,
-  faListMusic,
 } from "@fortawesome/free-solid-svg-icons";
 import { songsdata } from "../Player/audios";
 import { useRef, useState, useEffect } from "react";
@@ -19,11 +15,8 @@ import Search from "../Player/Search";
 import Album from "../Player/Album";
 import InfoArtist from "./InfoArtist";
 import nosignal from "../../Assets/Img/nosignal.png";
-import playlist from "../../Assets/Img/playlist.png";
 import styles from "./Explorer.module.css";
 import MediaExplorer from "../MediaExplorer/MediaExplorer";
-
-
 
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
