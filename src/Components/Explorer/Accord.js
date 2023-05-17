@@ -47,7 +47,7 @@ function Accord() {
           <div className="music-styles-container">
             <FontAwesomeIcon
               icon={faFolder}
-              style={{ color: "#00ea85 !important", fontSize: "13px" }}
+              style={{ color: "#00ea85", fontSize: "13px" }}
             />
             <p className="music-styles-text">Bachata</p>
           </div>
@@ -76,7 +76,7 @@ function Accord() {
           <div className="music-styles-container">
             <FontAwesomeIcon
               icon={faFolder}
-              style={{ color: "#ff5fa9 !important", fontSize: "13px" }}
+              style={{ color: "#ff5fa9", fontSize: "13px" }}
             />
             <p className="music-styles-text">Merengue</p>
           </div>

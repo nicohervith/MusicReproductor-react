@@ -1,27 +1,13 @@
-
 .player_container {
   width: 100%;
-  display: grid;
-  grid-template-columns: 5% 95%;
-  border-top: 0.5px solid rgba(138, 136, 137, 0.3) !important;
-  border-bottom: 0.5px solid rgba(138, 136, 137, 0.3);
+  /*   border-top: 0.5px solid rgba(138, 136, 137, 0.3) !important;
+  border-bottom: 0.5px solid rgba(138, 136, 137, 0.3); */
   color: rgb(218, 218, 218);
   align-items: center;
   justify-content: space-between;
   background-color: black;
 }
 
-.controls {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #111111 !important;
-  justify-content: space-around;
-  margin: auto;
-  height: 100%;
-  width: 100%;
-  font-size: 20px !important;
-}
 .play_container {
   width: 100%;
   margin: auto;
@@ -41,11 +27,10 @@
   height: 100%;
 }
 .title {
-  border-bottom: 0.5px solid rgba(138, 136, 137, 0.3);
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 100%;
   position: relative;
 }
 .title_video {
@@ -53,7 +38,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #292929 !important;
   justify-content: space-around;
   margin: auto;
   height: 100%;

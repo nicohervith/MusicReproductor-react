@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import Accord from "../Explorer/Accord";
 import styles from "./Programacion.module.css";
@@ -17,6 +17,9 @@ import {
   faSquare,
   faPause,
   faStop,
+  faClock,
+  faCheck,
+  faForwardStep,
 } from "@fortawesome/free-solid-svg-icons";
 import botondeplay from "../../Assets/Img/botondeplay.png";
 import whatsapp from "../../Assets/Img/whatsapp.png";
@@ -28,6 +31,10 @@ import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import { Dropdown } from "react-bootstrap";
 import IPlay from "../IPlay/IPlay";
+import Player3 from "../Player/Player3";
+import { songsdata } from "../Player/audios";
+import cuadricula from "../../Assets/Img/cuadricula.png";
+import Traffic from "../Traffic/Traffic";
 
 const Programacion = () => {
   const [tasks, setTasks] = useState([
@@ -92,6 +99,34 @@ const Programacion = () => {
       list: 1,
     },
   ]);
+  const [songs, setSongs] = useState(songsdata);
+  const [isplaying, setisplaying] = useState(false);
+  const [currentSong, setCurrentSong] = useState(songsdata[1]);
+  const [nextSong, setNextSong] = useState(songsdata[0]);
+  const [prevSong, setPrevSong] = useState(songsdata[2]);
+
+  const audioElem = useRef();
+
+  const [query, updateQuery] = useState("");
+
+  useEffect(() => {
+    if (isplaying) {
+      audioElem.current.play();
+    } else {
+      audioElem.current.pause();
+    }
+  }, [isplaying]);
+
+  const onPlaying = () => {
+    const duration = audioElem.current.duration;
+    const ct = audioElem.current.currentTime;
+
+    setCurrentSong({
+      ...currentSong,
+      progress: (ct / duration) * 100,
+      length: duration,
+    });
+  };
 
   const getList = (list) => {
     return tasks.filter((item) => item.list === list);
@@ -117,6 +152,14 @@ const Programacion = () => {
     });
 
     setTasks(newState);
+  };
+
+  const [isActive, setActive] = useState("false");
+  const ToggleClassPlay = () => {
+    var btn = document.getElementById("btnplay");
+
+    setActive(!isActive);
+    btn.classList.toggle("clicked");
   };
 
   return (
@@ -276,6 +319,23 @@ const Programacion = () => {
           <div className={styles.container_multiplayer_reproductor}>
             <div className={styles.container_img_reproductor}>
               <img src={princeroyce} alt="" />
+              <audio
+                src={currentSong.url}
+                ref={audioElem}
+                onTimeUpdate={onPlaying}
+              />
+              <Player3
+                songs={songs}
+                setSongs={setSongs}
+                isplaying={isplaying}
+                setisplaying={setisplaying}
+                audioElem={audioElem}
+                currentSong={currentSong}
+                nextSong={nextSong}
+                prevSong={prevSong}
+                artist={currentSong.artist}
+                setCurrentSong={setCurrentSong}
+              />
             </div>
             <div className={styles.container_playlist_reproductor}>
               <p className={styles.title_first}>PLAYLIST</p>
@@ -450,64 +510,50 @@ const Programacion = () => {
         </div>
 
         <div className={styles.fourthcolumn}>
+          <div
+            className={styles.search_container}
+            style={{ marginTop: "50px" }}
+          >
+            <div className={styles.input_search}>
+              <img
+                src={cuadricula}
+                alt=""
+                style={{ width: "16px", marginLeft: "5px" }}
+              />
+              <input placeholder={`Buscar aquí`} />
+              <div className={styles.container_search_icon}>
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+              <div
+                className={styles.fafilter_container}
+                style={{ marginLeft: "3px" }}
+              >
+                <FontAwesomeIcon
+                  icon={faFilter}
+                  style={{
+                    color: "#fff",
+                    margin: "auto",
+                    width: "100%",
+                    cursor: "pointer",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
           <div className={styles.fourthcolumn_space}>
             <IPlay />
           </div>
 
-          <div className="second-aside" style={{ marginTop: "-49px" }}>
-            <Accordion defaultActiveKey="0">
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>
-                  <div className="music-styles-container">
-                    <FontAwesomeIcon
-                      icon={faSliders}
-                      style={{ fontSize: "13px" }}
-                    />
-                    <p className="music-styles-text">GENERAL</p>
-                  </div>
-                </Accordion.Header>
-                <Accordion.Body>
-                  Lorem ipsum dolor sit amet, consectetur
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item
-                className="accordion-item"
-                style={{ borderBottom: "0.3px solid rgba(138, 136, 137, 0.3)" }}
-                eventKey="2"
-              >
-                <Accordion.Header
-                  className="accordion-header"
-                  style={{
-                    background: "#9a1111 !important",
-                  }}
-                >
-                  <div className="music-styles-container">
-                    <FontAwesomeIcon
-                      icon={faSliders}
-                      style={{ fontSize: "13px" }}
-                    />
-                    <p className="music-styles-text">GENERAL</p>
-                  </div>
-                </Accordion.Header>
-                <Accordion.Body>
-                  Lorem ipsum dolor sit amet, consectetur
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="3">
-                <Accordion.Header>
-                  <div className="music-styles-container">
-                    <FontAwesomeIcon
-                      icon={faSliders}
-                      style={{ fontSize: "13px" }}
-                    />
-                    <p className="music-styles-text">GENERAL</p>
-                  </div>
-                </Accordion.Header>
-                <Accordion.Body>
-                  Lorem ipsum dolor sit amet, consectetur
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
+          <div>
+                  <Traffic />
           </div>
         </div>
       </div>

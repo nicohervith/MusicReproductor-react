@@ -14,6 +14,8 @@ import {
   faForwardStep,
   faMagnifyingGlass,
   faFilter,
+  faClock,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import ShortAlbum from "../Player/ShortAlbum";
 
@@ -21,6 +23,7 @@ import Multiplayer from "../Multiplayer/Multiplayer";
 import IPlay from "../IPlay/IPlay";
 import { songsdata } from "../Player/audios";
 import cuadricula from "../../Assets/Img/cuadricula.png";
+import Traffic from "../Traffic/Traffic";
 
 const Logeditor = () => {
   const [tasks, setTasks] = useState([
@@ -382,60 +385,166 @@ const Logeditor = () => {
             <IPlay />
           </div>
 
-          <div className="second-aside" style={{ marginTop: "-49px" }}>
-            <Accordion defaultActiveKey="0">
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>
-                  <div className="music-styles-container">
-                    <FontAwesomeIcon
-                      icon={faSliders}
-                      style={{ fontSize: "13px" }}
-                    />
-                    <p className="music-styles-text">GENERAL</p>
-                  </div>
-                </Accordion.Header>
-                <Accordion.Body>
-                  Lorem ipsum dolor sit amet, consectetur
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item
-                className="accordion-item"
-                style={{ borderBottom: "0.3px solid rgba(138, 136, 137, 0.3)" }}
-                eventKey="2"
+          <div className="second-aside">
+            <div className={styles.traffic_container}>
+              <div className={styles.traffic_title}>
+                <div>
+                  <p>Emisión</p>
+                </div>
+                <div>
+                  <p>Duración</p>
+                </div>
+                <div>
+                  <p>Título</p>
+                </div>
+              </div>
+
+              <div
+                className={styles.smart_block}
+                droppable="true"
+                onDragOver={(evt) => draggingOver(evt)}
+                onDrop={(evt) => onDrop(evt, 1)}
               >
-                <Accordion.Header
-                  className="accordion-header"
-                  style={{
-                    background: "#9a1111 !important",
-                  }}
+                <div
+                  className={styles.smart_block_container}
+                  style={{ backgroundColor: "#ec7300" }}
                 >
-                  <div className="music-styles-container">
+                  <div className={styles.smart_block_title}>
                     <FontAwesomeIcon
-                      icon={faSliders}
-                      style={{ fontSize: "13px" }}
+                      icon={faClock}
+                      style={{ width: "10px", padding: "0 !important" }}
                     />
-                    <p className="music-styles-text">GENERAL</p>
+                    <p>12:00:00 PM</p>
                   </div>
-                </Accordion.Header>
-                <Accordion.Body>
-                  Lorem ipsum dolor sit amet, consectetur
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="3">
-                <Accordion.Header>
-                  <div className="music-styles-container">
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div>
+                    <p>SmartBlock </p>
+                  </div>
+                </div>
+
+                {getList(1).map((item) => (
+                  <div
+                    className={styles.smart_block_container_info}
+                    key={item.id}
+                    draggable
+                    onDragStart={(evt) => startDrag(evt, item)}
+                  >
+                    <div className={styles.smart_block_info}>
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        style={{ width: "10px", padding: "0 !important" }}
+                      />
+                      <p>12:00:00 PM</p>
+                    </div>
+                    <div>
+                      <p>01:50:40 </p>
+                    </div>
+                    <div className={styles.nombre}>
+                      <p>Nombre </p>
+                    </div>
+                  </div>
+                ))}
+
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
                     <FontAwesomeIcon
-                      icon={faSliders}
-                      style={{ fontSize: "13px" }}
+                      icon={faPlay}
+                      style={{ width: "10px", padding: "0 !important" }}
                     />
-                    <p className="music-styles-text">GENERAL</p>
+                    <p>12:00:00 PM</p>
                   </div>
-                </Accordion.Header>
-                <Accordion.Body>
-                  Lorem ipsum dolor sit amet, consectetur
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faForwardStep}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.smart_block_green}>
+                <div
+                  className={styles.smart_block_container}
+                  style={{ backgroundColor: "#01e985" }}
+                >
+                  <div className={styles.smart_block_title}>
+                    <FontAwesomeIcon
+                      icon={faClock}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div>
+                    <p>SmartBlock </p>
+                  </div>
+                </div>
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p> Nombre </p>
+                  </div>
+                </div>
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faPlay}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faForwardStep}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
