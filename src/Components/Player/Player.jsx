@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
-import "./player.scss";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faSquare } from "@fortawesome/free-solid-svg-icons";
 import chords from "../../Assets/Video/chords.mp4";
+import styles from "./Player.module.css";
 
 const Player = ({
   audioElem,
@@ -49,13 +49,17 @@ const Player = ({
   };
 
   return (
-    <div className="player_container">
-      <div className="controls">
+    <div className={styles.player_container}>
+      <div className={styles.controls}>
         {/* <BsFillSkipStartCircleFill className="btn_action" onClick={skipBack} /> */}
-        <div id="btnplay" className="play-container" onClick={ToggleClassPlay}>
+        <div
+          id="btnplay"
+          className={styles.play_container}
+          onClick={ToggleClassPlay}
+        >
           <FontAwesomeIcon
             icon={faPlay}
-            className="btn_action pp"
+            className={styles.btn_action}
             onClick={PlayPause}
             style={{ cursor: "pointer" }}
           />
@@ -64,12 +68,12 @@ const Player = ({
         {isplaying ? (
           <div
             id="btnpause"
-            className="play-container"
+            className={styles.play_container}
             onClick={ToggleClassPause}
           >
             <FontAwesomeIcon
               icon={faPause}
-              className="btn_action pp"
+              className={styles.btn_action}
               onClick={PlayPause}
               style={{ cursor: "pointer" }}
             />
@@ -77,46 +81,50 @@ const Player = ({
         ) : (
           <div
             id="btnpause"
-            className="play-container"
+            className={styles.play_container}
             onClick={ToggleClassPause}
           >
             <FontAwesomeIcon
               icon={faPause}
-              className="btn_action pp"
+              className={styles.btn_action}
               onClick={PlayPause}
               style={{ cursor: "pointer" }}
             />
           </div>
         )}
-        <div id="btnstop" className="play-container" onClick={ToggleClassStop}>
+        <div
+          id="btnstop"
+          className={styles.play_container}
+          onClick={ToggleClassStop}
+        >
           <FontAwesomeIcon
-            className="btn_action pp"
+            className={styles.btn_action}
             icon={faSquare}
             style={{ cursor: "pointer" }}
           />
         </div>
-
-        {/*   <BsFillSkipEndCircleFill className="btn_action" onClick={skiptoNext} /> */}
       </div>
-      <div className="title-and-navigation">
-        <div className="title-video">
-          <div className="title">
-            <p>{currentSong.title}</p>
+      <div className={styles.title_and_navigation}>
+        <div className={styles.title_video}>
+          <div className={styles.title}>
+            <p className={styles.title_current}>{currentSong.title}</p>
+            <span className="">{currentSong.artist}</span>
+            <p className={styles.time}>00:04:38</p>
           </div>
           <div className="video">
-            <video autoplay muted>
+            <video autoplay muted controls>
               <source src={chords} type="video/mp4" />
             </video>
           </div>
         </div>
-        <div className="navigation">
+        <div className={styles.navigation}>
           <div
-            className="navigation_wrapper"
+            className={styles.navigation_wrapper}
             onClick={checkWidth}
             ref={clickRef}
           >
             <div
-              className="seek_bar"
+              className={styles.seek_bar}
               style={{ width: `${currentSong.progress + "%"}` }}
             ></div>
           </div>

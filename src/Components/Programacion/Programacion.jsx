@@ -49,6 +49,7 @@ const Programacion = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
     {
       id: 2,
@@ -61,6 +62,7 @@ const Programacion = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
     {
       id: 3,
@@ -73,6 +75,7 @@ const Programacion = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
     {
       id: 4,
@@ -85,6 +88,7 @@ const Programacion = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
     {
       id: 5,
@@ -97,6 +101,7 @@ const Programacion = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
   ]);
   const [songs, setSongs] = useState(songsdata);
@@ -266,9 +271,12 @@ const Programacion = () => {
             <div className={styles.social_media}>
               <div className={styles.social_media_blocks_reproduction_mid}>
                 <div className={styles.play_next_prev}>
-                  <FontAwesomeIcon icon={faBackwardFast} />
+                  <FontAwesomeIcon
+                    icon={faForwardStep}
+                    style={{ transform: "rotate(180deg)" }}
+                  />
                   <FontAwesomeIcon icon={faPlay} />
-                  <FontAwesomeIcon icon={faForwardFast} />
+                  <FontAwesomeIcon icon={faForwardStep} />
                 </div>
                 <div className="reproduciendo">
                   <p>La Bachata</p>
@@ -553,7 +561,183 @@ const Programacion = () => {
           </div>
 
           <div>
-                  <Traffic />
+            <div className={styles.traffic_container}>
+              <div className={styles.traffic_title}>
+                <div>
+                  <p>Emisión</p>
+                </div>
+                <div>
+                  <p>Duración</p>
+                </div>
+                <div>
+                  <p>Título</p>
+                </div>
+              </div>
+
+              <div
+                className={styles.smart_block}
+                droppable="true"
+                onDragOver={(evt) => draggingOver(evt)}
+                onDrop={(evt) => onDrop(evt, 3)}
+              >
+                <div
+                  className={styles.smart_block_container}
+                  style={{ backgroundColor: "#ec7300" }}
+                  droppable="true"
+                  onDragOver={(evt) => draggingOver(evt)}
+                  onDrop={(evt) => onDrop(evt, 3)}
+                >
+                  <div className={styles.smart_block_title}>
+                    <FontAwesomeIcon
+                      icon={faClock}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div>
+                    <p>SmartBlock </p>
+                  </div>
+                </div>
+
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faPlay}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faForwardStep}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+                {getList(3).map((item) => (
+                  <div
+                    className={styles.smart_block_container_info}
+                    key={item.id}
+                    draggable
+                    onDragStart={(evt) => startDrag(evt, item)}
+                  >
+                    <div className={styles.smart_block_info}>
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        style={{ width: "10px", padding: "0 !important" }}
+                      />
+                      <p>{item.hour} </p>
+                    </div>
+                    <div>
+                      <p>{item.duration} </p>
+                    </div>
+                    <div className={styles.nombre}>
+                      <p>{item.title} </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div
+                className={styles.smart_block_green}
+                droppable="true"
+                onDragOver={(evt) => draggingOver(evt)}
+                onDrop={(evt) => onDrop(evt, 4)}
+              >
+                <div
+                  className={styles.smart_block_container}
+                  style={{ backgroundColor: "#01e985" }}
+                  droppable="true"
+                  onDragOver={(evt) => draggingOver(evt)}
+                  onDrop={(evt) => onDrop(evt, 4)}
+                >
+                  <div className={styles.smart_block_title}>
+                    <FontAwesomeIcon
+                      icon={faClock}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div>
+                    <p>SmartBlock </p>
+                  </div>
+                </div>
+
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faPlay}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faForwardStep}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+                {getList(4).map((item) => (
+                  <div
+                    className={styles.smart_block_container_info}
+                    key={item.id}
+                    draggable
+                    onDragStart={(evt) => startDrag(evt, item)}
+                  >
+                    <div className={styles.smart_block_info}>
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        style={{ width: "10px", padding: "0 !important" }}
+                      />
+                      <p>{item.hour} </p>
+                    </div>
+                    <div>
+                      <p>{item.duration} </p>
+                    </div>
+                    <div className={styles.nombre}>
+                      <p>{item.title} </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

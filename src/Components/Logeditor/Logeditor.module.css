@@ -1,6 +1,6 @@
 .explorercontainer {
   display: grid;
-  grid-template-columns: 13% 17% 53% 17%;
+  grid-template-columns: 13% 17% 51% 19%;
   height: 100vh;
   background-color: #000000;
 }
@@ -393,7 +393,7 @@
 .radio_contenido p {
   font-size: 9px;
   color: #ccc;
-  height: 12px;
+  height: 10px;
   padding: 0;
   margin: 0;
   text-transform: uppercase;

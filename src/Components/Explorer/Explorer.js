@@ -4,9 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
 import {
   faSliders,
-  faBackwardFast,
   faPlay,
-  faForwardFast,
+  faForwardStep,
 } from "@fortawesome/free-solid-svg-icons";
 import { songsdata } from "../Player/audios";
 import { useRef, useState, useEffect } from "react";
@@ -21,8 +20,7 @@ import MediaExplorer from "../MediaExplorer/MediaExplorer";
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
   const [isplaying, setisplaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songsdata[0]);
-  const [currentArtist, setCurrentArtist] = useState(songsdata.artist);
+  const [currentSong, setCurrentSong] = useState(songsdata[1]);
 
   const audioElem = useRef();
 
@@ -93,9 +91,12 @@ const Explorer = () => {
             <div className="social-media">
               <div className="social-media-blocks-reproduction-mid">
                 <div className="play-next-prev">
-                  <FontAwesomeIcon icon={faBackwardFast} />
+                  <FontAwesomeIcon
+                    icon={faForwardStep}
+                    style={{ transform: "rotate(180deg)" }}
+                  />
                   <FontAwesomeIcon icon={faPlay} />
-                  <FontAwesomeIcon icon={faForwardFast} />
+                  <FontAwesomeIcon icon={faForwardStep} />
                 </div>
                 <div className="reproduciendo">
                   <p>Reproduciendo a</p>

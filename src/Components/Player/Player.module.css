@@ -1,0 +1,84 @@
+.player_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5% 95%;
+  border-top: 0.5px solid rgba(138, 136, 137, 0.3) !important;
+  border-bottom: 0.5px solid rgba(138, 136, 137, 0.3);
+  color: rgb(218, 218, 218);
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+}
+.controls {
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #111214 !important;
+  justify-content: space-around;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  font-size: 20px !important;
+}
+.play_container {
+  width: 100%;
+  margin: auto;
+}
+.btn_action {
+  cursor: pointer;
+  width: 100%;
+}
+.btn_action:hover {
+  color: white;
+}
+
+.title_and_navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.title_video {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.title {
+  font-size: inherit;
+  margin-top: 20px;
+  padding-left: 10px;
+}
+.title p {
+}
+.title span {
+  font-size: 12px;
+  color: #949494;
+}
+.navigation {
+  width: 100%;
+}
+.navigation_wrapper {
+  min-width: 100%;
+  background-color: rgba(119, 119, 119, 0.781);
+  height: 7px;
+
+  cursor: pointer;
+}
+.seek_bar {
+  width: 0;
+  height: 100%;
+  background-color: #0084a3;
+}
+.title_current {
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 13px;
+}
+.time {
+  font-weight: 600;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 12px;
+}

@@ -1,15 +1,6 @@
 import React, { useRef, useState } from "react";
-import "./player.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlay,
-  faPause,
-  faSquare,
-  faForwardStep,
-} from "@fortawesome/free-solid-svg-icons";
+import {} from "@fortawesome/free-solid-svg-icons";
 import styles from "./Player3.module.css";
-import { songsdata } from "./audios";
-import Programacion from "../Programacion/Programacion";
 
 const Player = ({
   audioElem,

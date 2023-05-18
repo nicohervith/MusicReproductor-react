@@ -38,6 +38,7 @@ const Logeditor = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
     {
       id: 2,
@@ -50,6 +51,7 @@ const Logeditor = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
     {
       id: 3,
@@ -62,6 +64,7 @@ const Logeditor = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
     {
       id: 4,
@@ -74,6 +77,7 @@ const Logeditor = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
     {
       id: 5,
@@ -86,6 +90,7 @@ const Logeditor = () => {
       genero: "bachata",
       anio: "2022",
       list: 1,
+      hour: "12:00:00 PM",
     },
   ]);
 
@@ -237,7 +242,7 @@ const Logeditor = () => {
         <div className={styles.thirdcolumn}>
           <Multiplayer />
 
-          <div className="" style={{ height: "50%" }}>
+          <div className="" style={{ height: "50% !important" }}>
             <ShortAlbum />
             <div className={styles.container_artist_and_album}>
               <div className="nombres-artist-explorer">
@@ -403,11 +408,14 @@ const Logeditor = () => {
                 className={styles.smart_block}
                 droppable="true"
                 onDragOver={(evt) => draggingOver(evt)}
-                onDrop={(evt) => onDrop(evt, 1)}
+                onDrop={(evt) => onDrop(evt, 3)}
               >
                 <div
                   className={styles.smart_block_container}
                   style={{ backgroundColor: "#ec7300" }}
+                  droppable="true"
+                  onDragOver={(evt) => draggingOver(evt)}
+                  onDrop={(evt) => onDrop(evt, 3)}
                 >
                   <div className={styles.smart_block_title}>
                     <FontAwesomeIcon
@@ -424,7 +432,37 @@ const Logeditor = () => {
                   </div>
                 </div>
 
-                {getList(1).map((item) => (
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faPlay}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+                <div className={styles.smart_block_container_info}>
+                  <div className={styles.smart_block_info}>
+                    <FontAwesomeIcon
+                      icon={faForwardStep}
+                      style={{ width: "10px", padding: "0 !important" }}
+                    />
+                    <p>12:00:00 PM</p>
+                  </div>
+                  <div>
+                    <p>01:50:40 </p>
+                  </div>
+                  <div className={styles.nombre}>
+                    <p>Nombre </p>
+                  </div>
+                </div>
+                {getList(3).map((item) => (
                   <div
                     className={styles.smart_block_container_info}
                     key={item.id}
@@ -436,53 +474,30 @@ const Logeditor = () => {
                         icon={faCheck}
                         style={{ width: "10px", padding: "0 !important" }}
                       />
-                      <p>12:00:00 PM</p>
+                      <p>{item.hour} </p>
                     </div>
                     <div>
-                      <p>01:50:40 </p>
+                      <p>{item.duration} </p>
                     </div>
                     <div className={styles.nombre}>
-                      <p>Nombre </p>
+                      <p>{item.title} </p>
                     </div>
                   </div>
                 ))}
-
-                <div className={styles.smart_block_container_info}>
-                  <div className={styles.smart_block_info}>
-                    <FontAwesomeIcon
-                      icon={faPlay}
-                      style={{ width: "10px", padding: "0 !important" }}
-                    />
-                    <p>12:00:00 PM</p>
-                  </div>
-                  <div>
-                    <p>01:50:40 </p>
-                  </div>
-                  <div className={styles.nombre}>
-                    <p>Nombre </p>
-                  </div>
-                </div>
-                <div className={styles.smart_block_container_info}>
-                  <div className={styles.smart_block_info}>
-                    <FontAwesomeIcon
-                      icon={faForwardStep}
-                      style={{ width: "10px", padding: "0 !important" }}
-                    />
-                    <p>12:00:00 PM</p>
-                  </div>
-                  <div>
-                    <p>01:50:40 </p>
-                  </div>
-                  <div className={styles.nombre}>
-                    <p>Nombre </p>
-                  </div>
-                </div>
               </div>
 
-              <div className={styles.smart_block_green}>
+              <div
+                className={styles.smart_block_green}
+                droppable="true"
+                onDragOver={(evt) => draggingOver(evt)}
+                onDrop={(evt) => onDrop(evt, 4)}
+              >
                 <div
                   className={styles.smart_block_container}
                   style={{ backgroundColor: "#01e985" }}
+                  droppable="true"
+                  onDragOver={(evt) => draggingOver(evt)}
+                  onDrop={(evt) => onDrop(evt, 4)}
                 >
                   <div className={styles.smart_block_title}>
                     <FontAwesomeIcon
@@ -498,21 +513,7 @@ const Logeditor = () => {
                     <p>SmartBlock </p>
                   </div>
                 </div>
-                <div className={styles.smart_block_container_info}>
-                  <div className={styles.smart_block_info}>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      style={{ width: "10px", padding: "0 !important" }}
-                    />
-                    <p>12:00:00 PM</p>
-                  </div>
-                  <div>
-                    <p>01:50:40 </p>
-                  </div>
-                  <div className={styles.nombre}>
-                    <p> Nombre </p>
-                  </div>
-                </div>
+
                 <div className={styles.smart_block_container_info}>
                   <div className={styles.smart_block_info}>
                     <FontAwesomeIcon
@@ -543,6 +544,28 @@ const Logeditor = () => {
                     <p>Nombre </p>
                   </div>
                 </div>
+                {getList(4).map((item) => (
+                  <div
+                    className={styles.smart_block_container_info}
+                    key={item.id}
+                    draggable
+                    onDragStart={(evt) => startDrag(evt, item)}
+                  >
+                    <div className={styles.smart_block_info}>
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        style={{ width: "10px", padding: "0 !important" }}
+                      />
+                      <p>{item.hour} </p>
+                    </div>
+                    <div>
+                      <p>{item.duration} </p>
+                    </div>
+                    <div className={styles.nombre}>
+                      <p>{item.title} </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

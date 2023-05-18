@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import "./player.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -8,7 +7,7 @@ import {
   faForwardStep,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Player2.module.css";
-import { songsdata } from "./audios";
+
 
 const Player = ({
   audioElem,
