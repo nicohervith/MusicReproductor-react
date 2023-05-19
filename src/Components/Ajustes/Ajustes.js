@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "../Navigation/Navigation";
-import styles from './Ajustes.module.css';
+import styles from "./Ajustes.module.css";
 import playgrabaciones from "../../Assets/Img/playgrabaciones.png";
 import ecualizer from "../../Assets/Img/ecualizer.png";
 import reloj from "../../Assets/Img/reloj.png";
+import Ecualizer from "./Ecualizer";
+
+
+
 const Ajustes = () => {
+
+    const [volume, setVolume] = useState(0.8);
+
   return (
     <>
       <Navigation />
@@ -64,8 +71,9 @@ const Ajustes = () => {
           </div>
         </div>
 
-        <div class={styles.ecu_container}>
-          
+        <div className={styles.ecu_container}>
+          <div></div>
+          <Ecualizer />
         </div>
       </div>
     </>

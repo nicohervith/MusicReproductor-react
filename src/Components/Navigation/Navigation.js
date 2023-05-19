@@ -14,6 +14,7 @@ import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import menu from "../../Assets/Img/menu.png";
+import styles from './Navigation.module.css'
 
 function Navigation() {
   const [isActive, setActive] = useState("false");
@@ -76,6 +77,9 @@ function Navigation() {
               alt=""
               style={{ width: "16px", marginLeft: "5px", cursor: "pointer" }}
             />
+            {/* <div className={styles.menu_block}>
+
+            </div> */}
             <img src={switchmode} alt="" />
           </div>
         </div>
