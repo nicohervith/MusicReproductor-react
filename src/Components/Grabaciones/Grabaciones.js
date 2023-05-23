@@ -4,6 +4,9 @@ import styles from "./Grabaciones.module.css";
 import playgrabaciones from "../../Assets/Img/playgrabaciones.png";
 import ecualizer from "../../Assets/Img/ecualizer.png";
 import reloj from "../../Assets/Img/reloj.png";
+import transmitiendoahora from "../../Assets/Img/transmitiendoahora.png";
+import herramientas from "../../Assets/Img/herramientas.png";
+import ducking from "../../Assets/Img/ducking.png";
 
 const Grabaciones = () => {
   return (
@@ -11,6 +14,7 @@ const Grabaciones = () => {
       <Navigation />
       <div className={styles.grabaciones_container}>
         <div class={styles.grabaciones_info}>
+
           <div className={styles.grabaciones_block}>
             <div className={styles.img_grabaciones}>
               <img src={playgrabaciones} alt="" />
@@ -35,34 +39,39 @@ const Grabaciones = () => {
             </div>
             <div className={styles.grabaciones_block_short}>
               <div className={styles.reloj_container}>
-                <img src={reloj} alt="" />
+                <img
+                  src={transmitiendoahora}
+                  alt=""
+                  style={{ width: "40px" }}
+                />
               </div>
               <div className={styles.info_short_blocks}>
-                <p>Jue, 11 de junio 2022</p>
-                <h5>08:52:39 A.M.</h5>
+                <p>Transmitiendo ahora</p>
+                <h5>2685 Oyentes</h5>
               </div>
             </div>
           </div>
           <div className={styles.container_short_blocks}>
             <div className={styles.grabaciones_block_short}>
               <div className={styles.reloj_container}>
-                <img src={reloj} alt="" />
+                <img src={herramientas} alt="" style={{ width: "30px" }} />
               </div>
               <div className={styles.info_short_blocks}>
                 <p>Jue, 11 de junio 2022</p>
-                <h5>08:52:39 A.M.</h5>
+                <h5>HERRAMIENTAS</h5>
               </div>
             </div>
             <div className={styles.grabaciones_block_short}>
               <div className={styles.reloj_container}>
-                <img src={reloj} alt="" />
+                <img src={ducking} alt="" />
               </div>
               <div className={styles.info_short_blocks}>
-                <p>Jue, 11 de junio 2022</p>
-                <h5>08:52:39 A.M.</h5>
+                <p>Auto ducking</p>
+                <h5>APAGADO</h5>
               </div>
             </div>
           </div>
+          
         </div>
 
         <div class={styles.ecu_container}>

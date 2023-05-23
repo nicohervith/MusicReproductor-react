@@ -6,3 +6,8 @@
   margin: auto;
   color: #878787;
 }
+
+
+.chevron .accordion-button:not(.collapsed)::after::after {
+  transform: rotate(-180deg) !important;
+}

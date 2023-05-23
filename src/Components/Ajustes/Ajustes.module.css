@@ -3,17 +3,16 @@ p {
 }
 .grabaciones_container {
   background-color: #000000;
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   display: grid;
-  grid-template-rows: 40% 60%;
+  grid-template-rows: 30% 70%;
 }
 .grabaciones_info {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
   width: 100%;
-  height: 20%;
-  margin-top: 70px;
+  height: 100%;
 }
 
 .grabaciones_block {
@@ -67,11 +66,13 @@ p {
   margin: auto;
   background-color: #171b1e;
   display: grid;
+  grid-template-rows: 50% 50%;
 }
 
 .container_short_blocks {
   display: grid;
   grid-template-columns: 50% 50%;
+  padding-top: 50px;
 }
 .info_short_blocks {
   width: 100%;
@@ -81,7 +82,7 @@ p {
   width: 100%;
   display: flex;
   align-items: center;
-  margin: auto;
+  margin-top: 15px;
 }
 .reloj_container img {
   width: 45px;
@@ -270,4 +271,124 @@ p {
   transform: rotateZ(90deg);
   margin-bottom: 0 !important;
   height: 14px;
+}
+
+/******** CANAL *********/
+
+.nuevo_canal {
+  width: 80px;
+  height: 430px;
+  background-color: #171b1e;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.nuevo_canal_container {
+  margin-left: 10px;
+  display: flex;
+  gap: 12px;
+  height: 95%;
+}
+.container_img_canal {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+}
+.container_img_canal img {
+  width: 40px;
+  margin: auto;
+  cursor: pointer;
+}
+.container_text_canal {
+  cursor: pointer;
+}
+.container_text_canal p {
+  text-align: center;
+  margin-bottom: 0 !important;
+  color: rgb(103, 103, 103);
+  font-size: 12px;
+}
+.container_text_canal h5 {
+  color: #007e9e;
+}
+
+.config_nuevo_canal {
+  width: 300px;
+  height: 430px;
+  background-color: #171b1e;
+  padding: 12px;
+}
+.title_canal p {
+  color: rgb(244, 244, 244);
+  font-size: 12px;
+}
+.input {
+  background-color: #0d0d0d;
+  border: 1px solid rgba(123, 123, 123, 0.3);
+  border-radius: 5px;
+  margin-top: 7px;
+  color: gray;
+  padding-left: 3px;
+}
+.container_input p {
+  color: rgb(244, 244, 244);
+  font-size: 12px;
+}
+.container_input {
+  margin-top: 10px;
+
+  color: gray;
+}
+
+.checkbox_container {
+  display: flex;
+  gap: 5px;
+}
+
+.checkbox_container p {
+  font-size: 10px;
+  margin-bottom: 0 !important;
+}
+.input_check {
+  color: #595959;
+}
+
+.button_container {
+  display: flex;
+  align-items: end;
+  height: 55px;
+  gap:2px;
+}
+.button_add {
+  background-color: #0084a3;
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+.button_add a {
+  text-decoration: none;
+  font-size: 11px;
+  color: rgb(202, 202, 202);
+  margin: auto;
+}
+.button_cancel {
+  background-color: #494949;
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+.button_cancel a {
+  text-decoration: none;
+  font-size: 11px;
+  color: rgb(202, 202, 202);
+  margin: auto;
 }

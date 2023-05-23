@@ -2,8 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LOGO2 from "../../Assets/Img/LOGO2.png";
 import switchmode from "../../Assets/Img/switchmode.png";
 import { Link } from "react-router-dom";
-/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons"; */
 import { Dropdown } from "react-bootstrap";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
@@ -14,7 +12,13 @@ import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import menu from "../../Assets/Img/menu.png";
-import styles from './Navigation.module.css'
+import styles from "./Navigation.module.css";
+import media from "../../Assets/Img/media.png";
+import logeditor from "../../Assets/Img/logeditor.png";
+import programacion from "../../Assets/Img/programacion.png";
+import playout from "../../Assets/Img/playout.png";
+import grabaciones from "../../Assets/Img/grabaciones.png";
+import ajustes from "../../Assets/Img/ajustes.png";
 
 function Navigation() {
   const [isActive, setActive] = useState("false");
@@ -72,11 +76,73 @@ function Navigation() {
               ></span>
             </label>
             <FontAwesomeIcon icon={faBell} style={{ cursor: "pointer" }} />
-            <img
-              src={menu}
-              alt=""
-              style={{ width: "16px", marginLeft: "5px", cursor: "pointer" }}
-            />
+            <Dropdown>
+              <DropdownToggle
+                className={styles.dropdown_toggle}
+                style={{
+                  backgroundColor: "transparent",
+                  border: "none",
+                  width: "25px",
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <img
+                  src={menu}
+                  alt=""
+                  style={{
+                    width: "16px",
+                    cursor: "pointer",
+                  }}
+                />
+              </DropdownToggle>
+              <DropdownMenu
+                style={{
+                  backgroundColor: "transparent",
+                  padding: "0px",
+                  width: "100px",
+                  paddingLeft: "50px",
+                }}
+              >
+                {/* <DropdownItem>Accion 1</DropdownItem>
+                <DropdownItem>Accion 1</DropdownItem>
+                <DropdownItem>Accion 1</DropdownItem> */}
+
+                <div className={styles.dropdown_menu_item}>
+                  <Link to="/explorer">
+                    <div className={styles.container_menu_dropdown}>
+                      <img src={media} alt="" />{" "}
+                    </div>
+                  </Link>
+                  <Link to="/playout">
+                    <div className={styles.container_menu_dropdown}>
+                      <img src={playout} alt="" />
+                    </div>
+                  </Link>
+                  <Link to="/logeditor">
+                    <div className={styles.container_menu_dropdown}>
+                      <img src={logeditor} alt="" />{" "}
+                    </div>
+                  </Link>
+                  <Link to="/programacion">
+                    <div className={styles.container_menu_dropdown}>
+                      <img src={programacion} alt="" />{" "}
+                    </div>
+                  </Link>
+                  <Link to="/grabaciones">
+                    <div className={styles.container_menu_dropdown}>
+                      <img src={grabaciones} alt="" />{" "}
+                    </div>
+                  </Link>
+                  <Link to="/ajustes">
+                    <div className={styles.container_menu_dropdown}>
+                      <img src={ajustes} alt="" />{" "}
+                    </div>
+                  </Link>
+                </div>
+              </DropdownMenu>
+            </Dropdown>
             {/* <div className={styles.menu_block}>
 
             </div> */}

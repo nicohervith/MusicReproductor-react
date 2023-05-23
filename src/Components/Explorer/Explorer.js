@@ -3,9 +3,10 @@ import Navigation from "../Navigation/Navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
 import {
-  faSliders,
   faPlay,
   faForwardStep,
+  faEllipsisVertical,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { songsdata } from "../Player/audios";
 import { useRef, useState, useEffect } from "react";
@@ -14,6 +15,7 @@ import Search from "../Player/Search";
 import Album from "../Player/Album";
 import InfoArtist from "./InfoArtist";
 import nosignal from "../../Assets/Img/nosignal.png";
+import barrasdesonido from "../../Assets/Img/barrasdesonido.png";
 import styles from "./Explorer.module.css";
 import MediaExplorer from "../MediaExplorer/MediaExplorer";
 
@@ -113,15 +115,17 @@ const Explorer = () => {
           </div>
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="1">
-              <Accordion.Header>
+              <Accordion.Header className={styles.accordion_header}>
                 <div className="music-styles-container">
-                  <FontAwesomeIcon
-                    icon={faSliders}
-                    style={{ fontSize: "13px" }}
-                  />
+                  <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
-                  {/* <FontAwesomeIcon className="drop-icon" icon={faChevronDown} />
-                <FontAwesomeIcon icon={faEllipsisVertical} /> */}
+                  {/* <div className={styles.chevron} >
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      className="accordion-chevron"
+                    />
+                  </div>
+                  <FontAwesomeIcon icon={faEllipsisVertical} /> */}
                 </div>
               </Accordion.Header>
               <Accordion.Body style={{ padding: "2px" }}>
@@ -150,10 +154,7 @@ const Explorer = () => {
                 }}
               >
                 <div className="music-styles-container">
-                  <FontAwesomeIcon
-                    icon={faSliders}
-                    style={{ fontSize: "13px" }}
-                  />
+                  <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
                 </div>
               </Accordion.Header>
@@ -174,10 +175,7 @@ const Explorer = () => {
             <Accordion.Item eventKey="3">
               <Accordion.Header>
                 <div className="music-styles-container">
-                  <FontAwesomeIcon
-                    icon={faSliders}
-                    style={{ fontSize: "13px" }}
-                  />
+                  <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
                 </div>
               </Accordion.Header>

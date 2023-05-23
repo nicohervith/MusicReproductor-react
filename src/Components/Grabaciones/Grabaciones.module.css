@@ -63,6 +63,7 @@
   margin: auto;
   background-color: #171b1e;
   display: grid;
+  grid-template-rows: 50% 50%;
 }
 
 .container_short_blocks {
@@ -77,7 +78,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  margin: auto;
+  margin-top: 15px;
 }
 .reloj_container img {
   width: 45px;

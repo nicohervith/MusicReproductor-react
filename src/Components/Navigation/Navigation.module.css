@@ -3,5 +3,30 @@
   height: 50px;
   width: 50px;
   background-color: pink;
-  
+}
+
+.dropdown_toggle::after {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.dropdown_menu_item {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 110px;
+  margin: auto;
+  background-color: #171b1e;
+  border: 0.3px solid rgba(138, 136, 137, 0.3);
+  height: 130px;
+}
+.container_menu_dropdown img {
+  width: 34px;
+}
+.container_menu_dropdown a {
+  width: 40px;
+  margin: auto;
+}
+.dropdown_menu_item a {
+  margin: auto;
 }

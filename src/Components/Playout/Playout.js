@@ -10,6 +10,7 @@ import Album from "../Player/Album";
 import ShortInfo from "../Explorer/ShortInfo";
 import Multiplayer from "../Multiplayer/Multiplayer";
 import IPlay from "../IPlay/IPlay";
+import Traffic from "../Traffic/Traffic";
 
 const Playout = () => {
   const [selected, setSelected] = useState("First");
@@ -79,16 +80,30 @@ const Playout = () => {
                     value={selected2}
                     onChange={(e) => handleChange2(e)}
                   >
-                    <option>Seleccione una opción </option>
-                    <option>Media Explorer</option>
-                    <option>Multiplayer</option>
-                    <option>SmartList</option>
-                    <option>iPlay</option>
-                    <option>Comercial</option>
+                    <option>
+                      {" "}
+                      <p>Seleccione una opción</p>{" "}
+                    </option>
+                    <option>
+                      <p> Media Explorer </p>
+                    </option>
+                    <option>
+                      {" "}
+                      <p> Multiplayer </p>
+                    </option>
+                    <option>
+                      <p>SmartList </p>
+                    </option>
+                    <option>
+                      <p>iPlay</p>
+                    </option>
+                    <option>
+                      <p>Comercial </p>
+                    </option>
                   </select>
                 </li>
                 {selected2 === "Media Explorer" ? (
-                  <div style={{ width: "100%" }}>
+                  <div style={{ width: "100%", height: "35%" }}>
                     <MediaExplorer />
                   </div>
                 ) : (
@@ -125,7 +140,7 @@ const Playout = () => {
                 {selected3 == "Multiplayer" ? <ShortInfo /> : ""}
                 {selected3 == "SmartList" ? <ShortInfo /> : ""}
                 {selected3 == "iPlay" ? <IPlay /> : ""}
-                {selected3 == "Comercial" ? <Accord /> : ""}
+                {selected3 == "Comercial" ? <Traffic /> : ""}
               </div>
             </div>
           </div>
@@ -158,13 +173,14 @@ const Playout = () => {
                 {selected4 == "Multiplayer" ? <Accord /> : ""}
                 {selected4 == "SmartList" ? <Accord /> : ""}
                 {selected4 == "iPlay" ? (
-                  <div style={{ width: "100%", height: "100%" }}>
+                  <div style={{ width: "100%" }}>
                     {" "}
                     <IPlay />
                   </div>
                 ) : (
                   ""
                 )}
+                {selected4 == "Comercial" ? <Traffic /> : ""}
               </div>
             </div>
           </div>
@@ -202,7 +218,7 @@ const Playout = () => {
                 ) : (
                   ""
                 )}
-                {selected4 == "Comercial" ? <Accord /> : ""}
+                {selected5 == "Comercial" ? <Traffic /> : ""}
               </div>
             </div>
           </div>

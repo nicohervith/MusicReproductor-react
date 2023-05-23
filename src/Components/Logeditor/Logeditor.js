@@ -244,73 +244,80 @@ const Logeditor = () => {
 
           <div className="" style={{ height: "50% !important" }}>
             <ShortAlbum />
-            <div className={styles.container_artist_and_album}>
-              <div className="nombres-artist-explorer">
-                <p>00:04:26</p>
+            <div
+              droppable="true"
+              onDragOver={(evt) => draggingOver(evt)}
+              onDrop={(evt) => onDrop(evt, 2)}
+            >
+              <div className={styles.container_artist_and_album}>
+                <div className="nombres-artist-explorer">
+                  <p>00:04:26</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>00:04:26</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Culpa al corazón</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Prince Royce</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Bachata</p>
+                </div>
+
+                <div className="nombres-artist-explorer">
+                  <p>2022</p>
+                </div>
               </div>
-              <div className="nombres-artist-explorer">
-                <p>00:04:26</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Culpa al corazón</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Prince Royce</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Bachata</p>
+              <div className={styles.container_artist_and_album}>
+                <div className="nombres-artist-explorer">
+                  <p>00:04:26</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>00:04:26</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Culpa al corazón</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Prince Royce</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Bachata</p>
+                </div>
+
+                <div className="nombres-artist-explorer">
+                  <p>2022</p>
+                </div>
               </div>
 
-              <div className="nombres-artist-explorer">
-                <p>2022</p>
-              </div>
-            </div>
-            <div className={styles.container_artist_and_album}>
-              <div className="nombres-artist-explorer">
-                <p>00:04:26</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>00:04:26</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Culpa al corazón</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Prince Royce</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Bachata</p>
-              </div>
+              <div className={styles.container_artist_and_album}>
+                <div className="nombres-artist-explorer">
+                  <p>00:04:26</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>00:04:26</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Culpa al corazón</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Prince Royce</p>
+                </div>
+                <div className="nombres-artist-explorer">
+                  <p>Bachata</p>
+                </div>
 
-              <div className="nombres-artist-explorer">
-                <p>2022</p>
-              </div>
-            </div>
-
-            <div className={styles.container_artist_and_album}>
-              <div className="nombres-artist-explorer">
-                <p>00:04:26</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>00:04:26</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Culpa al corazón</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Prince Royce</p>
-              </div>
-              <div className="nombres-artist-explorer">
-                <p>Bachata</p>
-              </div>
-
-              <div className="nombres-artist-explorer">
-                <p>2022</p>
+                <div className="nombres-artist-explorer">
+                  <p>2022</p>
+                </div>
               </div>
             </div>
 
             <div
               className={styles.video_container}
+              style={{height:'30% !important'}}
               droppable="true"
               onDragOver={(evt) => draggingOver(evt)}
               onDrop={(evt) => onDrop(evt, 2)}
