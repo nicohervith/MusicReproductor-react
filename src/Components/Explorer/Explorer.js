@@ -90,7 +90,7 @@ const Explorer = () => {
           </div>
 
           <div className="mix-explorer">
-            <div className="social-media">
+            <div className="social-media-mid-explorer">
               <div className="social-media-blocks-reproduction-mid">
                 <div className="play-next-prev">
                   <FontAwesomeIcon

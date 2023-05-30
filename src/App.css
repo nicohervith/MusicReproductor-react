@@ -594,15 +594,35 @@
   width: 100%;
   background-color: #000000;
   height: 100vh;
+  display: grid;
+  grid-template-rows: 50% 44% 6%;
 }
 .social-media {
   display: flex;
   flex-direction: column;
+  justify-content: end;
   height: 100%;
   margin: auto;
   align-items: center;
   color: #dcdcdc !important;
   font-size: 12px;
+}
+
+.social-media-mid-explorer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 100%;
+  margin: auto;
+  align-items: center;
+  color: #dcdcdc !important;
+  font-size: 12px;
+}
+.social-media-mid-explorer p {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  font-weight: 600;
 }
 .social-media p {
   align-items: center;
@@ -617,23 +637,28 @@
   display: grid;
   grid-template-columns: 20% 65% 15%;
   align-items: center;
-  margin: auto;
+  /*   margin: auto; */
 }
 
 .social-media-blocks-reproduction {
   display: grid;
-  width: 12%;
+  width: 100%;
   grid-template-columns: 20% 80%;
   align-items: center;
-  bottom: 0;
-  position: fixed;
   gap: 0px;
+  border-top: 0.5px solid rgba(138, 136, 137, 0.3);
 }
+
+.social-media-blocks-reproduction p {
+  color: #dcdcdc !important;
+  font-size: 12px;
+}
+
 .social-media-blocks-reproduction img {
   width: 25px;
   height: 25px;
   border-radius: 2px;
-  margin-bottom: 4px;
+  margin-top: 5px;
 }
 .reproduciendo {
   display: flex;
@@ -647,6 +672,22 @@
   margin-left: 6px;
   height: 12px;
 }
+
+.reproduciendo-first-aside {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+.reproduciendo-first-aside p {
+  margin-left: 6px;
+  height: 12px;
+}
+.reproduction-first-aside {
+  font-weight: bold;
+}
+
 .artist {
   font-weight: 100 !important;
 }
@@ -693,7 +734,7 @@
 .dropdown-container-aside {
   display: flex;
   flex-direction: column;
-  height: 83.1%;
+  height: 53.1%;
 }
 
 .music-styles-container {
@@ -891,4 +932,70 @@
   .third-block {
     width: 40%;
   }
+}
+
+/************ Estilos para el accordion *************/
+.accordion-upwards {
+  width: 100%;
+}
+.accordion-upwards .accordion-collapse {
+  transform: scaleY(-1);
+}
+
+.accordion-upwards .accordion-body {
+  transform: scaleY(-1);
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 0 !important;
+}
+.accordion-div-nas {
+  background-color: rgb(75, 75, 75);
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.accordion-button-nas {
+  font-size: 11px !important;
+  margin: auto;
+}
+
+.audio-video-otros-container {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+}
+
+.audio-video-otros-container .audio-text p {
+  font-size: 10px;
+}
+.audio-text {
+  margin-bottom: 7px;
+}
+
+.barra {
+  width: 90%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 25px 25px 45px rgba(0, 0, 0, 01);
+  border-right: 3px solid rgba(255, 255, 255, 0.2);
+}
+.progreso {
+  width: 45%;
+  height: 4px;
+  background: rgba(0, 209, 117, 1);
+  border-radius: 10px;
+  animation: Aumentar 0.5s ease;
+}
+
+@keyframes Aumentar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--w);
+  }
+}
+.habilidades:active .progreso {
+  animation: Aumentar 5s ease;
 }
