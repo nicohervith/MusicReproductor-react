@@ -24,6 +24,7 @@ import IPlay from "../IPlay/IPlay";
 import { songsdata } from "../Player/audios";
 import cuadricula from "../../Assets/Img/cuadricula.png";
 import Traffic from "../Traffic/Traffic";
+import MediaExplorer from "../MediaExplorer/MediaExplorer";
 
 const Logeditor = () => {
   const [tasks, setTasks] = useState([
@@ -125,41 +126,7 @@ const Logeditor = () => {
       <Navigation />
       <div className={styles.explorercontainer}>
         <div className={styles.firstaside}>
-          <div className="  dropdown-container-aside">
-            <Accord />
-          </div>
-          <div className="">
-            <div className="social-media">
-              <div className="social-media-blocks">
-                <img
-                  src={playlisticon}
-                  alt=""
-                  style={{ width: "15px", objectFit: "cover", margin: "auto" }}
-                />
-                <p>Playlist</p>
-                <p>(0)</p>
-              </div>
-              <div className="social-media-blocks">
-                <img
-                  src={whatsapp}
-                  alt=""
-                  style={{ width: "15px", objectFit: "cover", margin: "auto" }}
-                />
-                <p> Social Media</p>
-                <p>(0)</p>
-              </div>
-              <div className="social-media-blocks-reproduction">
-                <img
-                  src="https://www.cotopaxi.com.ec/sites/default/files/2020-08/BLANCO%20760X440PX_0.png"
-                  alt=""
-                />
-                <div className="reproduciendo">
-                  <p>Reproduciendo a</p>
-                  <p className="artist">Manuel turizo</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <MediaExplorer />
         </div>
 
         <div className={styles.secondcolumn}>
@@ -194,12 +161,7 @@ const Logeditor = () => {
             </div>
           </div>
 
-          <div
-            className={styles.video_container}
-            droppable="true"
-            onDragOver={(evt) => draggingOver(evt)}
-            onDrop={(evt) => onDrop(evt, 1)}
-          >
+          <div className={styles.video_container}>
             {getList(1).map((item) => (
               <div
                 className={styles.video_block}
@@ -317,13 +279,11 @@ const Logeditor = () => {
 
             <div
               className={styles.video_container}
-              style={{height:'30% !important'}}
-              droppable="true"
-              onDragOver={(evt) => draggingOver(evt)}
-              onDrop={(evt) => onDrop(evt, 2)}
+              style={{ height: "30% !important" }}
             >
               {getList(2).map((item) => (
                 <div
+                  style={{ height: "50%" }}
                   key={item.id}
                   draggable
                   onDragStart={(evt) => startDrag(evt, item)}

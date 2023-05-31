@@ -655,6 +655,7 @@
 }
 
 .social-media-blocks-reproduction img {
+  margin: auto;
   width: 25px;
   height: 25px;
   border-radius: 2px;
@@ -710,7 +711,7 @@
   width: 70%;
   height: 35px;
   display: grid;
-  grid-template-columns: 8% 92%;
+  grid-template-columns: 8% 85% 7%;
   align-items: center;
   margin: auto;
   bottom: 0;
@@ -963,6 +964,7 @@
   display: flex;
   flex-direction: column;
   padding: 4px;
+  border-bottom: 0.5px solid rgba(138, 136, 137, 0.3) !important;
 }
 
 .audio-video-otros-container .audio-text p {
@@ -974,7 +976,7 @@
 
 .barra {
   width: 90%;
-  height: 4px;
+  height: 3px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   box-shadow: 25px 25px 45px rgba(0, 0, 0, 01);
@@ -982,7 +984,7 @@
 }
 .progreso {
   width: 45%;
-  height: 4px;
+  height: 3px;
   background: rgba(0, 209, 117, 1);
   border-radius: 10px;
   animation: Aumentar 0.5s ease;
@@ -998,4 +1000,28 @@
 }
 .habilidades:active .progreso {
   animation: Aumentar 5s ease;
+}
+
+ .chevron-active .accordion-chevron {
+  transform: rotate(180deg) !important;
+  transition: 0.4s;
+
+}
+.accordion-chevron{
+   transition: 0.4s;
+   font-size: 13px;
+   color: gray;
+   margin-right: 3px;
+}
+.ellipsis-vertical{
+  color: gray;
+     font-size: 13px;
+}
+
+.container_accord_chevron{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 !important;
 }

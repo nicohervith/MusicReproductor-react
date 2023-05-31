@@ -17,12 +17,21 @@ import InfoArtist from "./InfoArtist";
 import nosignal from "../../Assets/Img/nosignal.png";
 import barrasdesonido from "../../Assets/Img/barrasdesonido.png";
 import styles from "./Explorer.module.css";
+import './explorer.css'
 import MediaExplorer from "../MediaExplorer/MediaExplorer";
 
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
   const [isplaying, setisplaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(songsdata[1]);
+
+  const [isActive, setActive] = useState("false");
+  const Animation = () => {
+    var sli = document.getElementById("chevron");
+
+    setActive(!isActive);
+    sli.classList.toggle("chevron-active");
+  };
 
   const audioElem = useRef();
 
@@ -104,6 +113,10 @@ const Explorer = () => {
                   <p>Reproduciendo a</p>
                   <p className="artist">Manuel turizo</p>
                 </div>
+                <div className={styles.time_text}>
+                  <p className={styles.time_text_first}>00:02:52</p>
+                  <p className={styles.time_text_second}>-00:02:52</p>
+                </div>
               </div>
             </div>
           </div>
@@ -115,17 +128,26 @@ const Explorer = () => {
           </div>
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="1">
-              <Accordion.Header className={styles.accordion_header}>
+              <Accordion.Header
+                className={styles.accordion_header}
+                id="chevron"
+                onClick={Animation}
+              >
                 <div className="music-styles-container">
                   <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
-                  {/* <div className={styles.chevron} >
+                  <div className="chevron">
                     <FontAwesomeIcon
                       icon={faChevronDown}
                       className="accordion-chevron"
                     />
                   </div>
-                  <FontAwesomeIcon icon={faEllipsisVertical} /> */}
+                  <div className={styles.ellipsis_container}>
+                    <FontAwesomeIcon
+                      icon={faEllipsisVertical}
+                      className="ellipsis-vertical"
+                    />
+                  </div>
                 </div>
               </Accordion.Header>
               <Accordion.Body style={{ padding: "2px" }}>
@@ -148,14 +170,25 @@ const Explorer = () => {
               eventKey="2"
             >
               <Accordion.Header
-                className="accordion-header"
-                style={{
-                  background: "#9a1111 !important",
-                }}
+                className={styles.accordion_header}
+                id="chevron"
+                onClick={Animation}
               >
                 <div className="music-styles-container">
                   <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
+                  <div className="chevron">
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      className="accordion-chevron"
+                    />
+                  </div>
+                  <div className={styles.ellipsis_container}>
+                    <FontAwesomeIcon
+                      icon={faEllipsisVertical}
+                      className="ellipsis-vertical"
+                    />
+                  </div>
                 </div>
               </Accordion.Header>
               <Accordion.Body style={{ padding: "2px" }}>
@@ -173,10 +206,26 @@ const Explorer = () => {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="3">
-              <Accordion.Header>
+              <Accordion.Header
+                className={styles.accordion_header}
+                id="chevron"
+                onClick={Animation}
+              >
                 <div className="music-styles-container">
                   <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
+                  <div className="chevron">
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      className="accordion-chevron"
+                    />
+                  </div>
+                  <div className={styles.ellipsis_container}>
+                    <FontAwesomeIcon
+                      icon={faEllipsisVertical}
+                      className="ellipsis-vertical"
+                    />
+                  </div>
                 </div>
               </Accordion.Header>
               <Accordion.Body style={{ padding: "2px" }}>

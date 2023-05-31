@@ -7,7 +7,36 @@
   color: #878787;
 }
 
-
 .chevron .accordion-button:not(.collapsed)::after::after {
   transform: rotate(-180deg) !important;
 }
+
+.time_text_first {
+  font-weight: 200 !important;
+  margin-bottom: 0 !important;
+  color: #878787;
+  font-size: 10px;
+  margin: auto !important;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-left: 2px;
+}
+.time_text_second {
+  margin-bottom: 0 !important;
+  color: #0090e3;
+  height: 10px;
+  font-size: 10px;
+  margin: auto !important;
+  text-align: center;
+}
+
+.time_text {
+  margin: auto !important;
+  text-align: center !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
