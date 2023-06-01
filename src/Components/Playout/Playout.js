@@ -57,15 +57,34 @@ const Playout = () => {
                   <option>Comercial</option>
                 </select>
               </li>
-              {selected == "Media Explorer" ? (
-                <div style={{ width: "100%" }}>
+              {selected === "Media Explorer" ? (
+                <div style={{ width: "100%", height: " 100%" }}>
                   <MediaExplorer />
                 </div>
               ) : (
                 ""
               )}
-              {selected == "Multiplayer" ? <Accord /> : ""}
-              {selected == "SmartList" ? <Accord /> : ""}
+              {selected == "Multiplayer" ? (
+                <div style={{ width: "100%", height: " 100%" }}>
+                  <Multiplayer />
+                </div>
+              ) : (
+                ""
+              )}
+              {selected == "SmartList" ? (
+                <div style={{ width: "100%", height: " 100%" }}>
+                  <ShortInfo />
+                </div>
+              ) : (
+                ""
+              )}
+              {selected == "iPlay" ? (
+                <div style={{ width: "100%", height: " 100%" }}>
+                  <IPlay />
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

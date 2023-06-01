@@ -17,12 +17,11 @@ const MediaExplorer = () => {
           <div className="social-media">
             <Accordion defaultActiveKey="0" className="accordion-upwards">
               <Accordion.Item eventKey="1" style={{ width: "100%" }}>
-                <Accordion.Header >
+                <Accordion.Header>
                   <div className="container_accord_chevron">
                     <div className="accordion-div-nas">
                       <p className="accordion-button-nas">NAS 1 Local</p>
                     </div>
-
                   </div>
                 </Accordion.Header>
                 <Accordion.Body style={{ padding: "0px !important" }}>
@@ -35,6 +34,12 @@ const MediaExplorer = () => {
                           style={{ width: "80%" }}
                         ></div>
                       </div>
+                      <div className="archivos_almacenamiento">
+                        <p className="archivos_medida">
+                          {" "}
+                          44.365 Archivos / 3.5 TB
+                        </p>
+                      </div>
                     </div>
                     <div className="audio-text">
                       <p> Video</p>
@@ -43,6 +48,12 @@ const MediaExplorer = () => {
                           className="progreso"
                           style={{ width: "50%" }}
                         ></div>
+                      </div>
+                      <div className="archivos_almacenamiento">
+                        <p className="archivos_medida">
+                          {" "}
+                          44.365 Archivos / 3.5 TB
+                        </p>
                       </div>
                     </div>
                     <div className="audio-text">
@@ -53,6 +64,17 @@ const MediaExplorer = () => {
                           style={{ width: "30%" }}
                         ></div>
                       </div>
+                      <div className="archivos_almacenamiento">
+                        <p className="archivos_medida">
+                          {" "}
+                          44.365 Archivos / 3.5 TB
+                        </p>
+                      </div>
+                    </div>
+                    <div className="medida_total_block">
+                      <p className="medida_total">
+                          Espacio Total: 6.0 TB
+                      </p>
                     </div>
                   </div>
                 </Accordion.Body>
