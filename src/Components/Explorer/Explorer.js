@@ -17,7 +17,7 @@ import InfoArtist from "./InfoArtist";
 import nosignal from "../../Assets/Img/nosignal.png";
 import barrasdesonido from "../../Assets/Img/barrasdesonido.png";
 import styles from "./Explorer.module.css";
-import './explorer.css'
+import "./explorer.css";
 import MediaExplorer from "../MediaExplorer/MediaExplorer";
 
 const Explorer = () => {
@@ -25,12 +25,10 @@ const Explorer = () => {
   const [isplaying, setisplaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(songsdata[1]);
 
-  const [isActive, setActive] = useState("false");
-  const Animation = () => {
-    var sli = document.getElementById("chevron");
+  const [activeAccordion, setActiveAccordion] = useState(null);
 
-    setActive(!isActive);
-    sli.classList.toggle("chevron-active");
+  const handleAccordionToggle = (accordionId) => {
+    setActiveAccordion(accordionId === activeAccordion ? null : accordionId);
   };
 
   const audioElem = useRef();
@@ -129,17 +127,20 @@ const Explorer = () => {
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="1">
               <Accordion.Header
-                className={styles.accordion_header}
-                id="chevron"
-                onClick={Animation}
+                className={`${styles.accordion_header} ${
+                  activeAccordion === "0" ? styles.accordion_active : ""
+                }`}
+                onClick={() => handleAccordionToggle("0")}
               >
                 <div className="music-styles-container">
                   <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
-                  <div className="chevron">
+                  <div>
                     <FontAwesomeIcon
                       icon={faChevronDown}
-                      className="accordion-chevron"
+                      className={`accordion-chevron ${
+                        activeAccordion === "0" ? "rotate" : ""
+                      }`}
                     />
                   </div>
                   <div className={styles.ellipsis_container}>
@@ -170,17 +171,20 @@ const Explorer = () => {
               eventKey="2"
             >
               <Accordion.Header
-                className={styles.accordion_header}
-                id="chevron"
-                onClick={Animation}
+                className={`${styles.accordion_header} ${
+                  activeAccordion === "1" ? styles.accordion_active : ""
+                }`}
+                onClick={() => handleAccordionToggle("1")}
               >
                 <div className="music-styles-container">
                   <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
-                  <div className="chevron">
+                  <div>
                     <FontAwesomeIcon
                       icon={faChevronDown}
-                      className="accordion-chevron"
+                      className={`accordion-chevron ${
+                        activeAccordion === "1" ? "rotate" : ""
+                      }`}
                     />
                   </div>
                   <div className={styles.ellipsis_container}>
@@ -207,17 +211,20 @@ const Explorer = () => {
             </Accordion.Item>
             <Accordion.Item eventKey="3">
               <Accordion.Header
-                className={styles.accordion_header}
-                id="chevron"
-                onClick={Animation}
+                className={`${styles.accordion_header} ${
+                  activeAccordion === "3" ? styles.accordion_active : ""
+                }`}
+                onClick={() => handleAccordionToggle("3")}
               >
                 <div className="music-styles-container">
                   <img src={barrasdesonido} alt="" style={{ width: "15px" }} />
                   <p className="music-styles-text">GENERAL</p>
-                  <div className="chevron">
+                  <div>
                     <FontAwesomeIcon
                       icon={faChevronDown}
-                      className="accordion-chevron"
+                      className={`accordion-chevron ${
+                        activeAccordion === "3" ? "rotate" : ""
+                      }`}
                     />
                   </div>
                   <div className={styles.ellipsis_container}>

@@ -18,6 +18,12 @@ const Playout = () => {
   const [selected3, setSelected3] = useState("First");
   const [selected4, setSelected4] = useState("First");
   const [selected5, setSelected5] = useState("First");
+  const [selectedoption, setSelectedoption] = useState("first")
+
+   const handleChangeOption = (e) => {
+     console.log(e.target.value);
+     setSelectedoption(e.target.value);
+   };
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -34,6 +40,28 @@ const Playout = () => {
   };
   const handleChange5 = (e) => {
     setSelected5(e.target.value);
+  };
+
+  const [isActive, setActive] = useState("false");
+
+  const select = () => {
+    var option = document.getElementById("opciones");
+
+    setActive(!isActive);
+    option.classList.toggle("opciones_activas");
+  };
+
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleOptionSelect = (e) => {
+    const selectedValue = e.target.textContent;
+    setSelectedOption(selectedValue);
+  };
+
+  const contenidoSelect = () => {
+    var selector = document.getElementById("select");
+    var contenedor = document.querySelector(".contenido_select");
+    var hiddenInput = document.querySelector("#inputselect");
   };
 
   return (
@@ -90,6 +118,67 @@ const Playout = () => {
         </div>
 
         <div className="second-block-playout">
+          <div style={{ marginTop: "50px" }}>
+            <div className="selector_contenedor">
+              <form action="">
+                <div className="select_box">
+                  <div
+                    className="select"
+                    id="select"
+                    onClick={select}
+                    value={selectedoption}
+                    onChange={(e) => handleChangeOption(e)}
+                  >
+                    <div className="contenido_select">
+                      <span className="titulo_select">
+                        {selectedOption
+                          ? selectedOption
+                          : "Selecciona una opción"}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="opciones" id="opciones">
+                    <div className="option" onClick={handleOptionSelect}>
+                      <div className="contenido_opcion">
+                        <div className="texto_opcion">Media Explorer</div>
+                      </div>
+                    </div>
+
+                    <div className="option" onClick={handleOptionSelect}>
+                      <div className="contenido_opcion">
+                        <div className="texto_opcion">Multiplayer</div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <input
+                  type="hidden"
+                  name="optionvalue"
+                  id="inputselect"
+                  value={selectedOption}
+                />
+
+                {selectedOption === "Media Explorer" ? (
+                  <div style={{ width: "100%", height: "35%" }}>
+                    <MediaExplorer />
+                  </div>
+                ) : (
+                  ""
+                )}
+                {selectedOption === "Multiplayer" ? (
+                  <div style={{ width: "100%", height: "35%" }}>
+                    <Multiplayer />
+                  </div>
+                ) : (
+                  ""
+                )}
+              </form>
+            </div>
+          </div>
+
           <div className="sb-first">
             <div className="media-explorer-dropdown">
               <div className="dropdown-container">

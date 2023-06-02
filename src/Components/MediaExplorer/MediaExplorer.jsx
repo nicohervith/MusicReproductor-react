@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accord from "../Explorer/Accord";
 import playlisticon from "../../Assets/Img/playlisticon.png";
 import whatsapp from "../../Assets/Img/whatsapp.png";
 import { Accordion } from "react-bootstrap";
-
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const MediaExplorer = () => {
+  const [activeAccordion, setActiveAccordion] = useState(null);
+
+  const handleAccordionToggle = (accordionId) => {
+    setActiveAccordion(accordionId === activeAccordion ? null : accordionId);
+  };
 
   return (
     <>
@@ -17,10 +23,24 @@ const MediaExplorer = () => {
           <div className="social-media">
             <Accordion defaultActiveKey="0" className="accordion-upwards">
               <Accordion.Item eventKey="1" style={{ width: "100%" }}>
-                <Accordion.Header>
+                <Accordion.Header
+                  className={`accordion_header} 
+            activeAccordion === "5" ? styles.accordion_active : ""
+          }`}
+                  onClick={() => handleAccordionToggle("5")}
+                >
                   <div className="container_accord_chevron">
                     <div className="accordion-div-nas">
                       <p className="accordion-button-nas">NAS 1 Local</p>
+                    </div>
+                    <div>
+                      <FontAwesomeIcon
+                        icon={faChevronDown}
+                        style={{rotate:'180deg'}}
+                        className={`accordion-chevron ${
+                          activeAccordion === "5" ? "rotate" : ""
+                        }`}
+                      />
                     </div>
                   </div>
                 </Accordion.Header>
@@ -72,9 +92,7 @@ const MediaExplorer = () => {
                       </div>
                     </div>
                     <div className="medida_total_block">
-                      <p className="medida_total">
-                          Espacio Total: 6.0 TB
-                      </p>
+                      <p className="medida_total">Espacio Total: 6.0 TB</p>
                     </div>
                   </div>
                 </Accordion.Body>

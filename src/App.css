@@ -1036,20 +1036,73 @@
   display: flex;
   justify-content: end;
 }
-.medida_total_block{
+.medida_total_block {
   width: 100%;
   text-align: center;
   margin: auto;
   justify-content: center;
   display: flex;
 }
-.medida_total{
+.medida_total {
   width: 100%;
-  margin:auto;
+  margin: auto;
   text-align: center;
   justify-content: center;
-  color:gray;
+  color: gray;
   font-weight: 200;
   margin-top: 5px;
   font-size: 10px !important;
+}
+
+.rotate {
+  transform: rotate(180deg) !important;
+  transition: 0.4s;
+}
+
+.accordion-button::after {
+  display: none;
+}
+
+/*******NUEVO SELECTOR *****/
+
+.selector_contenedor {
+  width: 90%;
+  margin: auto;
+}
+.select_box {
+  width: 80%;
+  position: relative;
+}
+.select {
+  width: 100%;
+  background-color: #0d0d0d;
+  align-items: center;
+  margin: auto;
+  color: #fff;
+  border-radius: 10px;
+  height: 30px !important;
+  border: 0.3px solid rgba(138, 136, 137, 0.3);
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.titulo_select {
+  color: white;
+}
+.opciones {
+  background-color: blue;
+  height: auto;
+  z-index: 100;
+  width: 100%;
+  display: none;
+}
+
+.opciones_activas {
+  display: block;
+}
+
+.contenido_opcion {
+  width: 100%;
+  align-items: center;
+  display: flex;
 }
