@@ -94,6 +94,7 @@
 .mix_explorer {
   border-top: 0.5px solid rgba(138, 136, 137, 0.3) !important;
   width: 100%;
+  margin-top: 12px;
 }
 
 .social_media {
