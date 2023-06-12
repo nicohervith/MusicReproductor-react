@@ -145,7 +145,9 @@ const Ajustes = () => {
               </div>
             </div>
           </div>
-          <div></div>
+          <div className={styles.ecualizer_main}>
+            <Ecualizer />
+          </div>
         </div>
       </div>
     </>

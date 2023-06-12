@@ -354,7 +354,7 @@ const Playout = () => {
 
         <div className="second-block-playout">
           <div className="sb-first">
-            <div style={{ marginBottom: "60px" }}>
+            <div >
               {showSelector && (
                 <div
                   className={`selector_contenedor ${!isActive ? "open" : ""}`}

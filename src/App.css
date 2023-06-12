@@ -582,6 +582,7 @@
   margin: auto;
   width: 100%;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 .sb-second {
@@ -1208,6 +1209,9 @@
   background-color: #555555;
   justify-content: end;
   display: flex;
+  margin-top: 50px;
+  z-index: 999;
+  position: relative;
 }
 .container_button_cerrar .button_cerrar {
   height: 20px;
@@ -1221,7 +1225,4 @@
 
 .container_button_cerrar .button_cerrar:hover {
   background-color: #444444;
-}
-.cerrar_contenedor {
-  margin-top: -50px;
 }

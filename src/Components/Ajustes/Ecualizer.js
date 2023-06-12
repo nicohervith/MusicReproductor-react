@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Ajustes.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 const Ecualizer = () => {
   const [sliderValue, setSliderValue] = useState(50);
@@ -111,8 +113,27 @@ const Ecualizer = () => {
         <div className={styles.botones}>
           <div className={styles.botones_container}>
             <p>AGC</p>
+            <FontAwesomeIcon className={styles.sort_icon} icon={faSortDown} />
+          </div>
+          <div className={styles.botones_container}>
+            <p>Comp</p>
+            <FontAwesomeIcon className={styles.sort_icon} icon={faSortDown} />
+          </div>
+          <div className={styles.botones_container}>
+            <p>EQ</p>
+            <FontAwesomeIcon className={styles.sort_icon} icon={faSortDown} />
+          </div>
+        <div className={styles.container_stereo_mono}>
+          <div className={styles.container_block_stereo_mono}>
+            <p>S</p>
+          </div>
+          <div className={styles.container_block_stereo_mono}>
+            <p>M</p>
           </div>
         </div>
+        <div className={styles.border_top}></div>
+        </div>
+
       </div>
     </>
   );
