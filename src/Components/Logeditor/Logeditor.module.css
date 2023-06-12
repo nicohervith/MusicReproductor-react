@@ -38,7 +38,7 @@
   border-left: 0.5px solid rgba(138, 136, 137, 0.3) !important;
 }
 .secondcolumn .search_container {
-  margin-top: 50px;
+ 
 }
 .dropdown_button {
   border-radius: 0 !important;
@@ -155,7 +155,7 @@
 }
 
 .search_container_third {
-  margin-top: 50px;
+  
   height: 35px;
   border-bottom: 0.5px solid rgba(138, 136, 137, 0.3) !important;
   display: flex;

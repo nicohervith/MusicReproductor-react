@@ -126,10 +126,11 @@ const Logeditor = () => {
       <Navigation />
       <div className={styles.explorercontainer}>
         <div className={styles.firstaside}>
-            <MediaExplorer />
+          <MediaExplorer />
         </div>
 
         <div className={styles.secondcolumn}>
+          <div style={{ width: "100%", height: "50px" }}></div>
           <div className={styles.search_container}>
             <div className={styles.input_search}>
               <input placeholder={`Buscar aquí`} />
@@ -202,6 +203,7 @@ const Logeditor = () => {
         </div>
 
         <div className={styles.thirdcolumn}>
+          <div style={{ width: "100%", height: "50px" }}></div>
           <Multiplayer />
 
           <div className="" style={{ height: "50% !important" }}>

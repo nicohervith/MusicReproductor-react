@@ -36,7 +36,7 @@ const MediaExplorer = () => {
                     <div>
                       <FontAwesomeIcon
                         icon={faChevronDown}
-                        style={{rotate:'180deg'}}
+                        style={{ rotate: "180deg" }}
                         className={`accordion-chevron ${
                           activeAccordion === "5" ? "rotate" : ""
                         }`}
