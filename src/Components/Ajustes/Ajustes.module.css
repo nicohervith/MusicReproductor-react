@@ -182,7 +182,6 @@ p {
   height: 80px;
   width: 430px;
   background-color: #171b1e;
-  margin-bottom: 75px;
   margin-left: 100%;
 }
 .slider {
@@ -253,7 +252,6 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 .master p {
   transform: rotateZ(90deg);
@@ -340,7 +338,8 @@ p {
   margin-left: 10px;
   display: flex;
   gap: 12px;
-  height: 95%;
+
+  align-items: center;
 }
 .container_img_canal {
   margin: auto;

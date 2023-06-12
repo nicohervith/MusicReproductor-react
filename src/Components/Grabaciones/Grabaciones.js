@@ -1139,7 +1139,7 @@ const Grabaciones = () => {
             </div>
           </div>
 
-          <div className={styles.ecualizer_container}>
+         {/*  <div className={styles.ecualizer_container}>
             <div className={styles.master}>
               <p> MASTER</p>
             </div>
@@ -1343,7 +1343,7 @@ const Grabaciones = () => {
               </div>
               <div className={styles.border_top}></div>
             </div>
-          </div> 
+          </div>  */}
         </div>
       </div>
     </>
