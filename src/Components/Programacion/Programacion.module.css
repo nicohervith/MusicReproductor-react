@@ -1,21 +1,154 @@
+.main_container_explorer {
+  display: grid;
+  grid-template-rows: 115px 1fr;
+  height: 100vh;
+  background-color: #000000;
+  overflow: hidden;
+}
+.first_block_explorer_programacion {
+  border-bottom: 0.5px solid rgba(138, 136, 137, 0.3) !important;
+  display: grid;
+  grid-template-columns: 13% 17% 51% 19%;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+}
+.monitor {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-right: 0.5px solid rgba(138, 136, 137, 0.3);
+  align-items: center;
+}
+.monitor_text {
+  margin: auto;
+  font-size: 15px;
+  color: rgb(151, 151, 151);
+  width: 78px;
+  margin-top: 50px;
+  padding: 0;
+  height: 35px;
+  display: grid;
+  grid-template-rows: 45% 55%;
+}
+.connection_status {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  height: 100%;
+  border-right: 0.5px solid rgba(138, 136, 137, 0.3);
+  align-items: center;
+}
+.first_column_connection {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+.connection_status_text {
+  font-size: 13px;
+  color: rgb(151, 151, 151);
+  margin: auto;
+  height: 35px;
+  display: grid;
+  grid-template-rows: 45% 55%;
+}
+.second_column_connection {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  border-right: 0.5px solid rgba(138, 136, 137, 0.3);
+  align-items: center;
+}
+.second_colum_connection_text {
+  font-size: 12px;
+  margin-top: 50px;
+  height: 17px;
+  width: 80%;
+  text-align: center;
+  background-color: rgb(1, 143, 229);
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.third_colum_programacion {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-right: 0.5px solid rgba(138, 136, 137, 0.3);
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+.container_main_first_block {
+  border-right: 0.5px solid rgba(138, 136, 137, 0.3);
+}
+.text_second_block {
+  color: white;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  width: 80%;
+}
+.container_text_first_block {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  width: 49%;
+  margin: auto;
+}
+.container_text_first_block svg {
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+.container_text_first_block p {
+  font-size: 13px;
+  color: rgb(151, 151, 151);
+}
+.text_first_block {
+  font-size: 13px;
+  color: rgb(151, 151, 151);
+  margin: auto;
+  height: 35px;
+  display: grid;
+  grid-template-rows: 45% 55%;
+}
+
+.container_fourth_block_text {
+  margin-top: 60px;
+}
+.container_fourth_block_text p {
+  text-align: center;
+  color: rgb(151, 151, 151);
+  font-size: 15px;
+  width: 80%;
+  margin: auto;
+  height: 35px;
+  display: grid;
+  grid-template-rows: 45% 55%;
+}
+
 .explorercontainer {
   display: grid;
   grid-template-columns: 13% 17% 51% 19%;
-  height: 100vh;
+  height: 100%;
   background-color: #000000;
 }
 .firstaside {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .secondcolumn {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   border-left: 0.5px solid rgba(138, 136, 137, 0.3) !important;
+  display: grid;
+  grid-auto-rows: 7% 86% 7%;
 }
 .secondcolumn .search_container {
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 .video_container {
   display: flex;
@@ -68,7 +201,7 @@
 .mix_explorer {
   border-top: 0.5px solid rgba(138, 136, 137, 0.3) !important;
   width: 100%;
-  margin-top: 12px;
+  margin-top: 4px;
 }
 
 .social_media {
@@ -79,9 +212,8 @@
   align-items: center;
   color: #dcdcdc !important;
   font-size: 12px;
-  width: 21%;
+  width: 100%;
   bottom: 0px;
-  position: fixed;
 }
 
 .social_media p {
@@ -119,18 +251,18 @@
 
 .thirdcolumn {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   border-left: 0.5px solid rgba(138, 136, 137, 0.3) !important;
   border-right: 0.5px solid rgba(138, 136, 137, 0.3) !important;
 }
 .thirdcolumn .search_container {
-  margin-top: 50px;
+  /*  margin-top: 50px; */
 }
 
 .radio_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   width: 100%;
 }
 .radio_block {
@@ -179,7 +311,7 @@
 }
 
 .search_container_third {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   height: 35px;
   border-bottom: 0.5px solid rgba(138, 136, 137, 0.3) !important;
   display: flex;

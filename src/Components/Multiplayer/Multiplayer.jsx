@@ -39,35 +39,44 @@ const Multiplayer = () => {
     }
   }, [isplaying]);
 
-  const onPlaying = () => {
-    const duration = audioElem.current.duration;
-    const ct = audioElem.current.currentTime;
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60)
+      .toString()
+      .padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  };
 
+const onPlaying = () => {
+  const duration = audioElem.current.duration;
+  const ct = audioElem.current.currentTime;
+
+  if (!isNaN(duration)) {
     setCurrentSong({
       ...currentSong,
       progress: (ct / duration) * 100,
       length: duration,
     });
-  };
-  const [isActive, setActive] = useState("false");
-  const ToggleClassPlay = () => {
-    var btn = document.getElementById("btnplay");
+  }
+};
 
+  const [isActive, setActive] = useState(false);
+
+  const ToggleClassPlay = () => {
     setActive(!isActive);
+    var btn = document.getElementById("btnplay");
     btn.classList.toggle("clicked");
   };
 
   const ToggleClassPause = () => {
-    var btn = document.getElementById("btnpause");
-
     setActive(!isActive);
+    var btn = document.getElementById("btnpause");
     btn.classList.toggle("clicked");
   };
 
   const ToggleClassStop = () => {
-    var btn = document.getElementById("btnstop");
-
     setActive(!isActive);
+    var btn = document.getElementById("btnstop");
     btn.classList.toggle("clicked");
   };
 
@@ -75,7 +84,6 @@ const Multiplayer = () => {
     <>
       <div className={styles.search_container_third}>
         <div className={styles.search_first_column}>
-          {/* <FontAwesomeIcon icon={faPlay} /> */}
           <img src={botondeplay} alt="" style={{ width: "15px" }} />
           Multiplayer
         </div>
@@ -114,11 +122,13 @@ const Multiplayer = () => {
           <div className={styles.multiplayer}>
             <div className={styles.intro}>
               <p className={styles.title_first}>INTRO</p>
-              <p className={styles.time}>00:15</p>
+              <p className={styles.time}>{formatTime(currentSong.progress)}</p>
             </div>
             <div className={styles.restante}>
               <p className={styles.title_first}>RESTANTE ACTUAL</p>
-              <p className={styles.time}>03:48</p>
+              <p className={styles.time}>
+                {formatTime(currentSong.length - currentSong.progress)}
+              </p>
             </div>
             <div className={styles.playlist_actual}>
               <p className={styles.title_first}>PLAYLIST</p>
@@ -155,6 +165,7 @@ const Multiplayer = () => {
               icon={faPlay}
               className={styles.btn_action_play}
               style={{ cursor: "pointer" }}
+              onClick={ToggleClassPlay}
             />
           </div>
           <div id="btnpause" className={styles.play_container_pause}>
@@ -162,6 +173,7 @@ const Multiplayer = () => {
               icon={faPause}
               className={styles.btn_action_pause}
               style={{ cursor: "pointer" }}
+              onClick={ToggleClassPause}
             />
           </div>
           <div

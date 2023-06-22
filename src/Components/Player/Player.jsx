@@ -13,6 +13,32 @@ const Player = ({
   songs,
 }) => {
   const clickRef = useRef();
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
+    if (audioElem.current) {
+      // Event listener para actualizar el tiempo actual
+      audioElem.current.addEventListener("timeupdate", updateTime);
+      // Event listener para obtener la duración del audio
+      audioElem.current.addEventListener("loadedmetadata", updateDuration);
+    }
+    return () => {
+      // Remover los event listeners al desmontar el componente
+      if (audioElem.current) {
+        audioElem.current.removeEventListener("timeupdate", updateTime);
+        audioElem.current.removeEventListener("loadedmetadata", updateDuration);
+      }
+    };
+  }, [audioElem]);
+
+  const updateDuration = () => {
+    setDuration(audioElem.current.duration);
+  };
+
+  const updateTime = () => {
+    setCurrentTime(audioElem.current.currentTime);
+  };
 
   const PlayPause = () => {
     setisplaying(!isplaying);
@@ -21,7 +47,6 @@ const Player = ({
   const checkWidth = (e) => {
     let width = clickRef.current.clientWidth;
     const offset = e.nativeEvent.offsetX;
-
     const divprogress = (offset / width) * 100;
     audioElem.current.currentTime = (divprogress / 100) * currentSong.length;
   };
@@ -47,6 +72,24 @@ const Player = ({
     setActive(!isActive);
     btn.classList.toggle("clicked");
   };
+
+const formatTime = (time) => {
+  if (isNaN(time)) {
+    return "--:--";
+  }
+
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor((time % 3600) / 60);
+  const seconds = Math.floor(time % 60);
+
+  const formattedHours =
+    hours > 0 ? `${hours.toString().padStart(2, "0")}:` : "";
+  const formattedMinutes = `${minutes.toString().padStart(2, "0")}:`;
+  const formattedSeconds = seconds.toString().padStart(2, "0");
+
+  return formattedHours + formattedMinutes + formattedSeconds;
+};
+
 
   return (
     <div className={styles.player_container}>
@@ -109,7 +152,10 @@ const Player = ({
           <div className={styles.title}>
             <p className={styles.title_current}>{currentSong.title}</p>
             <span className="">{currentSong.artist}</span>
-            <p className={styles.time}>00:04:38</p>
+            <p className={styles.time}>
+              {" "}
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </p>
           </div>
           <div className="video">
             <video autoplay muted controls>

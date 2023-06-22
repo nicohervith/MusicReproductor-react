@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Accordion from "react-bootstrap/Accordion";
@@ -9,7 +9,6 @@ import {
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { songsdata } from "../Player/audios";
-import { useRef, useState, useEffect } from "react";
 import Player from "../Player/Player";
 import Search from "../Player/Search";
 import Album from "../Player/Album";
@@ -53,11 +52,12 @@ const Explorer = () => {
       length: duration,
     });
   };
+
   return (
     <>
       <Navigation />
       <div className="explorer-container">
-        <div>
+        <div style={{ marginTop: "50px" }}>
           <MediaExplorer />
         </div>
 
@@ -109,7 +109,7 @@ const Explorer = () => {
                 </div>
                 <div className="reproduciendo">
                   <p>Reproduciendo a</p>
-                  <p className="artist">Manuel turizo</p>
+                  <p className="artist">{currentSong.artist}</p>
                 </div>
                 <div className={styles.time_text}>
                   <p className={styles.time_text_first}>00:02:52</p>
