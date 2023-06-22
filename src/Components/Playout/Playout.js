@@ -235,614 +235,636 @@ const Playout = () => {
   return (
     <>
       <Navigation />
-      <div className="block-container-playout">
-        <div className="first-block-playout">
-          <div>
-            {showSelector2 && (
-              <div
-                className={`selector_contenedor ${!isActive2 ? "open2" : ""}`}
-              >
-                <form action="">
-                  <div className={`select_box ${!isActive2 ? "open2" : ""}`}>
-                    <div
-                      className="select"
-                      id="select"
-                      onClick={select2}
-                      value={optionSelected2}
-                      onChange={(e) => handleChangeOptions2(e)}
-                    >
-                      <div className="contenido_select">
-                        <span className="titulo_select">
-                          {selectedOption2
-                            ? selectedOption2
-                            : "Selecciona una opción"}
-                        </span>
-                        <FontAwesomeIcon
-                          icon={faChevronDown}
-                          style={{ marginRight: "5px" }}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="opciones" id="opciones2">
-                      <div className="option" onClick={handleOptionSelect2}>
-                        <div className="contenido_opcion">
-                          <div className="texto_opcion">Media Explorer</div>
-                        </div>
-                      </div>
-
-                      <div className="option" onClick={handleOptionSelect2}>
-                        <div className="contenido_opcion">
-                          <div className="texto_opcion">Multiplayer</div>
-                        </div>
-                      </div>
-
-                      <div className="option" onClick={handleOptionSelect2}>
-                        <div className="contenido_opcion">
-                          <div className="texto_opcion">SmartList</div>
-                        </div>
-                      </div>
-
-                      <div className="option" onClick={handleOptionSelect2}>
-                        <div className="contenido_opcion">
-                          <div className="texto_opcion">iPlay</div>
-                        </div>
-                      </div>
-
+      <div className="main_container_playout">
+        <div className="block_container_playout_first"></div>
+        <div className="block-container-playout">
+          <div className="first-block-playout">
+            <div>
+              {showSelector2 && (
+                <div
+                  className={`selector_contenedor ${!isActive2 ? "open2" : ""}`}
+                >
+                  <form action="">
+                    <div className={`select_box ${!isActive2 ? "open2" : ""}`}>
                       <div
-                        className="option last_child"
-                        onClick={handleOptionSelect2}
+                        className="select"
+                        id="select"
+                        onClick={select2}
+                        value={optionSelected2}
+                        onChange={(e) => handleChangeOptions2(e)}
                       >
-                        <div className="contenido_opcion last_child_option">
-                          <div className="texto_opcion">Comercial</div>
+                        <div className="contenido_select">
+                          <span className="titulo_select">
+                            {selectedOption2
+                              ? selectedOption2
+                              : "Selecciona una opción"}
+                          </span>
+                          <FontAwesomeIcon
+                            icon={faChevronDown}
+                            style={{ marginRight: "5px" }}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="opciones" id="opciones2">
+                        <div className="option" onClick={handleOptionSelect2}>
+                          <div className="contenido_opcion">
+                            <div className="texto_opcion">Media Explorer</div>
+                          </div>
+                        </div>
+
+                        <div className="option" onClick={handleOptionSelect2}>
+                          <div className="contenido_opcion">
+                            <div className="texto_opcion">Multiplayer</div>
+                          </div>
+                        </div>
+
+                        <div className="option" onClick={handleOptionSelect2}>
+                          <div className="contenido_opcion">
+                            <div className="texto_opcion">SmartList</div>
+                          </div>
+                        </div>
+
+                        <div className="option" onClick={handleOptionSelect2}>
+                          <div className="contenido_opcion">
+                            <div className="texto_opcion">iPlay</div>
+                          </div>
+                        </div>
+
+                        <div
+                          className="option last_child"
+                          onClick={handleOptionSelect2}
+                        >
+                          <div className="contenido_opcion last_child_option">
+                            <div className="texto_opcion">Comercial</div>
+                          </div>
                         </div>
                       </div>
                     </div>
+
+                    <input
+                      type="hidden"
+                      name="optionvalue"
+                      id="inputselect"
+                      value={selectedOption2}
+                    />
+                  </form>
+                </div>
+              )}
+              {!showSelector2 && (
+                <div className="cerrar_contenedor">
+                  <div className="container_button_cerrar">
+                    <button
+                      className="button_cerrar"
+                      onClick={handleCloseClick2}
+                    >
+                      <FontAwesomeIcon icon={faXmark} />
+                    </button>
                   </div>
 
-                  <input
-                    type="hidden"
-                    name="optionvalue"
-                    id="inputselect"
-                    value={selectedOption2}
-                  />
-                </form>
-              </div>
-            )}
-            {!showSelector2 && (
-              <div className="cerrar_contenedor">
-                <div className="container_button_cerrar">
-                  <button className="button_cerrar" onClick={handleCloseClick2}>
-                    <FontAwesomeIcon icon={faXmark} />
-                  </button>
+                  {selectedOption2 === "Media Explorer" ? (
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "35%",
+                        marginTop: "-51px",
+                      }}
+                    >
+                      <MediaExplorer />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {selectedOption2 === "Multiplayer" ? (
+                    <div style={{ width: "100%", height: "35%" }}>
+                      <Multiplayer />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {selectedOption2 === "iPlay" ? (
+                    <div style={{ width: "100%", height: "35%" }}>
+                      <IPlay />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {selectedOption2 === "SmartList" ? (
+                    <div style={{ width: "100%", height: "35%" }}>
+                      <ShortInfo />
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
+              )}
+            </div>
+          </div>
 
-                {selectedOption2 === "Media Explorer" ? (
+          <div className="second-block-playout">
+            <div className="sb-first">
+              <div>
+                {showSelector && (
                   <div
-                    style={{ width: "100%", height: "35%", marginTop: "-51px" }}
+                    className={`selector_contenedor ${!isActive ? "open" : ""}`}
                   >
-                    <MediaExplorer />
+                    <form action="">
+                      <div className={`select_box ${!isActive ? "open" : ""}`}>
+                        <div
+                          className="select"
+                          id="select"
+                          onClick={select}
+                          value={optionSelected}
+                          onChange={(e) => handleChangeOptions(e)}
+                        >
+                          <div className="contenido_select">
+                            <span className="titulo_select">
+                              {selectedOption
+                                ? selectedOption
+                                : "Selecciona una opción"}
+                            </span>
+                            <FontAwesomeIcon
+                              icon={faChevronDown}
+                              style={{ marginRight: "5px" }}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="opciones" id="opciones">
+                          <div className="option" onClick={handleOptionSelect}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">Media Explorer</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">Multiplayer</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">SmartList</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">iPlay</div>
+                            </div>
+                          </div>
+
+                          <div
+                            className="option last_child"
+                            onClick={handleOptionSelect}
+                          >
+                            <div className="contenido_opcion last_child_option">
+                              <div className="texto_opcion">Comercial</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <input
+                        type="hidden"
+                        name="optionvalue"
+                        id="inputselect"
+                        value={selectedOption}
+                      />
+                    </form>
                   </div>
-                ) : (
-                  ""
                 )}
-                {selectedOption2 === "Multiplayer" ? (
-                  <div style={{ width: "100%", height: "35%" }}>
-                    <Multiplayer />
+                {!showSelector && (
+                  <div className="cerrar_contenedor">
+                    <div className="container_button_cerrar">
+                      <button
+                        className="button_cerrar"
+                        onClick={handleCloseClick}
+                      >
+                        <FontAwesomeIcon icon={faXmark} />
+                      </button>
+                    </div>
+
+                    {selectedOption === "Media Explorer" ? (
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "35%",
+                          marginTop: "-51px",
+                        }}
+                      >
+                        <MediaExplorer />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption === "Multiplayer" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <Multiplayer />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption === "iPlay" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <IPlay />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption === "SmartList" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <ShortInfo />
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
-                ) : (
-                  ""
-                )}
-                {selectedOption2 === "iPlay" ? (
-                  <div style={{ width: "100%", height: "35%" }}>
-                    <IPlay />
-                  </div>
-                ) : (
-                  ""
-                )}
-                {selectedOption2 === "SmartList" ? (
-                  <div style={{ width: "100%", height: "35%" }}>
-                    <ShortInfo />
-                  </div>
-                ) : (
-                  ""
                 )}
               </div>
-            )}
-          </div>
-        </div>
+            </div>
 
-        <div className="second-block-playout">
-          <div className="sb-first">
-            <div >
-              {showSelector && (
-                <div
-                  className={`selector_contenedor ${!isActive ? "open" : ""}`}
-                >
-                  <form action="">
-                    <div className={`select_box ${!isActive ? "open" : ""}`}>
+            <div className="sb-second">
+              <div style={{ marginBottom: "30px" }}>
+                {showSelector3 && (
+                  <div
+                    className={`selector_contenedor ${
+                      !isActive3 ? "open3" : ""
+                    }`}
+                  >
+                    <form action="">
                       <div
-                        className="select"
-                        id="select"
-                        onClick={select}
-                        value={optionSelected}
-                        onChange={(e) => handleChangeOptions(e)}
+                        className={`select_box ${!isActive3 ? "open3" : ""}`}
                       >
-                        <div className="contenido_select">
-                          <span className="titulo_select">
-                            {selectedOption
-                              ? selectedOption
-                              : "Selecciona una opción"}
-                          </span>
-                          <FontAwesomeIcon
-                            icon={faChevronDown}
-                            style={{ marginRight: "5px" }}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="opciones" id="opciones">
-                        <div className="option" onClick={handleOptionSelect}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">Media Explorer</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">Multiplayer</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">SmartList</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">iPlay</div>
-                          </div>
-                        </div>
-
                         <div
-                          className="option last_child"
-                          onClick={handleOptionSelect}
+                          className="select"
+                          id="select"
+                          onClick={select3}
+                          value={optionSelected3}
+                          onChange={(e) => handleChangeOptions3(e)}
                         >
-                          <div className="contenido_opcion last_child_option">
-                            <div className="texto_opcion">Comercial</div>
+                          <div className="contenido_select">
+                            <span className="titulo_select">
+                              {selectedOption3
+                                ? selectedOption3
+                                : "Selecciona una opción"}
+                            </span>
+                            <FontAwesomeIcon
+                              icon={faChevronDown}
+                              style={{ marginRight: "5px" }}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="opciones" id="opciones3">
+                          <div className="option" onClick={handleOptionSelect3}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">Media Explorer</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect3}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">Multiplayer</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect3}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">SmartList</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect3}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">iPlay</div>
+                            </div>
+                          </div>
+
+                          <div
+                            className="option last_child"
+                            onClick={handleOptionSelect3}
+                          >
+                            <div className="contenido_opcion last_child_option">
+                              <div className="texto_opcion">Comercial</div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    <input
-                      type="hidden"
-                      name="optionvalue"
-                      id="inputselect"
-                      value={selectedOption}
-                    />
-                  </form>
-                </div>
-              )}
-              {!showSelector && (
-                <div className="cerrar_contenedor">
-                  <div className="container_button_cerrar">
-                    <button
-                      className="button_cerrar"
-                      onClick={handleCloseClick}
-                    >
-                      <FontAwesomeIcon icon={faXmark} />
-                    </button>
+                      <input
+                        type="hidden"
+                        name="optionvalue"
+                        id="inputselect"
+                        value={selectedOption3}
+                      />
+                    </form>
                   </div>
+                )}
+                {!showSelector3 && (
+                  <div className="cerrar_contenedor">
+                    <div className="container_button_cerrar">
+                      <button
+                        className="button_cerrar"
+                        onClick={handleCloseClick3}
+                      >
+                        <FontAwesomeIcon icon={faXmark} />
+                      </button>
+                    </div>
 
-                  {selectedOption === "Media Explorer" ? (
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "35%",
-                        marginTop: "-51px",
-                      }}
-                    >
-                      <MediaExplorer />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption === "Multiplayer" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <Multiplayer />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption === "iPlay" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <IPlay />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption === "SmartList" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <ShortInfo />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              )}
+                    {selectedOption3 === "Media Explorer" ? (
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "35%",
+                          marginTop: "-51px",
+                        }}
+                      >
+                        <MediaExplorer />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption3 === "Multiplayer" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <Multiplayer />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption3 === "iPlay" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <IPlay />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption3 === "SmartList" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <ShortInfo />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
-          <div className="sb-second">
-            <div style={{ marginBottom: "30px" }}>
-              {showSelector3 && (
-                <div
-                  className={`selector_contenedor ${!isActive3 ? "open3" : ""}`}
-                >
-                  <form action="">
-                    <div className={`select_box ${!isActive3 ? "open3" : ""}`}>
+          <div className="third-block-playout">
+            <div className="tb-first">
+              <div style={{ marginBottom: "30px" }}>
+                {showSelector4 && (
+                  <div
+                    className={`selector_contenedor ${
+                      !isActive4 ? "open4" : ""
+                    }`}
+                  >
+                    <form action="">
                       <div
-                        className="select"
-                        id="select"
-                        onClick={select3}
-                        value={optionSelected3}
-                        onChange={(e) => handleChangeOptions3(e)}
+                        className={`select_box ${!isActive4 ? "open4" : ""}`}
                       >
-                        <div className="contenido_select">
-                          <span className="titulo_select">
-                            {selectedOption3
-                              ? selectedOption3
-                              : "Selecciona una opción"}
-                          </span>
-                          <FontAwesomeIcon
-                            icon={faChevronDown}
-                            style={{ marginRight: "5px" }}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="opciones" id="opciones3">
-                        <div className="option" onClick={handleOptionSelect3}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">Media Explorer</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect3}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">Multiplayer</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect3}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">SmartList</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect3}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">iPlay</div>
-                          </div>
-                        </div>
-
                         <div
-                          className="option last_child"
-                          onClick={handleOptionSelect3}
+                          className="select"
+                          id="select"
+                          onClick={select4}
+                          value={optionSelected4}
+                          onChange={(e) => handleChangeOptions4(e)}
                         >
-                          <div className="contenido_opcion last_child_option">
-                            <div className="texto_opcion">Comercial</div>
+                          <div className="contenido_select">
+                            <span className="titulo_select">
+                              {selectedOption4
+                                ? selectedOption4
+                                : "Selecciona una opción"}
+                            </span>
+                            <FontAwesomeIcon
+                              icon={faChevronDown}
+                              style={{ marginRight: "4px" }}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="opciones" id="opciones4">
+                          <div className="option" onClick={handleOptionSelect4}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">Media Explorer</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect4}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">Multiplayer</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect4}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">SmartList</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect4}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">iPlay</div>
+                            </div>
+                          </div>
+
+                          <div
+                            className="option last_child"
+                            onClick={handleOptionSelect4}
+                          >
+                            <div className="contenido_opcion last_child_option">
+                              <div className="texto_opcion">Comercial</div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    <input
-                      type="hidden"
-                      name="optionvalue"
-                      id="inputselect"
-                      value={selectedOption3}
-                    />
-                  </form>
-                </div>
-              )}
-              {!showSelector3 && (
-                <div className="cerrar_contenedor">
-                  <div className="container_button_cerrar">
-                    <button
-                      className="button_cerrar"
-                      onClick={handleCloseClick3}
-                    >
-                      <FontAwesomeIcon icon={faXmark} />
-                    </button>
+                      <input
+                        type="hidden"
+                        name="optionvalue"
+                        id="inputselect"
+                        value={selectedOption4}
+                      />
+                    </form>
                   </div>
+                )}
+                {!showSelector4 && (
+                  <div className="cerrar_contenedor">
+                    <div className="container_button_cerrar">
+                      <button
+                        className="button_cerrar"
+                        onClick={handleCloseClick4}
+                      >
+                        <FontAwesomeIcon icon={faXmark} />
+                      </button>
+                    </div>
 
-                  {selectedOption3 === "Media Explorer" ? (
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "35%",
-                        marginTop: "-51px",
-                      }}
-                    >
-                      <MediaExplorer />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption3 === "Multiplayer" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <Multiplayer />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption3 === "iPlay" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <IPlay />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption3 === "SmartList" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <ShortInfo />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              )}
+                    {selectedOption4 === "Media Explorer" ? (
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "35%",
+                          marginTop: "-51px",
+                        }}
+                      >
+                        <MediaExplorer />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption4 === "Multiplayer" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <Multiplayer />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption4 === "iPlay" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <IPlay />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption4 === "SmartList" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <ShortInfo />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div className="third-block-playout">
-          <div className="tb-first">
-            <div style={{ marginBottom: "30px" }}>
-              {showSelector4 && (
-                <div
-                  className={`selector_contenedor ${!isActive4 ? "open4" : ""}`}
-                >
-                  <form action="">
-                    <div className={`select_box ${!isActive4 ? "open4" : ""}`}>
+            <div className="tb-second">
+              <div style={{ marginBottom: "30px" }}>
+                {showSelector5 && (
+                  <div
+                    className={`selector_contenedor ${
+                      !isActive5 ? "open5" : ""
+                    }`}
+                  >
+                    <form action="">
                       <div
-                        className="select"
-                        id="select"
-                        onClick={select4}
-                        value={optionSelected4}
-                        onChange={(e) => handleChangeOptions4(e)}
+                        className={`select_box ${!isActive5 ? "open5" : ""}`}
                       >
-                        <div className="contenido_select">
-                          <span className="titulo_select">
-                            {selectedOption4
-                              ? selectedOption4
-                              : "Selecciona una opción"}
-                          </span>
-                          <FontAwesomeIcon
-                            icon={faChevronDown}
-                            style={{ marginRight: "4px" }}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="opciones" id="opciones4">
-                        <div className="option" onClick={handleOptionSelect4}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">Media Explorer</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect4}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">Multiplayer</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect4}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">SmartList</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect4}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">iPlay</div>
-                          </div>
-                        </div>
-
                         <div
-                          className="option last_child"
-                          onClick={handleOptionSelect4}
+                          className="select"
+                          id="select"
+                          onClick={select5}
+                          value={optionSelected5}
+                          onChange={(e) => handleChangeOptions5(e)}
                         >
-                          <div className="contenido_opcion last_child_option">
-                            <div className="texto_opcion">Comercial</div>
+                          <div className="contenido_select">
+                            <span className="titulo_select">
+                              {selectedOption5
+                                ? selectedOption5
+                                : "Selecciona una opción"}
+                            </span>
+                            <FontAwesomeIcon
+                              icon={faChevronDown}
+                              style={{ marginRight: "5px" }}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="opciones" id="opciones5">
+                          <div className="option" onClick={handleOptionSelect5}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">Media Explorer</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect5}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">Multiplayer</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect5}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">SmartList</div>
+                            </div>
+                          </div>
+
+                          <div className="option" onClick={handleOptionSelect5}>
+                            <div className="contenido_opcion">
+                              <div className="texto_opcion">iPlay</div>
+                            </div>
+                          </div>
+
+                          <div
+                            className="option last_child"
+                            onClick={handleOptionSelect5}
+                          >
+                            <div className="contenido_opcion last_child_option">
+                              <div className="texto_opcion">Comercial</div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    <input
-                      type="hidden"
-                      name="optionvalue"
-                      id="inputselect"
-                      value={selectedOption4}
-                    />
-                  </form>
-                </div>
-              )}
-              {!showSelector4 && (
-                <div className="cerrar_contenedor">
-                  <div className="container_button_cerrar">
-                    <button
-                      className="button_cerrar"
-                      onClick={handleCloseClick4}
-                    >
-                      <FontAwesomeIcon icon={faXmark} />
-                    </button>
+                      <input
+                        type="hidden"
+                        name="optionvalue"
+                        id="inputselect"
+                        value={selectedOption5}
+                      />
+                    </form>
                   </div>
+                )}
+                {!showSelector5 && (
+                  <div className="cerrar_contenedor">
+                    <div className="container_button_cerrar">
+                      <button
+                        className="button_cerrar"
+                        onClick={handleCloseClick5}
+                      >
+                        <FontAwesomeIcon icon={faXmark} />
+                      </button>
+                    </div>
 
-                  {selectedOption4 === "Media Explorer" ? (
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "35%",
-                        marginTop: "-51px",
-                      }}
-                    >
-                      <MediaExplorer />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption4 === "Multiplayer" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <Multiplayer />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption4 === "iPlay" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <IPlay />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption4 === "SmartList" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <ShortInfo />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="tb-second">
-            <div style={{ marginBottom: "30px" }}>
-              {showSelector5 && (
-                <div
-                  className={`selector_contenedor ${!isActive5 ? "open5" : ""}`}
-                >
-                  <form action="">
-                    <div className={`select_box ${!isActive5 ? "open5" : ""}`}>
+                    {selectedOption5 === "Media Explorer" ? (
                       <div
-                        className="select"
-                        id="select"
-                        onClick={select5}
-                        value={optionSelected5}
-                        onChange={(e) => handleChangeOptions5(e)}
+                        style={{
+                          width: "100%",
+                          height: "35%",
+                          marginTop: "-51px",
+                        }}
                       >
-                        <div className="contenido_select">
-                          <span className="titulo_select">
-                            {selectedOption5
-                              ? selectedOption5
-                              : "Selecciona una opción"}
-                          </span>
-                          <FontAwesomeIcon
-                            icon={faChevronDown}
-                            style={{ marginRight: "5px" }}
-                          />
-                        </div>
+                        <MediaExplorer />
                       </div>
-
-                      <div className="opciones" id="opciones5">
-                        <div className="option" onClick={handleOptionSelect5}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">Media Explorer</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect5}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">Multiplayer</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect5}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">SmartList</div>
-                          </div>
-                        </div>
-
-                        <div className="option" onClick={handleOptionSelect5}>
-                          <div className="contenido_opcion">
-                            <div className="texto_opcion">iPlay</div>
-                          </div>
-                        </div>
-
-                        <div
-                          className="option last_child"
-                          onClick={handleOptionSelect5}
-                        >
-                          <div className="contenido_opcion last_child_option">
-                            <div className="texto_opcion">Comercial</div>
-                          </div>
-                        </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption5 === "Multiplayer" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <Multiplayer />
                       </div>
-                    </div>
-
-                    <input
-                      type="hidden"
-                      name="optionvalue"
-                      id="inputselect"
-                      value={selectedOption5}
-                    />
-                  </form>
-                </div>
-              )}
-              {!showSelector5 && (
-                <div className="cerrar_contenedor">
-                  <div className="container_button_cerrar">
-                    <button
-                      className="button_cerrar"
-                      onClick={handleCloseClick5}
-                    >
-                      <FontAwesomeIcon icon={faXmark} />
-                    </button>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption5 === "iPlay" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <IPlay />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {selectedOption5 === "SmartList" ? (
+                      <div style={{ width: "100%", height: "35%" }}>
+                        <ShortInfo />
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
-
-                  {selectedOption5 === "Media Explorer" ? (
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "35%",
-                        marginTop: "-51px",
-                      }}
-                    >
-                      <MediaExplorer />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption5 === "Multiplayer" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <Multiplayer />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption5 === "iPlay" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <IPlay />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {selectedOption5 === "SmartList" ? (
-                    <div style={{ width: "100%", height: "35%" }}>
-                      <ShortInfo />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>
