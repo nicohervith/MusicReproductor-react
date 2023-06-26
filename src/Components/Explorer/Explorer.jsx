@@ -8,6 +8,7 @@ import {
   faEllipsisVertical,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
+import { WaveSurfer } from "react-wavesurfer.js";
 import { songsdata } from "../Player/audios";
 import Player from "../Player/Player";
 import Search from "../Player/Search";
@@ -18,12 +19,17 @@ import barrasdesonido from "../../Assets/Img/barrasdesonido.png";
 import styles from "./Explorer.module.css";
 import "./explorer.css";
 import MediaExplorer from "../MediaExplorer/MediaExplorer";
+import ReactAudioPlayer from "react-audio-player";
+import Audiowave from "../Player/Audiowave";
+import * as Tone from "tone";
 
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
   const [isplaying, setisplaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(songsdata[1]);
-
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const canvasRef = useRef(null);
   const [activeAccordion, setActiveAccordion] = useState(null);
 
   const handleAccordionToggle = (accordionId) => {
@@ -53,6 +59,7 @@ const Explorer = () => {
     });
   };
 
+
   return (
     <>
       <Navigation />
@@ -79,12 +86,15 @@ const Explorer = () => {
                 artist={currentSong.artist}
                 setCurrentSong={setCurrentSong}
               />
+
               <div>
                 <Search
                   value={query}
                   onChange={(e) => updateQuery(e.target.value.toLowerCase())}
                   placeholder={`Buscar aquí`}
                 />
+              </div>
+              <div className="video">
               </div>
               <div className="album-container">
                 <Album />

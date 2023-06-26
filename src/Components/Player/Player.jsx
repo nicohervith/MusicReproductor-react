@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faSquare } from "@fortawesome/free-solid-svg-icons";
-import chords from "../../Assets/Video/chords.mp4";
+import WaveSurfer from "wavesurfer.js";
 import styles from "./Player.module.css";
 
 const Player = ({
@@ -16,21 +16,9 @@ const Player = ({
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
-  useEffect(() => {
-    if (audioElem.current) {
-      // Event listener para actualizar el tiempo actual
-      audioElem.current.addEventListener("timeupdate", updateTime);
-      // Event listener para obtener la duración del audio
-      audioElem.current.addEventListener("loadedmetadata", updateDuration);
-    }
-    return () => {
-      // Remover los event listeners al desmontar el componente
-      if (audioElem.current) {
-        audioElem.current.removeEventListener("timeupdate", updateTime);
-        audioElem.current.removeEventListener("loadedmetadata", updateDuration);
-      }
-    };
-  }, [audioElem]);
+  console.log(songs);
+
+  const visualizeData = () => {};
 
   const updateDuration = () => {
     setDuration(audioElem.current.duration);
@@ -73,23 +61,74 @@ const Player = ({
     btn.classList.toggle("clicked");
   };
 
-const formatTime = (time) => {
-  if (isNaN(time)) {
-    return "--:--";
-  }
+  const formatTime = (time) => {
+    if (isNaN(time)) {
+      return "--:--";
+    }
 
-  const hours = Math.floor(time / 3600);
-  const minutes = Math.floor((time % 3600) / 60);
-  const seconds = Math.floor(time % 60);
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = Math.floor(time % 60);
 
-  const formattedHours =
-    hours > 0 ? `${hours.toString().padStart(2, "0")}:` : "";
-  const formattedMinutes = `${minutes.toString().padStart(2, "0")}:`;
-  const formattedSeconds = seconds.toString().padStart(2, "0");
+    const formattedHours =
+      hours > 0 ? `${hours.toString().padStart(2, "0")}:` : "";
+    const formattedMinutes = `${minutes.toString().padStart(2, "0")}:`;
+    const formattedSeconds = seconds.toString().padStart(2, "0");
 
-  return formattedHours + formattedMinutes + formattedSeconds;
-};
+    return formattedHours + formattedMinutes + formattedSeconds;
+  };
 
+  const wavesurferRef = useRef(null);
+  /* const canvasRef = useRef(null); */
+
+/*   useEffect(() => {
+    if (currentSong ) {
+      // Verificar si currentSong y currentSong.url están definidos
+      wavesurferRef.current = WaveSurfer.create({
+        container: canvasRef.current,
+        waveColor: "rgba(255, 255, 255, 0.7)",
+        progressColor: "rgba(255, 255, 255, 1)",
+        cursorColor: "rgba(255, 255, 255, 1)",
+        barWidth: 2,
+        barRadius: 3,
+        barGap: 3,
+        height: 200,
+        responsive: true,
+        normalize: true,
+      }); */
+
+      // Cargar el archivo de audio en WaveSurfer
+ /*      wavesurferRef.current.load(audioElem);
+
+      return () => {
+        // Limpiar y destruir WaveSurfer al desmontar el componente
+        wavesurferRef.current.destroy();
+      };
+    }
+  }, [currentSong]); */
+
+  useEffect(() => {
+    if (wavesurferRef.current && duration > 0) {
+      const progress = currentTime / duration;
+      wavesurferRef.current.seekTo(progress);
+    }
+  }, [currentTime, duration]);
+
+  useEffect(() => {
+    if (audioElem.current) {
+      // Event listener para actualizar el tiempo actual
+      audioElem.current.addEventListener("timeupdate", updateTime);
+      // Event listener para obtener la duración del audio
+      audioElem.current.addEventListener("loadedmetadata", updateDuration);
+    }
+    return () => {
+      // Remover los event listeners al desmontar el componente
+      if (audioElem.current) {
+        audioElem.current.removeEventListener("timeupdate", updateTime);
+        audioElem.current.removeEventListener("loadedmetadata", updateDuration);
+      }
+    };
+  }, [audioElem]);
 
   return (
     <div className={styles.player_container}>
@@ -157,11 +196,9 @@ const formatTime = (time) => {
               {formatTime(currentTime)} / {formatTime(duration)}
             </p>
           </div>
-          <div className="video">
-            <video autoplay muted controls>
-              <source src={chords} type="video/mp4" />
-            </video>
-          </div>
+          {/* <div className="video">
+            <canvas ref={canvasRef} width={500} height={200} />
+          </div> */}
         </div>
         <div className={styles.navigation}>
           <div
