@@ -94,8 +94,9 @@ const Explorer = () => {
                   placeholder={`Buscar aquí`}
                 />
               </div>
-              <div className="video">
-              </div>
+              {/* <div className="video">
+                <Audiowave/>
+              </div> */}
               <div className="album-container">
                 <Album />
               </div>

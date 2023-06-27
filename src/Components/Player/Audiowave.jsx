@@ -1,75 +1,111 @@
-import React, { useEffect, useRef } from "react";
-import { useState } from "react";
-import * as Tone from "tone";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
+import RegionsPlugin from "wavesurfer.js/dist/plugin/wavesurfer.regions.min.js";
+import wavesurfer from "wavesurfer.js";
 import { songsdata } from "../Player/audios";
 
-const Audiowave = ({ audioElem }) => {
+const Audiowave = () => {
+  const wavesurferRef = useRef(null);
+  const timelineRef = useRef(null);
+
   const [currentSong, setCurrentSong] = useState(songsdata[1]);
-  const canvasRef = useRef(null);
+
+  // crate an instance of the wavesurfer
+  const [wavesurferObj, setWavesurferObj] = useState();
+
+  const [playing, setPlaying] = useState(true); // to keep track whether audio is currently playing or not
+  const [volume, setVolume] = useState(1); // to control volume level of the audio. 0-mute, 1-max
+  const [zoom, setZoom] = useState(1); // to control the zoom level of the waveform
+  const [duration, setDuration] = useState(0); // duration is used to set the default region of selection for trimming the audio
+
+  // create the waveform inside the correct component
+  useEffect(() => {
+    if (wavesurferRef.current && !wavesurferObj) {
+      setWavesurferObj(
+        wavesurfer.create({
+          container: "#waveform",
+          scrollParent: true,
+          autoCenter: true,
+          cursorColor: "#0084a3",
+          loopSelection: true,
+          waveColor: "#0084a3",
+          progressColor: "#005e74",
+          responsive: true,
+          plugins: [
+            TimelinePlugin.create({
+              container: "#wave-timeline",
+            }),
+            RegionsPlugin.create({}),
+          ],
+        })
+      );
+    }
+  }, [wavesurferRef, wavesurferObj]);
+
+  // once the file URL is ready, load the file to produce the waveform
+  useEffect(() => {
+    if (currentSong.url && wavesurferObj) {
+      wavesurferObj.load(currentSong.url);
+    }
+  }, [currentSong.url, wavesurferObj]);
 
   useEffect(() => {
-    // Crear el objeto Player de Tone.js y cargar el archivo de audio
-    const player = new Tone.Player({
-      url: currentSong.url,
-    });
-
-    // Conectar el player al nodo de salida (Tone.Master)
-    player.connect(Tone.Master);
-
-    // Cargar el archivo de audio
-    player.load().then(() => {
-      // Obtener los datos de forma de onda del audio
-      Tone.Offline(() => {
-        player.start();
-        Tone.Transport.start();
-      }).then((buffer) => {
-        // Crear una representación visual de la forma de onda en el canvas
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext("2d");
-        const width = canvas.width;
-        const height = canvas.height;
-        const data = buffer.getChannelData(0);
-        const step = Math.ceil(data.length / width);
-
-        ctx.clearRect(0, 0, width, height);
-        ctx.beginPath();
-        ctx.strokeStyle = "rgba(255, 255, 255, 0.7)";
-        ctx.lineWidth = 2;
-
-        for (let i = 0; i < width; i++) {
-          const min = 1.0;
-          const max = -1.0;
-          let sum = 0;
-
-          for (let j = 0; j < step; j++) {
-            const value = data[i * step + j];
-            sum += value;
-            min = Math.min(min, value);
-            max = Math.max(max, value);
-          }
-
-          const average = sum / step;
-          const ypos = (average + 1) * (height / 2);
-
-          if (i === 0) {
-            ctx.moveTo(i, ypos);
-          } else {
-            ctx.lineTo(i, ypos);
-          }
-        }
-
-        ctx.stroke();
+    if (wavesurferObj) {
+      // once the waveform is ready, play the audio
+      wavesurferObj.on("ready", () => {
+        wavesurferObj.play();
+        wavesurferObj.enableDragSelection({}); // to select the region to be trimmed
+        setDuration(Math.floor(wavesurferObj.getDuration())); // set the duration in local state
       });
-    });
 
-    return () => {
-      // Detener y liberar los recursos al desmontar el componente
-      player.stop();
-      player.dispose();
-    };
-  }, [currentSong]);
+      // once audio starts playing, set the state variable to true
+      wavesurferObj.on("play", () => {
+        setPlaying(true);
+      });
 
-  return <canvas ref={canvasRef} width={500} height={200} />;
+      // once audio starts playing, set the state variable to false
+      wavesurferObj.on("finish", () => {
+        setPlaying(false);
+      });
+
+      // if multiple regions are created, then remove all the previous regions so that only 1 is present at any given time
+      wavesurferObj.on("region-updated", (region) => {
+        const regions = region.wavesurfer.regions.list;
+        const keys = Object.keys(regions);
+        if (keys.length > 1) {
+          regions[keys[0]].remove();
+        }
+      });
+    }
+  }, [wavesurferObj]);
+
+  const handlePlayPause = (e) => {
+    wavesurferObj.playPause();
+    setPlaying(!playing);
+  };
+
+  const handleReload = (e) => {
+    // stop will return the audio to 0s, then play it again
+    wavesurferObj.stop();
+    wavesurferObj.play();
+    setPlaying(true); // to toggle the play/pause button icon
+  };
+
+  const handleVolumeSlider = (e) => {
+    setVolume(e.target.value);
+  };
+
+  const handleZoomSlider = (e) => {
+    setZoom(e.target.value);
+  };
+
+
+  return (
+    <section className="waveform-container">
+      <div ref={wavesurferRef} id="waveform" />
+      <div ref={timelineRef} id="wave-timeline" />
+    </section>
+  );
 };
 
 export default Audiowave;

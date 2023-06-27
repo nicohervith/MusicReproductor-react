@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faSquare } from "@fortawesome/free-solid-svg-icons";
-import WaveSurfer from "wavesurfer.js";
+import WaveSurfer from "https://unpkg.com/wavesurfer.js@beta";
 import styles from "./Player.module.css";
+import Audiowave from "./Audiowave";
 
 const Player = ({
   audioElem,
@@ -77,42 +78,6 @@ const Player = ({
 
     return formattedHours + formattedMinutes + formattedSeconds;
   };
-
-  const wavesurferRef = useRef(null);
-  /* const canvasRef = useRef(null); */
-
-/*   useEffect(() => {
-    if (currentSong ) {
-      // Verificar si currentSong y currentSong.url están definidos
-      wavesurferRef.current = WaveSurfer.create({
-        container: canvasRef.current,
-        waveColor: "rgba(255, 255, 255, 0.7)",
-        progressColor: "rgba(255, 255, 255, 1)",
-        cursorColor: "rgba(255, 255, 255, 1)",
-        barWidth: 2,
-        barRadius: 3,
-        barGap: 3,
-        height: 200,
-        responsive: true,
-        normalize: true,
-      }); */
-
-      // Cargar el archivo de audio en WaveSurfer
- /*      wavesurferRef.current.load(audioElem);
-
-      return () => {
-        // Limpiar y destruir WaveSurfer al desmontar el componente
-        wavesurferRef.current.destroy();
-      };
-    }
-  }, [currentSong]); */
-
-  useEffect(() => {
-    if (wavesurferRef.current && duration > 0) {
-      const progress = currentTime / duration;
-      wavesurferRef.current.seekTo(progress);
-    }
-  }, [currentTime, duration]);
 
   useEffect(() => {
     if (audioElem.current) {
@@ -196,9 +161,9 @@ const Player = ({
               {formatTime(currentTime)} / {formatTime(duration)}
             </p>
           </div>
-          {/* <div className="video">
-            <canvas ref={canvasRef} width={500} height={200} />
-          </div> */}
+          <div className="video">
+            <Audiowave />
+          </div>
         </div>
         <div className={styles.navigation}>
           <div
