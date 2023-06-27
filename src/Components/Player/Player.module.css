@@ -34,7 +34,10 @@
 .btn_action:hover {
   color: white;
 }
-
+.clicked {
+  width: 100%;
+  background-color: #0084a3;
+}
 .title_and_navigation {
   display: flex;
   flex-direction: column;

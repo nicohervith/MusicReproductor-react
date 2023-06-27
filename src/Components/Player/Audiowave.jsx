@@ -53,9 +53,11 @@ const Audiowave = () => {
     if (wavesurferObj) {
       // once the waveform is ready, play the audio
       wavesurferObj.on("ready", () => {
+        var btn = document.getElementById("btnpause");
         wavesurferObj.play();
         wavesurferObj.enableDragSelection({}); // to select the region to be trimmed
         setDuration(Math.floor(wavesurferObj.getDuration())); // set the duration in local state
+        btn.classList.toggle("clicked");
       });
 
       // once audio starts playing, set the state variable to true
@@ -98,7 +100,6 @@ const Audiowave = () => {
   const handleZoomSlider = (e) => {
     setZoom(e.target.value);
   };
-
 
   return (
     <section className="waveform-container">

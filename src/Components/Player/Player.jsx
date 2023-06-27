@@ -1,65 +1,67 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faSquare } from "@fortawesome/free-solid-svg-icons";
-import WaveSurfer from "https://unpkg.com/wavesurfer.js@beta";
+import wavesurfer from "wavesurfer.js";
+import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
+import RegionsPlugin from "wavesurfer.js/dist/plugin/wavesurfer.regions.min.js";
+import { songsdata } from "../Player/audios";
 import styles from "./Player.module.css";
-import Audiowave from "./Audiowave";
 
-const Player = ({
-  audioElem,
-  isplaying,
-  setisplaying,
-  currentSong,
-  setCurrentSong,
-  songs,
-}) => {
-  const clickRef = useRef();
+const Player = () => {
+  const wavesurferRef = useRef(null);
+  const timelineRef = useRef(null);
+  const playButtonRef = useRef(null);
+
+  const [currentSong, setCurrentSong] = useState(songsdata[1]);
+  const [wavesurferObj, setWavesurferObj] = useState(null);
+  const [playing, setPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
-  console.log(songs);
+  useEffect(() => {
+    if (wavesurferRef.current && !wavesurferObj) {
+      setWavesurferObj(
+        wavesurfer.create({
+          container: wavesurferRef.current,
+          scrollParent: true,
+          autoCenter: true,
+          cursorColor: "#0084a3",
+          loopSelection: true,
+          waveColor: "#0084a3",
+          progressColor: "#005e74",
+          responsive: true,
+          plugins: [
+            TimelinePlugin.create({
+              container: timelineRef.current,
+            }),
+            RegionsPlugin.create({}),
+          ],
+        })
+      );
+    }
+  }, [wavesurferRef, wavesurferObj]);
 
-  const visualizeData = () => {};
+  useEffect(() => {
+    if (wavesurferObj) {
+      wavesurferObj.load(currentSong.url);
+      wavesurferObj.on("ready", () => {
+        setDuration(Math.floor(wavesurferObj.getDuration()));
+      });
+      wavesurferObj.on("play", () => {
+        setPlaying(true);
+      });
+      wavesurferObj.on("pause", () => {
+        setPlaying(false);
+      });
+    }
+  }, [currentSong.url, wavesurferObj]);
 
-  const updateDuration = () => {
-    setDuration(audioElem.current.duration);
-  };
-
-  const updateTime = () => {
-    setCurrentTime(audioElem.current.currentTime);
-  };
-
-  const PlayPause = () => {
-    setisplaying(!isplaying);
-  };
-
-  const checkWidth = (e) => {
-    let width = clickRef.current.clientWidth;
-    const offset = e.nativeEvent.offsetX;
-    const divprogress = (offset / width) * 100;
-    audioElem.current.currentTime = (divprogress / 100) * currentSong.length;
-  };
-
-  const [isActive, setActive] = useState("false");
-  const ToggleClassPlay = () => {
-    var btn = document.getElementById("btnplay");
-
-    setActive(!isActive);
-    btn.classList.toggle("clicked");
-  };
-
-  const ToggleClassPause = () => {
-    var btn = document.getElementById("btnpause");
-
-    setActive(!isActive);
-    btn.classList.toggle("clicked");
-  };
-
-  const ToggleClassStop = () => {
-    var btn = document.getElementById("btnstop");
-
-    setActive(!isActive);
-    btn.classList.toggle("clicked");
+  const handlePlayPause = () => {
+    if (playing) {
+      wavesurferObj.pause();
+    } else {
+      wavesurferObj.play();
+    }
   };
 
   const formatTime = (time) => {
@@ -79,70 +81,66 @@ const Player = ({
     return formattedHours + formattedMinutes + formattedSeconds;
   };
 
+  const updateTime = () => {
+    setCurrentTime(wavesurferObj.getCurrentTime());
+  };
+
   useEffect(() => {
-    if (audioElem.current) {
-      // Event listener para actualizar el tiempo actual
-      audioElem.current.addEventListener("timeupdate", updateTime);
-      // Event listener para obtener la duración del audio
-      audioElem.current.addEventListener("loadedmetadata", updateDuration);
+    if (wavesurferObj) {
+      wavesurferObj.on("audioprocess", updateTime);
     }
     return () => {
-      // Remover los event listeners al desmontar el componente
-      if (audioElem.current) {
-        audioElem.current.removeEventListener("timeupdate", updateTime);
-        audioElem.current.removeEventListener("loadedmetadata", updateDuration);
+      if (wavesurferObj) {
+        wavesurferObj.un("audioprocess", updateTime);
       }
     };
-  }, [audioElem]);
+  }, [wavesurferObj]);
+
+  useEffect(() => {
+    const playButtonElement = playButtonRef.current;
+
+    const handleClickOutside = (event) => {
+      if (playButtonElement && !playButtonElement.contains(event.target)) {
+        playButtonElement.classList.remove(styles.clicked);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handlePlayButtonClick = () => {
+    const playButtonElement = playButtonRef.current;
+    playButtonElement.classList.toggle(styles.clicked);
+    handlePlayPause();
+  };
 
   return (
     <div className={styles.player_container}>
       <div className={styles.controls}>
-        {/* <BsFillSkipStartCircleFill className="btn_action" onClick={skipBack} /> */}
         <div
-          id="btnplay"
           className={styles.play_container}
-          onClick={ToggleClassPlay}
+          ref={playButtonRef}
+          onClick={handlePlayButtonClick}
         >
           <FontAwesomeIcon
             icon={faPlay}
             className={styles.btn_action}
-            onClick={PlayPause}
             style={{ cursor: "pointer" }}
           />
         </div>
-
-        {isplaying ? (
-          <div
-            id="btnpause"
-            className={styles.play_container}
-            onClick={ToggleClassPause}
-          >
-            <FontAwesomeIcon
-              icon={faPause}
-              className={styles.btn_action}
-              onClick={PlayPause}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
-        ) : (
-          <div
-            id="btnpause"
-            className={styles.play_container}
-            onClick={ToggleClassPause}
-          >
-            <FontAwesomeIcon
-              icon={faPause}
-              className={styles.btn_action}
-              onClick={PlayPause}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
-        )}
+        <div className={styles.play_container} onClick={handlePlayPause}>
+          <FontAwesomeIcon
+            icon={faPause}
+            className={styles.btn_action}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
         <div
-          id="btnstop"
           className={styles.play_container}
-          onClick={ToggleClassStop}
+          onClick={() => wavesurferObj.stop()}
         >
           <FontAwesomeIcon
             className={styles.btn_action}
@@ -161,19 +159,20 @@ const Player = ({
               {formatTime(currentTime)} / {formatTime(duration)}
             </p>
           </div>
-          <div className="video">
-            <Audiowave />
+          <div className="video" onClick={handlePlayPause}>
+            <div
+              ref={wavesurferRef}
+              id="waveform"
+              style={{ height: "100px" }}
+            />
+            <div ref={timelineRef} id="wave-timeline" />
           </div>
         </div>
         <div className={styles.navigation}>
-          <div
-            className={styles.navigation_wrapper}
-            onClick={checkWidth}
-            ref={clickRef}
-          >
+          <div className={styles.navigation_wrapper}>
             <div
               className={styles.seek_bar}
-              style={{ width: `${currentSong.progress + "%"}` }}
+              style={{ width: `${(currentTime / duration) * 100}%` }}
             ></div>
           </div>
         </div>

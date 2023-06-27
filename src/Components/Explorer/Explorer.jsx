@@ -21,7 +21,7 @@ import "./explorer.css";
 import MediaExplorer from "../MediaExplorer/MediaExplorer";
 import ReactAudioPlayer from "react-audio-player";
 import Audiowave from "../Player/Audiowave";
-import * as Tone from "tone";
+
 
 const Explorer = () => {
   const [songs, setSongs] = useState(songsdata);
@@ -71,18 +71,19 @@ const Explorer = () => {
         <div className="explorer-mid">
           <div className="reproductor">
             <div className="container-reproductor">
-              <audio
-                src={currentSong.url}
+               <audio
+                 src={currentSong.url} 
                 ref={audioElem}
                 onTimeUpdate={onPlaying}
-              />
+                muted
+              /> 
               <Player
                 songs={songs}
                 setSongs={setSongs}
                 isplaying={isplaying}
                 setisplaying={setisplaying}
                 audioElem={audioElem}
-                currentSong={currentSong}
+                currentSong={currentSong} 
                 artist={currentSong.artist}
                 setCurrentSong={setCurrentSong}
               />
@@ -94,9 +95,6 @@ const Explorer = () => {
                   placeholder={`Buscar aquí`}
                 />
               </div>
-              {/* <div className="video">
-                <Audiowave/>
-              </div> */}
               <div className="album-container">
                 <Album />
               </div>
