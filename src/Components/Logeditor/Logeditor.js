@@ -125,7 +125,7 @@ const Logeditor = () => {
     <>
       <Navigation />
       <div className={styles.explorercontainer}>
-        <div className={styles.firstaside}>
+        <div className={styles.firstaside} >
           <MediaExplorer />
         </div>
 

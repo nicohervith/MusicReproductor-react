@@ -239,7 +239,7 @@ const Playout = () => {
         <div className="block_container_playout_first"></div>
         <div className="block-container-playout">
           <div className="first-block-playout">
-            <div>
+            <div className="main_container_playout_first">
               {showSelector2 && (
                 <div
                   className={`selector_contenedor ${!isActive2 ? "open2" : ""}`}
@@ -312,7 +312,7 @@ const Playout = () => {
                 </div>
               )}
               {!showSelector2 && (
-                <div className="cerrar_contenedor">
+                <div className="cerrar_contenedor lateral">
                   <div className="container_button_cerrar">
                     <button
                       className="button_cerrar"
@@ -323,11 +323,10 @@ const Playout = () => {
                   </div>
 
                   {selectedOption2 === "Media Explorer" ? (
-                    <div
+                    <div className="media_explorer_selected"
                       style={{
                         width: "100%",
-                        height: "35%",
-                        marginTop: "-51px",
+                        height: "100%",
                       }}
                     >
                       <MediaExplorer />
@@ -450,8 +449,7 @@ const Playout = () => {
                       <div
                         style={{
                           width: "100%",
-                          height: "35%",
-                          marginTop: "-51px",
+                          height: "100%",
                         }}
                       >
                         <MediaExplorer />
@@ -577,8 +575,7 @@ const Playout = () => {
                       <div
                         style={{
                           width: "100%",
-                          height: "35%",
-                          marginTop: "-51px",
+                          height: "100%",
                         }}
                       >
                         <MediaExplorer />
@@ -706,8 +703,7 @@ const Playout = () => {
                       <div
                         style={{
                           width: "100%",
-                          height: "35%",
-                          marginTop: "-51px",
+                          height: "100%",
                         }}
                       >
                         <MediaExplorer />
@@ -832,8 +828,6 @@ const Playout = () => {
                       <div
                         style={{
                           width: "100%",
-                          height: "35%",
-                          marginTop: "-51px",
                         }}
                       >
                         <MediaExplorer />
